@@ -62,9 +62,5 @@ const questions: QuestionCollection<AnswerObject> = [
 ];
 
 export async function promptUserQuestions(): Promise<AnswerObject> {
-  const answers = await inquirer.prompt(questions);
-  console.log("\nUser answers:");
-  console.log(JSON.stringify(answers, null, "  "));
-
-  return answers;
+  return inquirer.prompt(questions);
 }
