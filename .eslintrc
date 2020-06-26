@@ -1,56 +1,56 @@
 {
-	"root": true,
-	"env": {
-	  "browser": true,
-	  "node": true,
-	  "es6": true,
-	  "jest": true
-	},
-	"extends": [
-	  "eslint:recommended",
-	  "plugin:@typescript-eslint/recommended",
-	  "plugin:@typescript-eslint/recommended-requiring-type-checking",
-	  "plugin:prettier/recommended",
-	  "prettier/@typescript-eslint"
-	],
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-	  "project": "tsconfig.json"
-	},
-	"plugins": ["import"],
-	"rules": {
-	  "@typescript-eslint/prefer-optional-chain": "error",
-	  "@typescript-eslint/prefer-nullish-coalescing": "error",
-	  "@typescript-eslint/strict-boolean-expressions": "error",
-	  "curly": ["error", "all"],
-	  "eqeqeq": ["error", "smart"],
-	  "max-lines": ["error", 200],
-	  "max-params": ["error", 4],
-	  "import/no-extraneous-dependencies": [
-		"error",
-		{ "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }
-	  ],
-	  "no-shadow": [
-		"error",
-		{
-		  "hoist": "all"
-		}
-	  ],
-	  "prefer-const": "error",
-	  "import/order": [
-		"error",
-		{
-		  "groups": [["external", "builtin"], "internal", ["parent", "sibling", "index"]]
-		}
-	  ],
-	  "sort-imports": [
-		"error",
-		{
-		  "ignoreCase": true,
-		  "ignoreDeclarationSort": true,
-		  "ignoreMemberSort": false,
-		  "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
-		}
-	  ]
-	}
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended",
+    "prettier/@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json"
+  },
+  "plugins": ["import"],
+  "rules": {
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+    "curly": ["error", "all"],
+    "eqeqeq": ["error", "smart"],
+    "max-lines": ["error", 200],
+    "max-params": ["error", 4],
+    "import/no-extraneous-dependencies": [
+      "error",
+      { "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }
+    ],
+    "no-shadow": [
+      "error",
+      {
+        "hoist": "all"
+      }
+    ],
+    "prefer-const": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": [["external", "builtin"], "internal", ["parent", "sibling", "index"]]
+      }
+    ],
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+      }
+    ]
   }
+}
