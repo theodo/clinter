@@ -2,6 +2,7 @@ import {
   prettierESLintConfig,
   prettierReactESLintConfig,
   prettierTypescriptESLintConfig,
+  prettierVueESLintConfig,
 } from "./baseConfigs/prettierESLintConfig";
 import { ESLintGenerator } from "./types";
 import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "../types";
@@ -23,6 +24,9 @@ const generatePrettierReactESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.frontFramework) {
     case FrontFrameworkAnswer.React:
       return concatConfig(prettierReactESLintConfig);
+
+    case FrontFrameworkAnswer.Vue:
+      return concatConfig(prettierVueESLintConfig);
 
     default:
       return identity;

@@ -11,3 +11,7 @@ export const prettierTypescriptESLintConfig: Linter.Config = {
 export const prettierReactESLintConfig: Linter.Config = {
   extends: ["prettier/react"],
 };
+
+export const prettierVueESLintConfig: Linter.Config = {
+  extends: ["prettier/vue"],
+};

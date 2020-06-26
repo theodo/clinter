@@ -1,3 +1,4 @@
+import { vueESLintConfig } from "generator/baseConfigs/vueESLintConfig";
 import { FrontFrameworkAnswer, TypescriptAnswer } from "../types";
 import { identity, pipe } from "../utility";
 import { ESLintGenerator } from "./types";
@@ -10,7 +11,7 @@ export const generateFrontFrameworkESLintConfig: ESLintGenerator = (userAnswers)
       return identity;
 
     case FrontFrameworkAnswer.Vue:
-      return identity;
+      return concatConfig(vueESLintConfig);
 
     case FrontFrameworkAnswer.React:
       return pipe(
