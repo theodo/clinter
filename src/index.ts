@@ -1,6 +1,6 @@
-import { promptUserQuestions } from "./parser";
-import { generateEslintConfig } from "./generator";
-import { writeEslintConfig } from "./fileWriter";
+import { promptUserQuestions } from "parser";
+import { generateEslintConfig } from "generator";
+import { writeEslintConfig } from "fileWriter";
 
 async function main() {
   const userAnswers = await promptUserQuestions();

@@ -11,7 +11,7 @@ import {
   TestFrameworkAnswerObject,
   TypescriptAnswer,
   TypescriptAnswerObject,
-} from "./types";
+} from "types";
 
 const FrontFrameworkQuestion: inquirer.ListQuestion<FrontFrameworkAnswerObject> = {
   name: "frontFramework",

@@ -1,9 +1,8 @@
-import { vueESLintConfig } from "generator/baseConfigs/vueESLintConfig";
-import { FrontFrameworkAnswer, TypescriptAnswer } from "../types";
-import { identity, pipe } from "../utility";
-import { ESLintGenerator } from "./types";
-import { concatConfig } from "./generate";
-import { reactESLintConfig, reactTypescriptESLintConfig } from "./baseConfigs/reactESLintConfig";
+import { ESLintGenerator } from "generator/types";
+import { identity, pipe } from "utility";
+import { concatConfig } from "generator/generate";
+import { FrontFrameworkAnswer, TypescriptAnswer } from "types";
+import { reactESLintConfig, reactTypescriptESLintConfig, vueESLintConfig } from "generator/baseConfigs";
 
 export const generateFrontFrameworkESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.frontFramework) {

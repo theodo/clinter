@@ -1,13 +1,13 @@
+import { ESLintGenerator } from "generator/types";
+import { identity, pipe } from "utility";
+import { concatConfig } from "generator/generate";
+import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "types";
 import {
   prettierESLintConfig,
   prettierReactESLintConfig,
   prettierTypescriptESLintConfig,
   prettierVueESLintConfig,
-} from "./baseConfigs/prettierESLintConfig";
-import { ESLintGenerator } from "./types";
-import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "../types";
-import { identity, pipe } from "../utility";
-import { concatConfig } from "./generate";
+} from "generator/baseConfigs";
 
 const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {

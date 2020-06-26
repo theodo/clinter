@@ -1,8 +1,8 @@
-import { TestFrameworkAnswer } from "../types";
-import { identity } from "../utility";
-import { ESLintGenerator } from "./types";
-import { jestESLintEnvConfig } from "./baseConfigs/envESLintConfig";
-import { concatConfig } from "./generate";
+import { ESLintGenerator } from "generator/types";
+import { identity } from "utility";
+import { concatConfig } from "generator/generate";
+import { TestFrameworkAnswer } from "types";
+import { jestESLintEnvConfig } from "generator/baseConfigs";
 
 export const generateTestESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.test) {

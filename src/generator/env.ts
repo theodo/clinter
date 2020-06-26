@@ -1,8 +1,8 @@
-import { EnvAnswer } from "../types";
-import { identity, pipe } from "../utility";
-import { ESLintGenerator } from "./types";
-import { concatConfig } from "./generate";
-import { browserESLintEnvConfig, nodeESLintEnvConfig } from "./baseConfigs/envESLintConfig";
+import { ESLintGenerator } from "generator/types";
+import { identity, pipe } from "utility";
+import { browserESLintEnvConfig, nodeESLintEnvConfig } from "generator/baseConfigs";
+import { concatConfig } from "generator/generate";
+import { EnvAnswer } from "types";
 
 const generateBrowserEnvESLintConfig: ESLintGenerator = (userAnswers) => {
   return userAnswers.env.includes(EnvAnswer.Browser) ? concatConfig(browserESLintEnvConfig) : identity;

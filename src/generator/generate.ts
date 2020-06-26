@@ -1,13 +1,13 @@
 import { Linter } from "eslint";
-import { generateTestESLintConfig } from "./testFramework";
-import { generateTypescriptESLintConfig } from "./typescript";
-import { generateEnvESLintConfig } from "./env";
-import { generateFrontFrameworkESLintConfig } from "./frontFramework";
-import { generatePrettierESlintConfig } from "./prettier";
-import { pipe } from "../utility";
-import { eslintBaseConfig } from "./baseConfigs/eslintBaseConfig";
+import { generateTestESLintConfig } from "generator/testFramework";
+import { generateTypescriptESLintConfig } from "generator/typescript";
+import { generateEnvESLintConfig } from "generator/env";
+import { generateFrontFrameworkESLintConfig } from "generator/frontFramework";
+import { generatePrettierESlintConfig } from "generator/prettier";
+import { eslintBaseConfig } from "generator/baseConfigs/eslintBaseConfig";
+import { ESLintGenerator } from "generator/types";
+import { pipe } from "utility";
 import { AnswerObject } from "../types";
-import { ESLintGenerator } from "./types";
 
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
   return { ...prevObject, ...nextObject };

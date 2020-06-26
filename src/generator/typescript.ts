@@ -1,8 +1,8 @@
 import { TypescriptAnswer } from "types";
 import { identity, pipe } from "utility";
-import { ESLintGenerator } from "./types";
-import { concatConfig } from "./generate";
-import { typescriptBaseEslintConfig, typescriptTypeEslintConfig } from "./baseConfigs/typescriptEslintConfig";
+import { ESLintGenerator } from "generator/types";
+import { concatConfig } from "generator/generate";
+import { typescriptBaseEslintConfig, typescriptTypeEslintConfig } from "generator/baseConfigs/typescriptEslintConfig";
 
 export const generateTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {
