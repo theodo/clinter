@@ -7,7 +7,7 @@ import { generatePrettierESlintConfig } from "generator/prettier";
 import { eslintBaseConfig } from "generator/baseConfigs/eslintBaseConfig";
 import { ESLintGenerator } from "generator/types";
 import { pipe } from "utility";
-import { AnswerObject } from "../types";
+import { AnswerObject } from "types";
 
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
   return { ...prevObject, ...nextObject };
