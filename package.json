@@ -1,0 +1,36 @@
+{
+  "name": "eslint-config-generator",
+  "version": "1.0.0",
+  "description": "A cli tool to quickly generate eslint configurations",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf ./build && ttsc"
+  },
+  "keywords": [
+    "eslint",
+    "prettier",
+    "linter",
+    "formatter"
+  ],
+  "author": "Francois Hendriks",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/eslint": "^7.2.0",
+    "@types/prettier": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^3.4.0",
+    "@typescript-eslint/parser": "^3.4.0",
+    "eslint": "^7.3.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5",
+    "ttypescript": "^1.5.10",
+    "typescript": "^3.9.5",
+    "typescript-transform-paths": "^1.1.14"
+  },
+  "dependencies": {
+    "@types/inquirer": "^6.5.0",
+    "inquirer": "^7.2.0"
+  }
+}

@@ -1,0 +1,1 @@
+export { generateEslintConfig } from "./generate";
