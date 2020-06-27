@@ -1,7 +1,7 @@
 import signale from "signale";
 import boxen from "boxen";
 
-import { promptUserQuestions } from "parser";
+import { promptUserQuestions } from "parser/userQuestions";
 import { generateEslintConfig } from "generator";
 import { writeEslintConfig } from "fileWriter";
 
