@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import signale from "signale";
 import boxen from "boxen";
 import { existsSync } from "fs";

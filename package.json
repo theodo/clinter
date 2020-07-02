@@ -5,7 +5,17 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf ./build && ttsc"
+    "build": "rm -rf ./build && ttsc",
+    "release": "yarn build && semantic-release"
+  },
+  "files": [
+    "build",
+    "CHANGELOG.md",
+    "package.json",
+    "yarn.lock"
+  ],
+  "bin": {
+    "clinter": "./build/index.js"
   },
   "keywords": [
     "eslint",
@@ -16,6 +26,11 @@
   "author": "Francois Hendriks",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/git": "^9.0.0",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "@types/comment-json": "^1.1.1",
     "@types/eslint": "^7.2.0",
     "@types/prettier": "^2.0.1",
@@ -27,6 +42,7 @@
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5",
+    "semantic-release": "^17.1.1",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.5",
     "typescript-transform-paths": "^1.1.14"
@@ -37,5 +53,26 @@
     "comment-json": "^3.0.2",
     "inquirer": "^7.2.0",
     "signale": "^1.4.0"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/changelog",
+        {
+          "changelogFile": "CHANGELOG.md"
+        }
+      ],
+      ["@semantic-release/npm", {
+        "tarballDir": "release"
+      }],
+      ["@semantic-release/github", {
+        "assets": "release/*.tgz"
+      }],
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "ci": false
   }
 }
