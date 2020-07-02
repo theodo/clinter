@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/theodo/eslint-config-generator/compare/v1.0.1...v1.1.0) (2020-07-02)
+
+
+### Features
+
+* **test:** add jest ([18c3cc5](https://github.com/theodo/eslint-config-generator/commit/18c3cc576b9034a6aa5265af69adaaadaa919d36))
+
 ## [1.0.1](https://github.com/theodo/eslint-config-generator/compare/v1.0.0...v1.0.1) (2020-07-02)
 
 
