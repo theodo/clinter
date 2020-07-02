@@ -16,6 +16,7 @@
   "author": "Francois Hendriks",
   "license": "ISC",
   "devDependencies": {
+    "@types/comment-json": "^1.1.1",
     "@types/eslint": "^7.2.0",
     "@types/prettier": "^2.0.1",
     "@types/signale": "^1.4.1",
@@ -33,6 +34,7 @@
   "dependencies": {
     "@types/inquirer": "^6.5.0",
     "boxen": "^4.2.0",
+    "comment-json": "^3.0.2",
     "inquirer": "^7.2.0",
     "signale": "^1.4.0"
   }
