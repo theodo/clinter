@@ -6,7 +6,7 @@ import { generateFrontFrameworkESLintConfig } from "generator/frontFramework";
 import { generatePrettierESlintConfig } from "generator/prettier";
 import { eslintBaseConfig } from "generator/baseConfigs/eslintBaseConfig";
 import { ESLintGenerator } from "generator/types";
-import { pipe } from "utility";
+import { mergeArrays, pipe } from "utility";
 import { AnswerObject } from "types";
 
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
@@ -14,10 +14,10 @@ function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, n
 }
 
 function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T): Array<string> {
-  const prevArray = typeof prev === "string" ? [prev] : prev;
-  const nextArray = typeof next === "string" ? [next] : next;
+  const prevArray = (typeof prev === "string" ? [prev] : prev) as string[];
+  const nextArray = (typeof next === "string" ? [next] : next) as string[];
 
-  return [...prevArray, ...nextArray];
+  return mergeArrays(prevArray, nextArray);
 }
 
 export function concatConfig(config: Linter.Config): (prevConfig: Linter.Config) => Linter.Config {
@@ -36,7 +36,7 @@ const generateBaseESLintConfig: ESLintGenerator = (_userAnswers) => {
   return concatConfig(eslintBaseConfig);
 };
 
-export function generateEslintConfig(userAnswers: AnswerObject): Linter.Config {
+export function generateEslintConfig(userAnswers: AnswerObject, startConfig: Linter.Config = {}): Linter.Config {
   return pipe(
     generateBaseESLintConfig(userAnswers),
     generateTypescriptESLintConfig(userAnswers),
@@ -45,5 +45,5 @@ export function generateEslintConfig(userAnswers: AnswerObject): Linter.Config {
     generateFrontFrameworkESLintConfig(userAnswers),
     // Prettier must be at the end of the list to avoid potential conflicts
     generatePrettierESlintConfig(userAnswers)
-  )({});
+  )(startConfig);
 }

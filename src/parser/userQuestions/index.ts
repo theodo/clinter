@@ -1,1 +1,2 @@
-export { promptUserQuestions } from "./promptUserQuestions";
+export { promptGeneratorUserQuestions } from "./promptGeneratorUserQuestions";
+export { promptModeUserQuestions } from "./promptModeUserQuestions";

@@ -61,6 +61,6 @@ const questions: QuestionCollection<AnswerObject> = [
   TestFrameworkQuestion,
 ];
 
-export async function promptUserQuestions(): Promise<AnswerObject> {
+export async function promptGeneratorUserQuestions(): Promise<AnswerObject> {
   return inquirer.prompt(questions);
 }

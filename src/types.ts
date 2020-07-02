@@ -50,3 +50,12 @@ export type AnswerObject = FormatterAnswerObject &
   TypescriptAnswerObject &
   EnvAnswerObject &
   TestFrameworkAnswerObject;
+
+export enum ModeAnswer {
+  Generator = "Generator Mode",
+  Upgrade = "Upgrade Mode",
+}
+
+export interface ModeAnswerObject {
+  mode: ModeAnswer;
+}
