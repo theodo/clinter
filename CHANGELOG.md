@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/theodo/eslint-config-generator/compare/v1.0.0...v1.0.1) (2020-07-02)
+
+
+### Bug Fixes
+
+* **release:** fix npm release ([ddc5fbf](https://github.com/theodo/eslint-config-generator/commit/ddc5fbf5a8e38ccb4a643e816b3600872ff826c2))
+
 # 1.0.0 (2020-07-02)
 
 
