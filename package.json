@@ -64,12 +64,12 @@
           "changelogFile": "CHANGELOG.md"
         }
       ],
-      ["@semantic-release/npm", {
-        "tarballDir": "release"
-      }],
-      ["@semantic-release/github", {
-        "assets": "release/*.tgz"
-      }],
+      [
+        "@semantic-release/npm",
+        {
+          "tarballDir": "release"
+        }
+      ],
       "@semantic-release/npm",
       "@semantic-release/git"
     ],
