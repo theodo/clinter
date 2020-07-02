@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-generator",
+  "name": "clinter",
   "version": "1.0.0",
   "description": "A cli tool to quickly generate eslint configurations",
   "main": "build/index.js",
