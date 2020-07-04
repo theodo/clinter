@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/theodo/eslint-config-generator/compare/v1.1.0...v1.2.0) (2020-07-04)
+
+
+### Features
+
+* **deps:** install required deps when generating config ([ae0ff00](https://github.com/theodo/eslint-config-generator/commit/ae0ff00ce20c65aeb4477e0f6e51cd0e30377dfc))
+
 # [1.1.0](https://github.com/theodo/eslint-config-generator/compare/v1.0.1...v1.1.0) (2020-07-02)
 
 
