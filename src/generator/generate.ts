@@ -1,5 +1,5 @@
 import { Linter } from "eslint";
-import { generateTestESLintConfig } from "generator/testFramework";
+import { generateTestESLintConfig, getTestESLintDependencies } from "generator/testFramework";
 import { generateTypescriptESLintConfig, getTypescriptESLintDependencies } from "generator/typescript";
 import { generateEnvESLintConfig } from "generator/env";
 import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies } from "generator/frontFramework";
@@ -59,6 +59,7 @@ export function getConfigDependencies(userAnswers: AnswerObject): string[] {
   return pipe(
     getBaseESLintDependencies(userAnswers),
     getTypescriptESLintDependencies(userAnswers),
+    getTestESLintDependencies(userAnswers),
     getFrontFrameworkESLintDependencies(userAnswers),
     getPrettierESLintDependencies(userAnswers)
   )([]);

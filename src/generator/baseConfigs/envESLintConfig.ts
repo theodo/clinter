@@ -19,3 +19,5 @@ export const jestESLintEnvConfig: Linter.Config = {
     jest: true,
   },
 };
+
+export const jestESLintDependencies = ["eslint-plugin-jest"]
