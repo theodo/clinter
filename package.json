@@ -71,5 +71,9 @@
       "@semantic-release/git"
     ],
     "ci": false
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/theodo/clinter.git"
   }
 }
