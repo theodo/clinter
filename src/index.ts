@@ -2,14 +2,14 @@
 
 import signale from "signale";
 import boxen from "boxen";
-import { existsSync } from "fs";
 import path from "path";
 
 import { promptGeneratorUserQuestions, promptModeUserQuestions } from "parser/userQuestions";
-import { generateEslintConfig } from "generator";
+import { generateEslintConfig, getConfigDependencies } from "generator";
 import { writeEslintConfig } from "fileWriter";
 import { findESLintConfigurationFiles } from "parser/configFile";
 import { ModeAnswer } from "types";
+import { installDevDependencies } from "dependencies";
 
 function getDirPath(): string {
   const args = process.argv.splice(2);
@@ -18,10 +18,9 @@ function getDirPath(): string {
     return process.cwd();
   }
 
-  const currentDir = process.cwd();
   const inputPath = args[0];
 
-  return existsSync(inputPath) ? inputPath : path.join(currentDir, inputPath);
+  return path.resolve(inputPath);
 }
 
 async function main() {
@@ -59,7 +58,10 @@ async function main() {
       signale.info("Generating ESLint configuration ...");
       const eslintConfig = generateEslintConfig(userGeneratorAnswers);
       signale.success("ESLint config generated");
-      writeEslintConfig(eslintConfig, "eslintrc.json");
+      signale.info("Installing required dependencies ...");
+      await installDevDependencies(getConfigDependencies(userGeneratorAnswers), dirPath);
+      signale.success("All dependencies successfully Installed");
+      writeEslintConfig(eslintConfig, path.join(dirPath, "eslintrc.json"));
       signale.success("ESLint config written to eslintrc.json file");
       break;
     }
@@ -69,6 +71,9 @@ async function main() {
       const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
       const eslintConfig = generateEslintConfig(userGeneratorAnswers, existingConfigContainer.config);
       signale.success("ESLint config generated from previous configuration");
+      signale.info("Installing required dependencies ...");
+      await installDevDependencies(getConfigDependencies(userGeneratorAnswers), dirPath);
+      signale.success("All dependencies successfully Installed");
       writeEslintConfig(eslintConfig, existingConfigContainer.fileName);
       signale.success(`ESLint config written to ${existingConfigContainer.fileName}`);
       break;

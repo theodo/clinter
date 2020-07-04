@@ -1,1 +1,1 @@
-export { generateEslintConfig } from "./generate";
+export { generateEslintConfig, getConfigDependencies } from "./generate";

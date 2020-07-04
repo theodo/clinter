@@ -1,9 +1,10 @@
-import { ESLintGenerator } from "generator/types";
+import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { identity, pipe } from "utility";
-import { concatConfig } from "generator/generate";
+import { concatConfig, concatDependencies } from "generator/generate";
 import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "types";
 import {
   prettierESLintConfig,
+  prettierESLintDependencies,
   prettierReactESLintConfig,
   prettierTypescriptESLintConfig,
   prettierVueESLintConfig,
@@ -44,5 +45,15 @@ export const generatePrettierESlintConfig: ESLintGenerator = (userAnswers) => {
         generatePrettierTypescriptESLintConfig(userAnswers),
         generatePrettierReactESLintConfig(userAnswers)
       );
+  }
+};
+
+export const getPrettierESLintDependencies: ESLintDependencyGenerator = (userAnswers) => {
+  switch (userAnswers.formatter) {
+    case FormatterAnswer.None:
+      return identity;
+
+    case FormatterAnswer.Prettier:
+      return concatDependencies(prettierESLintDependencies);
   }
 };

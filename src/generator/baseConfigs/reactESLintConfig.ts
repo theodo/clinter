@@ -20,3 +20,5 @@ export const reactTypescriptESLintConfig: Linter.Config = {
     "@typescript-eslint/explicit-function-return-type": "off",
   },
 };
+
+export const reactESLintDependencies = ["eslint-plugin-react", "eslint-plugin-react-hooks"];

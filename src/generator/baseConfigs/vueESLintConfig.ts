@@ -10,3 +10,5 @@ export const vueESLintConfig: Linter.Config = {
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
   },
 };
+
+export const vueESLintDependencies = ["eslint-plugin-vue"];

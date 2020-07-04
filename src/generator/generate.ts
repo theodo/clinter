@@ -1,11 +1,11 @@
 import { Linter } from "eslint";
 import { generateTestESLintConfig } from "generator/testFramework";
-import { generateTypescriptESLintConfig } from "generator/typescript";
+import { generateTypescriptESLintConfig, getTypescriptESLintDependencies } from "generator/typescript";
 import { generateEnvESLintConfig } from "generator/env";
-import { generateFrontFrameworkESLintConfig } from "generator/frontFramework";
-import { generatePrettierESlintConfig } from "generator/prettier";
-import { eslintBaseConfig } from "generator/baseConfigs/eslintBaseConfig";
-import { ESLintGenerator } from "generator/types";
+import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies } from "generator/frontFramework";
+import { generatePrettierESlintConfig, getPrettierESLintDependencies } from "generator/prettier";
+import { eslintBaseConfig, eslintBaseDependencies } from "generator/baseConfigs/eslintBaseConfig";
+import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { mergeArrays, pipe } from "utility";
 import { AnswerObject } from "types";
 
@@ -32,9 +32,16 @@ export function concatConfig(config: Linter.Config): (prevConfig: Linter.Config)
   });
 }
 
+export function concatDependencies(deps2: string[]): (deps2: string[]) => string[] {
+  return (deps1) => mergeArrays(deps1, deps2);
+}
+
 const generateBaseESLintConfig: ESLintGenerator = (_userAnswers) => {
   return concatConfig(eslintBaseConfig);
 };
+
+const getBaseESLintDependencies: ESLintDependencyGenerator = (_userAnswers) =>
+  concatDependencies(eslintBaseDependencies);
 
 export function generateEslintConfig(userAnswers: AnswerObject, startConfig: Linter.Config = {}): Linter.Config {
   return pipe(
@@ -46,4 +53,13 @@ export function generateEslintConfig(userAnswers: AnswerObject, startConfig: Lin
     // Prettier must be at the end of the list to avoid potential conflicts
     generatePrettierESlintConfig(userAnswers)
   )(startConfig);
+}
+
+export function getConfigDependencies(userAnswers: AnswerObject): string[] {
+  return pipe(
+    getBaseESLintDependencies(userAnswers),
+    getTypescriptESLintDependencies(userAnswers),
+    getFrontFrameworkESLintDependencies(userAnswers),
+    getPrettierESLintDependencies(userAnswers)
+  )([]);
 }

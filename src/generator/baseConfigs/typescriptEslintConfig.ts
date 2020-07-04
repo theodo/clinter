@@ -18,3 +18,5 @@ export const typescriptTypeEslintConfig: Linter.Config = {
     "@typescript-eslint/strict-boolean-expressions": "error",
   },
 };
+
+export const typescriptESLintDependencies = ["@typescript-eslint/parser", "@typescript-eslint/eslint-plugin"];

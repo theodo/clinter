@@ -15,3 +15,5 @@ export const prettierReactESLintConfig: Linter.Config = {
 export const prettierVueESLintConfig: Linter.Config = {
   extends: ["prettier/vue"],
 };
+
+export const prettierESLintDependencies = ["prettier", "eslint-config-prettier", "eslint-plugin-prettier"];

@@ -36,3 +36,5 @@ export const eslintBaseConfig: Linter.Config = {
     ],
   },
 };
+
+export const eslintBaseDependencies = ["eslint", "eslint-plugin-import"];

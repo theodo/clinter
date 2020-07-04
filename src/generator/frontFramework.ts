@@ -1,8 +1,14 @@
-import { ESLintGenerator } from "generator/types";
+import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { identity, pipe } from "utility";
-import { concatConfig } from "generator/generate";
+import { concatConfig, concatDependencies } from "generator/generate";
 import { FrontFrameworkAnswer, TypescriptAnswer } from "types";
-import { reactESLintConfig, reactTypescriptESLintConfig, vueESLintConfig } from "generator/baseConfigs";
+import {
+  reactESLintConfig,
+  reactESLintDependencies,
+  reactTypescriptESLintConfig,
+  vueESLintConfig,
+  vueESLintDependencies,
+} from "generator/baseConfigs";
 
 export const generateFrontFrameworkESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.frontFramework) {
@@ -17,5 +23,18 @@ export const generateFrontFrameworkESLintConfig: ESLintGenerator = (userAnswers)
         concatConfig(reactESLintConfig),
         userAnswers.typescript !== TypescriptAnswer.None ? concatConfig(reactTypescriptESLintConfig) : identity
       );
+  }
+};
+
+export const getFrontFrameworkESLintDependencies: ESLintDependencyGenerator = (userAnswers) => {
+  switch (userAnswers.frontFramework) {
+    case FrontFrameworkAnswer.None:
+      return identity;
+
+    case FrontFrameworkAnswer.Vue:
+      return concatDependencies(vueESLintDependencies);
+
+    case FrontFrameworkAnswer.React:
+      return concatDependencies(reactESLintDependencies);
   }
 };
