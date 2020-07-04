@@ -6,8 +6,7 @@ export const reactESLintConfig: Linter.Config = {
       version: "detect",
     },
   },
-  extends: ["plugin:react/recommended"],
-  plugins: ["react-hooks"],
+  extends: ["react-app"],
   rules: {
     "react/no-string-refs": "warn",
     "react-hooks/rules-of-hooks": "error",
@@ -21,4 +20,4 @@ export const reactTypescriptESLintConfig: Linter.Config = {
   },
 };
 
-export const reactESLintDependencies = ["eslint-plugin-react", "eslint-plugin-react-hooks"];
+export const reactESLintDependencies = ["eslint-plugin-react-app", "eslint-config-react-app"];
