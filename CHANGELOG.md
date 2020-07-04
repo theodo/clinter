@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/theodo/clinter/compare/v1.3.0...v1.4.0) (2020-07-04)
+
+
+### Bug Fixes
+
+* **react:** fix react config by using react app ([d7fa825](https://github.com/theodo/clinter/commit/d7fa825649b225b5a71696bb1b8860f28f09b874))
+
+
+### Features
+
+* **jest:** add jest eslint dependencies ([8866371](https://github.com/theodo/clinter/commit/886637114001b33485413ae3d7eed700e0b5549f))
+
 # [1.3.0](https://github.com/theodo/clinter/compare/v1.2.0...v1.3.0) (2020-07-04)
 
 
