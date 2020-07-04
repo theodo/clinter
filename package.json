@@ -51,6 +51,7 @@
   "dependencies": {
     "@types/inquirer": "^6.5.0",
     "boxen": "^4.2.0",
+    "child-process-promise": "^2.2.1",
     "comment-json": "^3.0.2",
     "inquirer": "^7.2.0",
     "signale": "^1.4.0"
