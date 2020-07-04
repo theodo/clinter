@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/theodo/clinter/compare/v1.2.0...v1.3.0) (2020-07-04)
+
+
+### Features
+
+* **git:** link git repo to package ([63ef4a3](https://github.com/theodo/clinter/commit/63ef4a3dc33ac8ff76633c8dfa50ba6e0354ce0c))
+
 # [1.2.0](https://github.com/theodo/eslint-config-generator/compare/v1.1.0...v1.2.0) (2020-07-04)
 
 
