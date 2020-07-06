@@ -5,7 +5,7 @@ CLI tool to generate or upgrade linter configurations.
 
 # Motivation
 
-Every time we start a new projet or join an existing one, it is always struggling to create the perfect linter configuration for the project or upgrade the exisitng one to suit the our needs. Another major problem we encounter is how to share configurations between different projects while still acknowledging the differences in tools and frameworks used. This tool attempts to solve these issues by providing an easily extendible and shareable source of truth for all projects.
+Every time we start a new projet or join an existing one, it is always struggling to create the perfect linter configuration for the project or upgrade the exisitng one to suit our needs. Another major problem we encounter is how to share configurations between different projects while still acknowledging the differences in tools and frameworks used. This tool attempts to solve these issues by providing an easily extendible and shareable source of truth for all projects.
 
 # Install
 
