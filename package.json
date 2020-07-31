@@ -4,7 +4,7 @@
   "description": "A cli tool to quickly generate eslint configurations",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "rm -rf ./build && ttsc",
     "release": "yarn build && semantic-release"
   },
@@ -34,6 +34,7 @@
     "@types/child-process-promise": "^2.2.1",
     "@types/comment-json": "^1.1.1",
     "@types/eslint": "^7.2.0",
+    "@types/jest": "^26.0.8",
     "@types/prettier": "^2.0.1",
     "@types/signale": "^1.4.1",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
@@ -45,6 +46,7 @@
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
     "semantic-release": "^17.1.1",
+    "ts-jest": "^25.5.1",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.5",
     "typescript-transform-paths": "^1.1.14"
