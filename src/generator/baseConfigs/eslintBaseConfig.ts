@@ -2,6 +2,8 @@ import { Linter } from "eslint";
 
 export const eslintBaseConfig: Linter.Config = {
   root: true,
+  env: {},
+  parserOptions: {},
   extends: ["eslint:recommended"],
   plugins: ["import"],
   rules: {
