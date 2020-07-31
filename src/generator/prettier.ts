@@ -1,5 +1,5 @@
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
-import { identity, pipe } from "utility";
+import { identity, pipe } from "utils/utility";
 import { concatConfig, concatDependencies } from "generator/generate";
 import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "types";
 import {

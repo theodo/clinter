@@ -1,5 +1,5 @@
 import { TypescriptAnswer } from "types";
-import { identity, pipe } from "utility";
+import { identity, pipe } from "utils/utility";
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { concatConfig, concatDependencies } from "generator/generate";
 import {

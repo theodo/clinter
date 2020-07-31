@@ -6,10 +6,10 @@ import path from "path";
 
 import { promptGeneratorUserQuestions, promptModeUserQuestions } from "parser/userQuestions";
 import { generateEslintConfig, getConfigDependencies } from "generator";
-import { writeEslintConfig } from "fileWriter";
+import { writeEslintConfig } from "fileWriter/fileWriter";
 import { findESLintConfigurationFiles } from "parser/configFile";
 import { ModeAnswer } from "types";
-import { installDevDependencies } from "dependencies";
+import { installDevDependencies } from "dependencies/dependencies";
 
 function getDirPath(): string {
   const args = process.argv.splice(2);

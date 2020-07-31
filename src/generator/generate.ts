@@ -6,7 +6,7 @@ import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies
 import { generatePrettierESlintConfig, getPrettierESLintDependencies } from "generator/prettier";
 import { eslintBaseConfig, eslintBaseDependencies } from "generator/baseConfigs/eslintBaseConfig";
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
-import { mergeArrays, pipe } from "utility";
+import { mergeArrays, pipe } from "utils/utility";
 import { AnswerObject } from "types";
 
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
@@ -27,7 +27,7 @@ export function concatConfig(config: Linter.Config): (prevConfig: Linter.Config)
     extends: concatESlintArrays(prevConfig.extends ?? [], config.extends ?? []),
     rules: concatESlintObjects(prevConfig.rules ?? {}, config.rules ?? {}),
     plugins: concatESlintArrays(prevConfig.plugins ?? [], config.plugins ?? []),
-    parserOptions: concatESlintObjects(prevConfig.parserOptions ?? [], config.parserOptions ?? []),
+    parserOptions: concatESlintObjects(prevConfig.parserOptions ?? {}, config.parserOptions ?? {}),
     env: concatESlintObjects(prevConfig.env ?? {}, config.env ?? {}),
   });
 }

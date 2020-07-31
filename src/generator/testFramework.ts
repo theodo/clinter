@@ -1,8 +1,8 @@
-import { ESLintGenerator, ESLintDependencyGenerator } from "generator/types";
-import { identity } from "utility";
+import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
+import { identity } from "utils/utility";
 import { concatConfig, concatDependencies } from "generator/generate";
 import { TestFrameworkAnswer } from "types";
-import { jestESLintEnvConfig, jestESLintDependencies } from "generator/baseConfigs";
+import { jestESLintDependencies, jestESLintEnvConfig } from "generator/baseConfigs";
 
 export const generateTestESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.test) {
@@ -22,4 +22,4 @@ export const getTestESLintDependencies: ESLintDependencyGenerator = (userAnswers
     case TestFrameworkAnswer.Jest:
       return concatDependencies(jestESLintDependencies);
   }
-}
+};
