@@ -11,7 +11,7 @@ Every time we start a new projet or join an existing one, it is always strugglin
 
 ```bash
 # Using Yarn
-yarn globale add clinter
+yarn global add clinter
 
 cd my_project/
 yarn clinter
