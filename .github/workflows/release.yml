@@ -15,7 +15,7 @@ jobs:
           node-version: 12.x
 
       - name: Install
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Release
         run: npx semantic-release
