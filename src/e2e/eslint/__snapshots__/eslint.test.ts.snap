@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ESLint configuration should return the right eslint configuration for the right input: eslint 1`] = `
+"{
+  \\"root\\": true,
+  \\"env\\": {
+    \\"jest\\": true
+  },
+  \\"parserOptions\\": {},
+  \\"extends\\": [
+    \\"eslint:recommended\\",
+    \\"plugin:prettier/recommended\\"
+  ],
+  \\"plugins\\": [
+    \\"import\\"
+  ],
+  \\"rules\\": {
+    \\"curly\\": [
+      \\"error\\",
+      \\"all\\"
+    ],
+    \\"eqeqeq\\": [
+      \\"error\\",
+      \\"smart\\"
+    ],
+    \\"complexity\\": [
+      \\"error\\",
+      8
+    ],
+    \\"import/no-extraneous-dependencies\\": [
+      \\"error\\",
+      {
+        \\"devDependencies\\": true,
+        \\"optionalDependencies\\": false,
+        \\"peerDependencies\\": false
+      }
+    ],
+    \\"no-shadow\\": [
+      \\"error\\",
+      {
+        \\"hoist\\": \\"all\\"
+      }
+    ],
+    \\"prefer-const\\": \\"error\\",
+    \\"import/order\\": [
+      \\"error\\",
+      {
+        \\"groups\\": [
+          [
+            \\"external\\",
+            \\"builtin\\"
+          ],
+          \\"internal\\",
+          [
+            \\"parent\\",
+            \\"sibling\\",
+            \\"index\\"
+          ]
+        ]
+      }
+    ],
+    \\"sort-imports\\": [
+      \\"error\\",
+      {
+        \\"ignoreCase\\": true,
+        \\"ignoreDeclarationSort\\": true,
+        \\"ignoreMemberSort\\": false,
+        \\"memberSyntaxSortOrder\\": [
+          \\"none\\",
+          \\"all\\",
+          \\"multiple\\",
+          \\"single\\"
+        ]
+      }
+    ]
+  }
+}"
+`;
