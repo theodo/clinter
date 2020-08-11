@@ -1,6 +1,6 @@
 import { Linter } from "eslint";
-import { ConfigContainer, ConfigFileObject, FileExtension } from "parser/configFile/types";
-import { parseConfigFiles } from "parser/configFile/parseConfigFiles";
+import { ConfigContainer, ConfigFileObject, FileExtension } from "parser/linterConfig/types";
+import { parseLinterConfigFiles } from "parser/linterConfig/parseLinterConfigFiles";
 
 const possibleESLintFiles: ConfigFileObject[] = [
   { name: ".eslintrc", extension: FileExtension.NONE },
@@ -11,5 +11,5 @@ const possibleESLintFiles: ConfigFileObject[] = [
 ];
 
 export function findESLintConfigurationFiles(dirPath: string): ConfigContainer<Linter.Config>[] {
-  return parseConfigFiles(possibleESLintFiles, dirPath);
+  return parseLinterConfigFiles(possibleESLintFiles, dirPath);
 }

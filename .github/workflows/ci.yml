@@ -12,7 +12,10 @@ jobs:
       run: yarn install --frozen-lockfile
 
     - name: Unit tests
-      run: yarn test
+      run: yarn test:unit
 
     - name: Compile package
       run: yarn build
+
+    - name: E2E tests
+      run: yarn test:e2e

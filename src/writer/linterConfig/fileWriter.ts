@@ -1,7 +1,7 @@
 import fs from "fs";
 import { Linter } from "eslint";
 import { Options } from "prettier";
-import { ConfigContainer, FileExtension } from "parser/configFile/types";
+import { ConfigContainer, FileExtension } from "parser/linterConfig/types";
 import { assertUnreachable } from "utils/utility";
 
 function writeJSConfig(path: string, config: unknown) {

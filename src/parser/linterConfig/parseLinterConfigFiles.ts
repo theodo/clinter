@@ -48,7 +48,7 @@ function parseJSFile<T extends LinterConfigs>(configFile: ConfigFileObject): Con
 /**
  * Parse files according to their extensions and return their configs
  */
-export function parseConfigFiles<T extends LinterConfigs>(
+export function parseLinterConfigFiles<T extends LinterConfigs>(
   configFiles: ConfigFileObject[],
   dirPath = ""
 ): ConfigContainer<T>[] {

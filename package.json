@@ -5,6 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "test": "jest",
+    "test:unit": "jest --projects jest-unit.config.js",
+    "test:e2e": "yarn build && jest --projects jest-e2e.config.js",
     "build": "rm -rf ./build && ttsc",
     "release": "yarn build && semantic-release"
   },
@@ -37,19 +39,22 @@
     "@types/jest": "^26.0.8",
     "@types/prettier": "^2.0.1",
     "@types/signale": "^1.4.1",
+    "@types/uuid": "^8.0.1",
+    "@types/yargs": "^15.0.5",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
     "@typescript-eslint/parser": "^3.4.0",
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.21.2",
     "eslint-plugin-prettier": "^3.1.4",
-    "jest": "^26.1.0",
+    "jest": "^26.3.0",
     "prettier": "^2.0.5",
     "semantic-release": "^17.1.1",
-    "ts-jest": "^25.5.1",
+    "ts-jest": "^26.2.0",
     "ttypescript": "^1.5.10",
     "typescript": "^3.9.5",
-    "typescript-transform-paths": "^1.1.14"
+    "typescript-transform-paths": "^1.1.14",
+    "uuid": "^8.3.0"
   },
   "dependencies": {
     "@types/inquirer": "^6.5.0",
@@ -57,7 +62,8 @@
     "child-process-promise": "^2.2.1",
     "comment-json": "^3.0.2",
     "inquirer": "^7.2.0",
-    "signale": "^1.4.0"
+    "signale": "^1.4.0",
+    "yargs": "^15.4.1"
   },
   "release": {
     "plugins": [

@@ -1,6 +1,6 @@
 import path from "path";
 
-import { ConfigContainer, FileExtension } from "parser/configFile/types";
+import { ConfigContainer, FileExtension } from "parser/linterConfig/types";
 
 export function createDefaultConfigContainer<T>(dirPath: string, config: T): ConfigContainer<T> {
   return {
