@@ -30,7 +30,7 @@ jobs:
           node-version: 12.x
 
       - name: Install packages
-      run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile
 
       - name: Release
         run: npx semantic-release
