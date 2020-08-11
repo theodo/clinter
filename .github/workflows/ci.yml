@@ -19,4 +19,3 @@ jobs:
 
     - name: E2E tests
       run: yarn test:e2e
-
