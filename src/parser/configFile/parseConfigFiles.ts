@@ -31,7 +31,7 @@ function parseJSONFile<T extends LinterConfigs>(configFile: ConfigFileObject): C
   return {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     config: (configFile.attribute !== undefined ? configObject[configFile.attribute] : configObject) as T,
-    fileName: configFile.name,
+    file: configFile,
   };
 }
 
@@ -41,7 +41,7 @@ function parseJSFile<T extends LinterConfigs>(configFile: ConfigFileObject): Con
   return {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     config: (configFile.attribute !== undefined ? configObject[configFile.attribute] : configObject) as T,
-    fileName: configFile.name,
+    file: configFile,
   };
 }
 

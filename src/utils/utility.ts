@@ -9,3 +9,7 @@ export const mergeArrays = <T, U>(array1: Array<T>, array2: Array<U>): Array<T |
   const uniqueArray = jointArray.filter((item, index) => jointArray.indexOf(item) === index);
   return uniqueArray.reverse();
 };
+
+export const assertUnreachable = (reason: string): never => {
+  throw new Error(`Unreachable code path: ${reason}`);
+};
