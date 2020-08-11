@@ -2,29 +2,44 @@
 
 import signale from "signale";
 import boxen from "boxen";
-import path from "path";
+import yargs from "yargs";
 
-import { promptGeneratorUserQuestions, promptModeUserQuestions } from "parser/userQuestions";
 import { generateEslintConfig, getConfigDependencies } from "generator";
-import { writeEslintConfig } from "parser/fileWriter/fileWriter";
-import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/configFile";
-import { ModeAnswer } from "types";
+import { writeEslintConfig } from "writer/linterConfig/fileWriter";
+import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linterConfig";
+import { AnswerObject, ModeAnswer } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
+import { assertUnreachable } from "utils/utility";
+import { parseInputConfigFile, parseInputConfigQuestions } from "parser/inputConfig";
 
-function getDirPath(): string {
-  const args = process.argv.splice(2);
+async function runGeneratorMode(userAnswers: AnswerObject, dirPath: string) {
+  signale.info("Generating ESLint configuration ...");
+  const eslintConfig = generateEslintConfig(userAnswers);
+  signale.success("ESLint config generated");
+  signale.info("Installing required dependencies ...");
+  await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
+  signale.success("All dependencies successfully Installed");
+  writeEslintConfig(createDefaultConfigContainer(dirPath, eslintConfig));
+  signale.success("ESLint config written to eslintrc.json file");
+}
 
-  if (args.length === 0) {
-    return process.cwd();
-  }
-
-  const inputPath = args[0];
-
-  return path.resolve(inputPath);
+async function runUpgradeMode(userAnswers: AnswerObject, dirPath: string) {
+  signale.info("Adapting exisiting ESLint configuration ...");
+  const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
+  const eslintConfig = generateEslintConfig(userAnswers, existingConfigContainer.config);
+  signale.success("ESLint config generated from previous configuration");
+  signale.info("Installing required dependencies ...");
+  await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
+  signale.success("All dependencies successfully Installed");
+  writeEslintConfig({ ...existingConfigContainer, config: eslintConfig });
+  signale.success(`ESLint config written to ${existingConfigContainer.file.name}`);
 }
 
 async function main() {
-  const dirPath = getDirPath();
+  const { dirPath, inputFile } = yargs.options({
+    dirPath: { type: "string", default: process.cwd(), alias: "path" },
+    inputFile: { type: "string" },
+  }).argv;
 
   signale.log(
     boxen("Welcome to the ESLint Config Generator", {
@@ -36,51 +51,22 @@ async function main() {
     })
   );
 
-  /**
-   * Ask Mode Question
-   */
-
-  const userModeAnswers = await promptModeUserQuestions();
-
-  /**
-   * Ask ESLINT Configuration Questions
-   */
-
-  const userGeneratorAnswers = await promptGeneratorUserQuestions();
-  signale.info("Retrieving answers ...");
+  const { generatorConfig, modeConfig } =
+    inputFile !== undefined ? parseInputConfigFile(inputFile) : await parseInputConfigQuestions();
 
   /**
    * Generate new ESLint configuration or adapt from existing one
    */
 
-  switch (userModeAnswers.mode) {
-    case ModeAnswer.Generator: {
-      signale.info("Generating ESLint configuration ...");
-      const eslintConfig = generateEslintConfig(userGeneratorAnswers);
-      signale.success("ESLint config generated");
-      signale.info("Installing required dependencies ...");
-      await installDevDependencies(getConfigDependencies(userGeneratorAnswers), dirPath);
-      signale.success("All dependencies successfully Installed");
-      writeEslintConfig(createDefaultConfigContainer(__dirname, eslintConfig));
-      signale.success("ESLint config written to eslintrc.json file");
-      break;
-    }
+  switch (modeConfig.mode) {
+    case ModeAnswer.Generator:
+      return runGeneratorMode(generatorConfig, dirPath);
 
-    case ModeAnswer.Upgrade: {
-      signale.info("Adapting exisiting ESLint configuration ...");
-      const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
-      const eslintConfig = generateEslintConfig(userGeneratorAnswers, existingConfigContainer.config);
-      signale.success("ESLint config generated from previous configuration");
-      signale.info("Installing required dependencies ...");
-      await installDevDependencies(getConfigDependencies(userGeneratorAnswers), dirPath);
-      signale.success("All dependencies successfully Installed");
-      writeEslintConfig({ ...existingConfigContainer, config: eslintConfig });
-      signale.success(`ESLint config written to ${existingConfigContainer.file.name}`);
-      break;
-    }
+    case ModeAnswer.Upgrade:
+      return runUpgradeMode(generatorConfig, dirPath);
 
     default:
-      break;
+      assertUnreachable(modeConfig.mode);
   }
 }
 
