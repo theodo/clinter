@@ -7,6 +7,7 @@
     "test": "jest",
     "test:unit": "jest --projects jest-unit.config.js",
     "test:e2e": "yarn build && jest --projects jest-e2e.config.js",
+    "test:e2e:ci": "jest --projects jest-e2e.config.js",
     "build": "rm -rf ./build && ttsc",
     "release": "yarn build && semantic-release"
   },
