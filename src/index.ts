@@ -6,8 +6,8 @@ import path from "path";
 
 import { promptGeneratorUserQuestions, promptModeUserQuestions } from "parser/userQuestions";
 import { generateEslintConfig, getConfigDependencies } from "generator";
-import { writeEslintConfig } from "fileWriter/fileWriter";
-import { findESLintConfigurationFiles } from "parser/configFile";
+import { writeEslintConfig } from "parser/fileWriter/fileWriter";
+import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/configFile";
 import { ModeAnswer } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 
@@ -61,7 +61,7 @@ async function main() {
       signale.info("Installing required dependencies ...");
       await installDevDependencies(getConfigDependencies(userGeneratorAnswers), dirPath);
       signale.success("All dependencies successfully Installed");
-      writeEslintConfig(eslintConfig, path.join(dirPath, "eslintrc.json"));
+      writeEslintConfig(createDefaultConfigContainer(__dirname, eslintConfig));
       signale.success("ESLint config written to eslintrc.json file");
       break;
     }
@@ -74,8 +74,8 @@ async function main() {
       signale.info("Installing required dependencies ...");
       await installDevDependencies(getConfigDependencies(userGeneratorAnswers), dirPath);
       signale.success("All dependencies successfully Installed");
-      writeEslintConfig(eslintConfig, existingConfigContainer.fileName);
-      signale.success(`ESLint config written to ${existingConfigContainer.fileName}`);
+      writeEslintConfig({ ...existingConfigContainer, config: eslintConfig });
+      signale.success(`ESLint config written to ${existingConfigContainer.file.name}`);
       break;
     }
 

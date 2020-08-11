@@ -18,5 +18,5 @@ export type LinterConfigs = Options | Linter.Config;
 
 export interface ConfigContainer<T extends LinterConfigs> {
   config: T;
-  fileName: string;
+  file: ConfigFileObject;
 }
