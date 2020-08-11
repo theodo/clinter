@@ -1,3 +1,19 @@
+# [1.5.0](https://github.com/theodo/clinter/compare/v1.4.0...v1.5.0) (2020-08-11)
+
+
+### Bug Fixes
+
+* fix release ([ab3a24e](https://github.com/theodo/clinter/commit/ab3a24ebb541ca0106ce8c1d84e34f600c3757df))
+* fix release process ([15df27a](https://github.com/theodo/clinter/commit/15df27ad3527f9bebf7838eb217d8209a42ccc16))
+* **eslint-base:** add default objects ([8551c82](https://github.com/theodo/clinter/commit/8551c8210e022c2ae8faff8e623e61f14a8fcd23))
+* **js-config:** fix write support for js configs ([#7](https://github.com/theodo/clinter/issues/7)) ([03a1a95](https://github.com/theodo/clinter/commit/03a1a950fee7d123b9fa95ece813c24d656ffd43))
+* typo in README.md ([077da64](https://github.com/theodo/clinter/commit/077da648b76ca7abc24fc0cb149f025e382f7c33))
+
+
+### Features
+
+* **test:** add e2e test support ([f614e5b](https://github.com/theodo/clinter/commit/f614e5bc5b6f202fe0796248636c1b603eca88f9))
+
 # [1.4.0](https://github.com/theodo/clinter/compare/v1.3.0...v1.4.0) (2020-07-04)
 
 
