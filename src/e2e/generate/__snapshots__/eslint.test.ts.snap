@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ESLint Base Configuration Generator Mode should return a standard eslint configuration with no extensions: eslint-simple-config 1`] = `
+Object {
+  "env": Object {},
+  "extends": Array [
+    "eslint:recommended",
+  ],
+  "parserOptions": Object {},
+  "plugins": Array [
+    "import",
+  ],
+  "root": true,
+  "rules": Object {
+    "complexity": Array [
+      "error",
+      8,
+    ],
+    "curly": Array [
+      "error",
+      "all",
+    ],
+    "eqeqeq": Array [
+      "error",
+      "smart",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+      },
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "groups": Array [
+          Array [
+            "external",
+            "builtin",
+          ],
+          "internal",
+          Array [
+            "parent",
+            "sibling",
+            "index",
+          ],
+        ],
+      },
+    ],
+    "no-shadow": Array [
+      "error",
+      Object {
+        "hoist": "all",
+      },
+    ],
+    "prefer-const": "error",
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": Array [
+          "none",
+          "all",
+          "multiple",
+          "single",
+        ],
+      },
+    ],
+  },
+}
+`;

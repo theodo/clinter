@@ -5,13 +5,14 @@ import { exec } from "child-process-promise";
 
 import { InputConfig } from "parser/inputConfig/types";
 import { LinterConfigs } from "parser/linterConfig/types";
+import { FormatterAnswer, FrontFrameworkAnswer, ModeAnswer, TestFrameworkAnswer, TypescriptAnswer } from "types";
 
 export interface TestService {
   loadInputConfig: (config: InputConfig) => void;
   loadInitialLinterConfig: (config: LinterConfigs) => void;
   installPackages: (packages: string[]) => Promise<void>;
   runClinter: () => Promise<void>;
-  getOutputConfig: () => string;
+  getOutputConfig: () => LinterConfigs;
   getInstalledPackages: () => string[];
 }
 
@@ -45,7 +46,7 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
   };
 
   const getOutputConfig = () => {
-    return fs.readFileSync(outputConfigPath, "utf-8");
+    return JSON.parse(fs.readFileSync(outputConfigPath, "utf-8")) as LinterConfigs;
   };
 
   const getInstalledPackages = () => {
@@ -61,3 +62,16 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
     runClinter,
   };
 }
+
+export const defaultInputConfig: InputConfig = {
+  modeConfig: {
+    mode: ModeAnswer.Generator,
+  },
+  generatorConfig: {
+    typescript: TypescriptAnswer.None,
+    env: [],
+    formatter: FormatterAnswer.None,
+    frontFramework: FrontFrameworkAnswer.None,
+    test: TestFrameworkAnswer.None,
+  },
+};

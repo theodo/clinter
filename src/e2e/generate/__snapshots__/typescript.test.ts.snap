@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TypeScript configuration Generator Mode should return a typescript eslint configuration with no type checking: eslint-ts-no-type-checking-config 1`] = `
+Object {
+  "env": Object {},
+  "extends": Array [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": Object {
+    "project": "tsconfig.json",
+  },
+  "plugins": Array [
+    "import",
+  ],
+  "root": true,
+  "rules": Object {
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "complexity": Array [
+      "error",
+      8,
+    ],
+    "curly": Array [
+      "error",
+      "all",
+    ],
+    "eqeqeq": Array [
+      "error",
+      "smart",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+      },
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "groups": Array [
+          Array [
+            "external",
+            "builtin",
+          ],
+          "internal",
+          Array [
+            "parent",
+            "sibling",
+            "index",
+          ],
+        ],
+      },
+    ],
+    "no-shadow": Array [
+      "error",
+      Object {
+        "hoist": "all",
+      },
+    ],
+    "prefer-const": "error",
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": Array [
+          "none",
+          "all",
+          "multiple",
+          "single",
+        ],
+      },
+    ],
+  },
+}
+`;
+
+exports[`TypeScript configuration Generator Mode should return a typescript eslint configuration with type checking: eslint-ts-type-checking-config 1`] = `
+Object {
+  "env": Object {},
+  "extends": Array [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": Object {
+    "project": "tsconfig.json",
+  },
+  "plugins": Array [
+    "import",
+  ],
+  "root": true,
+  "rules": Object {
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+    "complexity": Array [
+      "error",
+      8,
+    ],
+    "curly": Array [
+      "error",
+      "all",
+    ],
+    "eqeqeq": Array [
+      "error",
+      "smart",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+      },
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "groups": Array [
+          Array [
+            "external",
+            "builtin",
+          ],
+          "internal",
+          Array [
+            "parent",
+            "sibling",
+            "index",
+          ],
+        ],
+      },
+    ],
+    "no-shadow": Array [
+      "error",
+      Object {
+        "hoist": "all",
+      },
+    ],
+    "prefer-const": "error",
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": Array [
+          "none",
+          "all",
+          "multiple",
+          "single",
+        ],
+      },
+    ],
+  },
+}
+`;

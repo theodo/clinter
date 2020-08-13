@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Vue configuration Generator Mode should return a vue eslint configuration: eslint-vue-config 1`] = `
+Object {
+  "env": Object {},
+  "extends": Array [
+    "eslint:recommended",
+    "plugin:vue/essential",
+  ],
+  "parserOptions": Object {
+    "parser": "babel-eslint",
+  },
+  "plugins": Array [
+    "import",
+  ],
+  "root": true,
+  "rules": Object {
+    "complexity": Array [
+      "error",
+      8,
+    ],
+    "curly": Array [
+      "error",
+      "all",
+    ],
+    "eqeqeq": Array [
+      "error",
+      "smart",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+      },
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "groups": Array [
+          Array [
+            "external",
+            "builtin",
+          ],
+          "internal",
+          Array [
+            "parent",
+            "sibling",
+            "index",
+          ],
+        ],
+      },
+    ],
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-shadow": Array [
+      "error",
+      Object {
+        "hoist": "all",
+      },
+    ],
+    "prefer-const": "error",
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": Array [
+          "none",
+          "all",
+          "multiple",
+          "single",
+        ],
+      },
+    ],
+  },
+}
+`;
+
+exports[`Vue configuration Generator Mode should return a vue typescript eslint configuration with type checking: eslint-vue-ts-config 1`] = `
+Object {
+  "env": Object {},
+  "extends": Array [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:vue/essential",
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": Object {
+    "parser": "babel-eslint",
+    "project": "tsconfig.json",
+  },
+  "plugins": Array [
+    "import",
+  ],
+  "root": true,
+  "rules": Object {
+    "@typescript-eslint/prefer-nullish-coalescing": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/strict-boolean-expressions": "error",
+    "complexity": Array [
+      "error",
+      8,
+    ],
+    "curly": Array [
+      "error",
+      "all",
+    ],
+    "eqeqeq": Array [
+      "error",
+      "smart",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+      },
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "groups": Array [
+          Array [
+            "external",
+            "builtin",
+          ],
+          "internal",
+          Array [
+            "parent",
+            "sibling",
+            "index",
+          ],
+        ],
+      },
+    ],
+    "no-console": "off",
+    "no-debugger": "off",
+    "no-shadow": Array [
+      "error",
+      Object {
+        "hoist": "all",
+      },
+    ],
+    "prefer-const": "error",
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": Array [
+          "none",
+          "all",
+          "multiple",
+          "single",
+        ],
+      },
+    ],
+  },
+}
+`;
