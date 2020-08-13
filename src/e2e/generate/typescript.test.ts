@@ -16,7 +16,7 @@ describe("TypeScript configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-ts-no-type-checking-config");
   });
@@ -32,7 +32,7 @@ describe("TypeScript configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-ts-type-checking-config");
   });

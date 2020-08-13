@@ -16,7 +16,7 @@ describe("Vue configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-vue-config");
   });
@@ -33,7 +33,7 @@ describe("Vue configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-vue-ts-config");
   });

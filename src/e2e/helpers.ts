@@ -9,10 +9,12 @@ import { FormatterAnswer, FrontFrameworkAnswer, ModeAnswer, TestFrameworkAnswer,
 
 export interface TestService {
   loadInputConfig: (config: InputConfig) => void;
-  loadInitialLinterConfig: (config: LinterConfigs) => void;
+  loadInitialLinterConfig: (config: string) => void;
+  loadInitialParsedLinterConfig: (config: LinterConfigs) => void;
   installPackages: (packages: string[]) => Promise<void>;
   runClinter: () => Promise<void>;
-  getOutputConfig: () => LinterConfigs;
+  getParsedOutputConfig: () => LinterConfigs;
+  getOutputConfig: () => string;
   getInstalledPackages: () => string[];
 }
 
@@ -29,7 +31,11 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
     fs.writeFileSync(inputConfigPath, JSON.stringify(config, null, 2));
   };
 
-  const loadInitialLinterConfig = (config: LinterConfigs) => {
+  const loadInitialLinterConfig = (config: string) => {
+    fs.writeFileSync(outputConfigPath, config);
+  };
+
+  const loadInitialParsedLinterConfig = (config: LinterConfigs) => {
     fs.writeFileSync(outputConfigPath, JSON.stringify(config, null, 2));
   };
 
@@ -45,7 +51,11 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
       });
   };
 
-  const getOutputConfig = () => {
+  const getOutputConfig = (): string => {
+    return fs.readFileSync(outputConfigPath, "utf-8");
+  };
+
+  const getParsedOutputConfig = (): LinterConfigs => {
     return JSON.parse(fs.readFileSync(outputConfigPath, "utf-8")) as LinterConfigs;
   };
 
@@ -55,9 +65,11 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
 
   return {
     getInstalledPackages,
+    getParsedOutputConfig,
     getOutputConfig,
     installPackages,
     loadInitialLinterConfig,
+    loadInitialParsedLinterConfig,
     loadInputConfig,
     runClinter,
   };

@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc.js: eslint-simple-config-.eslintrc.js 1`] = `
+"module.exports = {
+  \\"root\\": true,
+  \\"env\\": {},
+  \\"parserOptions\\": {},
+  \\"extends\\": [
+    \\"eslint:recommended\\"
+  ],
+  \\"plugins\\": [
+    \\"import\\"
+  ],
+  \\"rules\\": {
+    \\"curly\\": [
+      \\"error\\",
+      \\"all\\"
+    ],
+    \\"eqeqeq\\": [
+      \\"error\\",
+      \\"smart\\"
+    ],
+    \\"complexity\\": [
+      \\"error\\",
+      8
+    ],
+    \\"import/no-extraneous-dependencies\\": [
+      \\"error\\",
+      {
+        \\"devDependencies\\": true,
+        \\"optionalDependencies\\": false,
+        \\"peerDependencies\\": false
+      }
+    ],
+    \\"no-shadow\\": [
+      \\"error\\",
+      {
+        \\"hoist\\": \\"all\\"
+      }
+    ],
+    \\"prefer-const\\": \\"error\\",
+    \\"import/order\\": [
+      \\"error\\",
+      {
+        \\"groups\\": [
+          [
+            \\"external\\",
+            \\"builtin\\"
+          ],
+          \\"internal\\",
+          [
+            \\"parent\\",
+            \\"sibling\\",
+            \\"index\\"
+          ]
+        ]
+      }
+    ],
+    \\"sort-imports\\": [
+      \\"error\\",
+      {
+        \\"ignoreCase\\": true,
+        \\"ignoreDeclarationSort\\": true,
+        \\"ignoreMemberSort\\": false,
+        \\"memberSyntaxSortOrder\\": [
+          \\"none\\",
+          \\"all\\",
+          \\"multiple\\",
+          \\"single\\"
+        ]
+      }
+    ]
+  }
+}"
+`;
+
+exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc.json: eslint-simple-config-.eslintrc.json 1`] = `
+"{
+  \\"root\\": true,
+  \\"env\\": {},
+  \\"parserOptions\\": {},
+  \\"extends\\": [
+    \\"eslint:recommended\\"
+  ],
+  \\"plugins\\": [
+    \\"import\\"
+  ],
+  \\"rules\\": {
+    \\"curly\\": [
+      \\"error\\",
+      \\"all\\"
+    ],
+    \\"eqeqeq\\": [
+      \\"error\\",
+      \\"smart\\"
+    ],
+    \\"complexity\\": [
+      \\"error\\",
+      8
+    ],
+    \\"import/no-extraneous-dependencies\\": [
+      \\"error\\",
+      {
+        \\"devDependencies\\": true,
+        \\"optionalDependencies\\": false,
+        \\"peerDependencies\\": false
+      }
+    ],
+    \\"no-shadow\\": [
+      \\"error\\",
+      {
+        \\"hoist\\": \\"all\\"
+      }
+    ],
+    \\"prefer-const\\": \\"error\\",
+    \\"import/order\\": [
+      \\"error\\",
+      {
+        \\"groups\\": [
+          [
+            \\"external\\",
+            \\"builtin\\"
+          ],
+          \\"internal\\",
+          [
+            \\"parent\\",
+            \\"sibling\\",
+            \\"index\\"
+          ]
+        ]
+      }
+    ],
+    \\"sort-imports\\": [
+      \\"error\\",
+      {
+        \\"ignoreCase\\": true,
+        \\"ignoreDeclarationSort\\": true,
+        \\"ignoreMemberSort\\": false,
+        \\"memberSyntaxSortOrder\\": [
+          \\"none\\",
+          \\"all\\",
+          \\"multiple\\",
+          \\"single\\"
+        ]
+      }
+    ]
+  }
+}"
+`;
+
+exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc: eslint-simple-config-.eslintrc 1`] = `
+"{
+  \\"root\\": true,
+  \\"env\\": {},
+  \\"parserOptions\\": {},
+  \\"extends\\": [
+    \\"eslint:recommended\\"
+  ],
+  \\"plugins\\": [
+    \\"import\\"
+  ],
+  \\"rules\\": {
+    \\"curly\\": [
+      \\"error\\",
+      \\"all\\"
+    ],
+    \\"eqeqeq\\": [
+      \\"error\\",
+      \\"smart\\"
+    ],
+    \\"complexity\\": [
+      \\"error\\",
+      8
+    ],
+    \\"import/no-extraneous-dependencies\\": [
+      \\"error\\",
+      {
+        \\"devDependencies\\": true,
+        \\"optionalDependencies\\": false,
+        \\"peerDependencies\\": false
+      }
+    ],
+    \\"no-shadow\\": [
+      \\"error\\",
+      {
+        \\"hoist\\": \\"all\\"
+      }
+    ],
+    \\"prefer-const\\": \\"error\\",
+    \\"import/order\\": [
+      \\"error\\",
+      {
+        \\"groups\\": [
+          [
+            \\"external\\",
+            \\"builtin\\"
+          ],
+          \\"internal\\",
+          [
+            \\"parent\\",
+            \\"sibling\\",
+            \\"index\\"
+          ]
+        ]
+      }
+    ],
+    \\"sort-imports\\": [
+      \\"error\\",
+      {
+        \\"ignoreCase\\": true,
+        \\"ignoreDeclarationSort\\": true,
+        \\"ignoreMemberSort\\": false,
+        \\"memberSyntaxSortOrder\\": [
+          \\"none\\",
+          \\"all\\",
+          \\"multiple\\",
+          \\"single\\"
+        ]
+      }
+    ]
+  }
+}"
+`;

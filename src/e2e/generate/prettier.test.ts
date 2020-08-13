@@ -16,7 +16,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-prettier-config");
   });
@@ -33,7 +33,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-prettier-ts-config");
   });
@@ -50,7 +50,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-prettier-react-config");
   });
@@ -68,7 +68,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-prettier-ts-react-config");
   });
@@ -85,7 +85,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-prettier-vue-config");
   });
@@ -103,7 +103,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
 
     testService.loadInputConfig(inputConfig);
     await testService.runClinter();
-    const outputConfig = testService.getOutputConfig();
+    const outputConfig = testService.getParsedOutputConfig();
 
     expect(outputConfig).toMatchSnapshot("eslint-prettier-ts-vue-config");
   });
