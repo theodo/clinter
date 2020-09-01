@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/theodo/clinter/compare/v1.5.0...v1.5.1) (2020-09-01)
+
+
+### Bug Fixes
+
+* **deps:** add latest tag to deps ([0e56494](https://github.com/theodo/clinter/commit/0e56494c68e4c512f1399e1b1a22a1705ecc0f9b))
+
 # [1.5.0](https://github.com/theodo/clinter/compare/v1.4.0...v1.5.0) (2020-08-11)
 
 
