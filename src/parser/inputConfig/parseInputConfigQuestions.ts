@@ -7,7 +7,7 @@ export async function parseInputConfigQuestions(): Promise<InputConfig> {
   const modeConfig = await promptModeUserQuestions();
 
   const generatorConfig = await promptGeneratorUserQuestions();
-  signale.info("Retrieving answers ...");
+  signale.info("Retrieving project settings ...");
 
   return {
     modeConfig,
