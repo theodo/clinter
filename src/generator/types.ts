@@ -1,6 +1,6 @@
 import { Linter } from "eslint";
-import { AnswerObject } from "types";
+import { ProjectInfoObject } from "types";
 
-export type ESLintGenerator = (userAnswers: AnswerObject) => (config: Linter.Config) => Linter.Config;
+export type ESLintGenerator = (userAnswers: ProjectInfoObject) => (config: Linter.Config) => Linter.Config;
 
-export type ESLintDependencyGenerator = (userAnswers: AnswerObject) => (deps: string[]) => string[];
+export type ESLintDependencyGenerator = (userAnswers: ProjectInfoObject) => (deps: string[]) => string[];

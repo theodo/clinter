@@ -1,6 +1,6 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
 import { InputConfig } from "parser/inputConfig/types";
-import { FrontFrameworkAnswer, TypescriptAnswer } from "types";
+import { FrontFrameworkInfo, TypescriptInfo } from "types";
 
 describe("React configuration Generator Mode", () => {
   const testService = makeTestService();
@@ -10,7 +10,7 @@ describe("React configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        frontFramework: FrontFrameworkAnswer.React,
+        frontFramework: FrontFrameworkInfo.React,
       },
     };
 
@@ -26,8 +26,8 @@ describe("React configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.WithTypeChecking,
-        frontFramework: FrontFrameworkAnswer.React,
+        typescript: TypescriptInfo.WithTypeChecking,
+        frontFramework: FrontFrameworkInfo.React,
       },
     };
 

@@ -5,7 +5,7 @@ import { exec } from "child-process-promise";
 
 import { InputConfig } from "parser/inputConfig/types";
 import { LinterConfigs } from "parser/linterConfig/types";
-import { FormatterAnswer, FrontFrameworkAnswer, ModeAnswer, TestFrameworkAnswer, TypescriptAnswer } from "types";
+import { FormatterInfo, FrontFrameworkInfo, ModeInfo, TestFrameworkInfo, TypescriptInfo } from "types";
 
 export interface TestService {
   loadInputConfig: (config: InputConfig) => void;
@@ -77,13 +77,13 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
 
 export const defaultInputConfig: InputConfig = {
   modeConfig: {
-    mode: ModeAnswer.Generator,
+    mode: ModeInfo.Generator,
   },
   generatorConfig: {
-    typescript: TypescriptAnswer.None,
+    typescript: TypescriptInfo.None,
     env: [],
-    formatter: FormatterAnswer.None,
-    frontFramework: FrontFrameworkAnswer.None,
-    test: TestFrameworkAnswer.None,
+    formatter: FormatterInfo.None,
+    frontFramework: FrontFrameworkInfo.None,
+    test: TestFrameworkInfo.None,
   },
 };

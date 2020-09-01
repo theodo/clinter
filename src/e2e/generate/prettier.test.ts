@@ -1,6 +1,6 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
 import { InputConfig } from "parser/inputConfig/types";
-import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "types";
+import { FormatterInfo, FrontFrameworkInfo, TypescriptInfo } from "types";
 
 describe("Prettier eslint configuration Generator Mode", () => {
   const testService = makeTestService();
@@ -10,7 +10,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        formatter: FormatterAnswer.Prettier,
+        formatter: FormatterInfo.Prettier,
       },
     };
 
@@ -26,8 +26,8 @@ describe("Prettier eslint configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.WithTypeChecking,
-        formatter: FormatterAnswer.Prettier,
+        typescript: TypescriptInfo.WithTypeChecking,
+        formatter: FormatterInfo.Prettier,
       },
     };
 
@@ -43,8 +43,8 @@ describe("Prettier eslint configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        formatter: FormatterAnswer.Prettier,
-        frontFramework: FrontFrameworkAnswer.React,
+        formatter: FormatterInfo.Prettier,
+        frontFramework: FrontFrameworkInfo.React,
       },
     };
 
@@ -60,9 +60,9 @@ describe("Prettier eslint configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.WithTypeChecking,
-        formatter: FormatterAnswer.Prettier,
-        frontFramework: FrontFrameworkAnswer.React,
+        typescript: TypescriptInfo.WithTypeChecking,
+        formatter: FormatterInfo.Prettier,
+        frontFramework: FrontFrameworkInfo.React,
       },
     };
 
@@ -78,8 +78,8 @@ describe("Prettier eslint configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        formatter: FormatterAnswer.Prettier,
-        frontFramework: FrontFrameworkAnswer.Vue,
+        formatter: FormatterInfo.Prettier,
+        frontFramework: FrontFrameworkInfo.Vue,
       },
     };
 
@@ -95,9 +95,9 @@ describe("Prettier eslint configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.WithTypeChecking,
-        formatter: FormatterAnswer.Prettier,
-        frontFramework: FrontFrameworkAnswer.Vue,
+        typescript: TypescriptInfo.WithTypeChecking,
+        formatter: FormatterInfo.Prettier,
+        frontFramework: FrontFrameworkInfo.Vue,
       },
     };
 

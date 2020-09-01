@@ -1,7 +1,7 @@
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { identity, pipe } from "utils/utility";
 import { concatConfig, concatDependencies } from "generator/generate";
-import { FormatterAnswer, FrontFrameworkAnswer, TypescriptAnswer } from "types";
+import { FormatterInfo, FrontFrameworkInfo, TypescriptInfo } from "types";
 import {
   prettierESLintConfig,
   prettierESLintDependencies,
@@ -12,21 +12,21 @@ import {
 
 const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {
-    case TypescriptAnswer.None:
+    case TypescriptInfo.None:
       return identity;
 
-    case TypescriptAnswer.NoTypeChecking:
-    case TypescriptAnswer.WithTypeChecking:
+    case TypescriptInfo.NoTypeChecking:
+    case TypescriptInfo.WithTypeChecking:
       return concatConfig(prettierTypescriptESLintConfig);
   }
 };
 
 const generatePrettierReactESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.frontFramework) {
-    case FrontFrameworkAnswer.React:
+    case FrontFrameworkInfo.React:
       return concatConfig(prettierReactESLintConfig);
 
-    case FrontFrameworkAnswer.Vue:
+    case FrontFrameworkInfo.Vue:
       return concatConfig(prettierVueESLintConfig);
 
     default:
@@ -36,10 +36,10 @@ const generatePrettierReactESLintConfig: ESLintGenerator = (userAnswers) => {
 
 export const generatePrettierESlintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.formatter) {
-    case FormatterAnswer.None:
+    case FormatterInfo.None:
       return identity;
 
-    case FormatterAnswer.Prettier:
+    case FormatterInfo.Prettier:
       return pipe(
         concatConfig(prettierESLintConfig),
         generatePrettierTypescriptESLintConfig(userAnswers),
@@ -50,10 +50,10 @@ export const generatePrettierESlintConfig: ESLintGenerator = (userAnswers) => {
 
 export const getPrettierESLintDependencies: ESLintDependencyGenerator = (userAnswers) => {
   switch (userAnswers.formatter) {
-    case FormatterAnswer.None:
+    case FormatterInfo.None:
       return identity;
 
-    case FormatterAnswer.Prettier:
+    case FormatterInfo.Prettier:
       return concatDependencies(prettierESLintDependencies);
   }
 };

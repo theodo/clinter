@@ -7,12 +7,12 @@ import yargs from "yargs";
 import { generateEslintConfig, getConfigDependencies } from "generator";
 import { writeEslintConfig } from "writer/linterConfig/fileWriter";
 import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linterConfig";
-import { AnswerObject, ModeAnswer } from "types";
+import { ModeInfo, ProjectInfoObject } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
 import { parseInputConfigFile, parseInputConfigQuestions } from "parser/inputConfig";
 
-async function runGeneratorMode(userAnswers: AnswerObject, dirPath: string) {
+async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Generating ESLint configuration ...");
   const eslintConfig = generateEslintConfig(userAnswers);
   signale.success("ESLint config generated");
@@ -23,7 +23,7 @@ async function runGeneratorMode(userAnswers: AnswerObject, dirPath: string) {
   signale.success("ESLint config written to eslintrc.json file");
 }
 
-async function runUpgradeMode(userAnswers: AnswerObject, dirPath: string) {
+async function runUpgradeMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Adapting exisiting ESLint configuration ...");
   const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
   const eslintConfig = generateEslintConfig(userAnswers, existingConfigContainer.config);
@@ -59,10 +59,10 @@ async function main() {
    */
 
   switch (modeConfig.mode) {
-    case ModeAnswer.Generator:
+    case ModeInfo.Generator:
       return runGeneratorMode(generatorConfig, dirPath);
 
-    case ModeAnswer.Upgrade:
+    case ModeInfo.Upgrade:
       return runUpgradeMode(generatorConfig, dirPath);
 
     default:

@@ -1,6 +1,6 @@
-import { AnswerObject, ModeAnswerObject } from "types";
+import { ModeInfoObject, ProjectInfoObject } from "types";
 
 export interface InputConfig {
-  generatorConfig: AnswerObject;
-  modeConfig: ModeAnswerObject;
+  generatorConfig: ProjectInfoObject;
+  modeConfig: ModeInfoObject;
 }

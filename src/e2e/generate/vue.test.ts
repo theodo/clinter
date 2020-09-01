@@ -1,6 +1,6 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
 import { InputConfig } from "parser/inputConfig/types";
-import { FrontFrameworkAnswer, TypescriptAnswer } from "types";
+import { FrontFrameworkInfo, TypescriptInfo } from "types";
 
 describe("Vue configuration Generator Mode", () => {
   const testService = makeTestService();
@@ -10,7 +10,7 @@ describe("Vue configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        frontFramework: FrontFrameworkAnswer.Vue,
+        frontFramework: FrontFrameworkInfo.Vue,
       },
     };
 
@@ -26,8 +26,8 @@ describe("Vue configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.WithTypeChecking,
-        frontFramework: FrontFrameworkAnswer.Vue,
+        typescript: TypescriptInfo.WithTypeChecking,
+        frontFramework: FrontFrameworkInfo.Vue,
       },
     };
 

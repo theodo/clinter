@@ -7,7 +7,7 @@ import { generatePrettierESlintConfig, getPrettierESLintDependencies } from "gen
 import { eslintBaseConfig, eslintBaseDependencies } from "generator/baseConfigs/eslintBaseConfig";
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { mergeArrays, pipe } from "utils/utility";
-import { AnswerObject } from "types";
+import { ProjectInfoObject } from "types";
 
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
   return { ...prevObject, ...nextObject };
@@ -43,7 +43,7 @@ const generateBaseESLintConfig: ESLintGenerator = (_userAnswers) => {
 const getBaseESLintDependencies: ESLintDependencyGenerator = (_userAnswers) =>
   concatDependencies(eslintBaseDependencies);
 
-export function generateEslintConfig(userAnswers: AnswerObject, startConfig: Linter.Config = {}): Linter.Config {
+export function generateEslintConfig(userAnswers: ProjectInfoObject, startConfig: Linter.Config = {}): Linter.Config {
   return pipe(
     generateBaseESLintConfig(userAnswers),
     generateTypescriptESLintConfig(userAnswers),
@@ -55,7 +55,7 @@ export function generateEslintConfig(userAnswers: AnswerObject, startConfig: Lin
   )(startConfig);
 }
 
-export function getConfigDependencies(userAnswers: AnswerObject): string[] {
+export function getConfigDependencies(userAnswers: ProjectInfoObject): string[] {
   return pipe(
     getBaseESLintDependencies(userAnswers),
     getTypescriptESLintDependencies(userAnswers),

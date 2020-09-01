@@ -1,6 +1,6 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
 import { InputConfig } from "parser/inputConfig/types";
-import { TypescriptAnswer } from "types";
+import { TypescriptInfo } from "types";
 
 describe("TypeScript configuration Generator Mode", () => {
   const testService = makeTestService();
@@ -10,7 +10,7 @@ describe("TypeScript configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.NoTypeChecking,
+        typescript: TypescriptInfo.NoTypeChecking,
       },
     };
 
@@ -26,7 +26,7 @@ describe("TypeScript configuration Generator Mode", () => {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
-        typescript: TypescriptAnswer.WithTypeChecking,
+        typescript: TypescriptInfo.WithTypeChecking,
       },
     };
 

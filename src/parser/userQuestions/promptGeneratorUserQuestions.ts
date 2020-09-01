@@ -1,59 +1,59 @@
 import inquirer, { QuestionCollection } from "inquirer";
 import {
-  AnswerObject,
-  EnvAnswer,
-  EnvAnswerObject,
-  FormatterAnswer,
-  FormatterAnswerObject,
-  FrontFrameworkAnswer,
-  FrontFrameworkAnswerObject,
-  TestFrameworkAnswer,
-  TestFrameworkAnswerObject,
-  TypescriptAnswer,
-  TypescriptAnswerObject,
+  EnvInfo,
+  EnvInfoObject,
+  FormatterInfo,
+  FormatterInfoObject,
+  FrontFrameworkInfo,
+  FrontFrameworkInfoObject,
+  ProjectInfoObject,
+  TestFrameworkInfo,
+  TestFrameworkInfoObject,
+  TypescriptInfo,
+  TypescriptInfoObject,
 } from "types";
 
-const FrontFrameworkQuestion: inquirer.ListQuestion<FrontFrameworkAnswerObject> = {
+const FrontFrameworkQuestion: inquirer.ListQuestion<FrontFrameworkInfoObject> = {
   name: "frontFramework",
-  default: FrontFrameworkAnswer.None,
+  default: FrontFrameworkInfo.None,
   message: "Front Framework",
   type: "list",
-  choices: Object.values(FrontFrameworkAnswer),
+  choices: Object.values(FrontFrameworkInfo),
 };
 
-const FormatterQuestion: inquirer.ListQuestion<FormatterAnswerObject> = {
+const FormatterQuestion: inquirer.ListQuestion<FormatterInfoObject> = {
   name: "formatter",
-  default: FormatterAnswer.Prettier,
+  default: FormatterInfo.Prettier,
   message: "Are you using a formatter?",
   type: "list",
-  choices: Object.values(FormatterAnswer),
+  choices: Object.values(FormatterInfo),
 };
 
-const TypescriptQuestion: inquirer.ListQuestion<TypescriptAnswerObject> = {
+const TypescriptQuestion: inquirer.ListQuestion<TypescriptInfoObject> = {
   name: "typescript",
-  default: TypescriptAnswer.WithTypeChecking,
+  default: TypescriptInfo.WithTypeChecking,
   message: "Are you using typescript? What kind of eslint configuration would you like?",
   type: "list",
-  choices: Object.values(TypescriptAnswer),
+  choices: Object.values(TypescriptInfo),
 };
 
-const EnvQuestion: inquirer.CheckboxQuestion<EnvAnswerObject> = {
+const EnvQuestion: inquirer.CheckboxQuestion<EnvInfoObject> = {
   name: "env",
-  default: [EnvAnswer.Browser, EnvAnswer.Node],
+  default: [EnvInfo.Browser, EnvInfo.Node],
   message: "For which environment are you developing?",
   type: "checkbox",
-  choices: Object.values(EnvAnswer),
+  choices: Object.values(EnvInfo),
 };
 
-const TestFrameworkQuestion: inquirer.ListQuestion<TestFrameworkAnswerObject> = {
+const TestFrameworkQuestion: inquirer.ListQuestion<TestFrameworkInfoObject> = {
   name: "test",
-  default: TestFrameworkAnswer.None,
+  default: TestFrameworkInfo.None,
   message: "Will you be writing tests?",
   type: "list",
-  choices: Object.values(TestFrameworkAnswer),
+  choices: Object.values(TestFrameworkInfo),
 };
 
-const questions: QuestionCollection<AnswerObject> = [
+const questions: QuestionCollection<ProjectInfoObject> = [
   TypescriptQuestion,
   FrontFrameworkQuestion,
   FormatterQuestion,
@@ -61,6 +61,6 @@ const questions: QuestionCollection<AnswerObject> = [
   TestFrameworkQuestion,
 ];
 
-export async function promptGeneratorUserQuestions(): Promise<AnswerObject> {
+export async function promptGeneratorUserQuestions(): Promise<ProjectInfoObject> {
   return inquirer.prompt(questions);
 }

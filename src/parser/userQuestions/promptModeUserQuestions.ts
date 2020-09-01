@@ -1,14 +1,14 @@
 import inquirer from "inquirer";
-import { ModeAnswer, ModeAnswerObject } from "types";
+import { ModeInfo, ModeInfoObject } from "types";
 
-const ModeQuestion: inquirer.ListQuestion<ModeAnswerObject> = {
+const ModeQuestion: inquirer.ListQuestion<ModeInfoObject> = {
   name: "mode",
-  default: ModeAnswer.Generator,
+  default: ModeInfo.Generator,
   message: "This tool can either generate a new configuration or upgrade an already existing one. Choose your mode.",
   type: "list",
-  choices: Object.values(ModeAnswer),
+  choices: Object.values(ModeInfo),
 };
 
-export async function promptModeUserQuestions(): Promise<ModeAnswerObject> {
+export async function promptModeUserQuestions(): Promise<ModeInfoObject> {
   return inquirer.prompt(ModeQuestion);
 }

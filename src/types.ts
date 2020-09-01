@@ -1,61 +1,61 @@
-export enum FormatterAnswer {
+export enum FormatterInfo {
   None = "None",
   Prettier = "Prettier",
 }
 
-export interface FormatterAnswerObject {
-  formatter: FormatterAnswer;
+export interface FormatterInfoObject {
+  formatter: FormatterInfo;
 }
 
-export enum FrontFrameworkAnswer {
+export enum FrontFrameworkInfo {
   None = "None",
   Vue = "Vue",
   React = "React",
 }
 
-export interface FrontFrameworkAnswerObject {
-  frontFramework: FrontFrameworkAnswer;
+export interface FrontFrameworkInfoObject {
+  frontFramework: FrontFrameworkInfo;
 }
 
-export enum TypescriptAnswer {
+export enum TypescriptInfo {
   None = "None",
   WithTypeChecking = "With type checking",
   NoTypeChecking = "Without type checking",
 }
 
-export interface TypescriptAnswerObject {
-  typescript: TypescriptAnswer;
+export interface TypescriptInfoObject {
+  typescript: TypescriptInfo;
 }
 
-export enum EnvAnswer {
+export enum EnvInfo {
   Browser = "Browser",
   Node = "Node",
 }
 
-export interface EnvAnswerObject {
-  env: EnvAnswer[];
+export interface EnvInfoObject {
+  env: EnvInfo[];
 }
 
-export enum TestFrameworkAnswer {
+export enum TestFrameworkInfo {
   None = "None",
   Jest = "Jest",
 }
 
-export interface TestFrameworkAnswerObject {
-  test: TestFrameworkAnswer;
+export interface TestFrameworkInfoObject {
+  test: TestFrameworkInfo;
 }
 
-export type AnswerObject = FormatterAnswerObject &
-  FrontFrameworkAnswerObject &
-  TypescriptAnswerObject &
-  EnvAnswerObject &
-  TestFrameworkAnswerObject;
+export type ProjectInfoObject = FormatterInfoObject &
+  FrontFrameworkInfoObject &
+  TypescriptInfoObject &
+  EnvInfoObject &
+  TestFrameworkInfoObject;
 
-export enum ModeAnswer {
+export enum ModeInfo {
   Generator = "Generator Mode",
   Upgrade = "Upgrade Mode",
 }
 
-export interface ModeAnswerObject {
-  mode: ModeAnswer;
+export interface ModeInfoObject {
+  mode: ModeInfo;
 }

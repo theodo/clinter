@@ -1,5 +1,5 @@
 import { generateEslintConfig } from "generator/generate";
-import { FormatterAnswer, FrontFrameworkAnswer, TestFrameworkAnswer, TypescriptAnswer } from "types";
+import { FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo } from "types";
 import { eslintBaseConfig } from "generator/baseConfigs";
 
 describe("generateEslintConfig", () => {
@@ -8,11 +8,11 @@ describe("generateEslintConfig", () => {
       it("should return a simple eslint configuration when no special answers are provided", () => {
         expect(
           generateEslintConfig({
-            typescript: TypescriptAnswer.None,
+            typescript: TypescriptInfo.None,
             env: [],
-            formatter: FormatterAnswer.None,
-            frontFramework: FrontFrameworkAnswer.None,
-            test: TestFrameworkAnswer.None,
+            formatter: FormatterInfo.None,
+            frontFramework: FrontFrameworkInfo.None,
+            test: TestFrameworkInfo.None,
           })
         ).toStrictEqual(eslintBaseConfig);
       });
@@ -21,11 +21,11 @@ describe("generateEslintConfig", () => {
     describe("TypeScript", () => {
       it("should return a TS configuration with type checking", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.WithTypeChecking,
+          typescript: TypescriptInfo.WithTypeChecking,
           env: [],
-          formatter: FormatterAnswer.None,
-          frontFramework: FrontFrameworkAnswer.None,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.None,
+          frontFramework: FrontFrameworkInfo.None,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
@@ -35,11 +35,11 @@ describe("generateEslintConfig", () => {
 
       it("should return a TS configuration without type checking", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.NoTypeChecking,
+          typescript: TypescriptInfo.NoTypeChecking,
           env: [],
-          formatter: FormatterAnswer.None,
-          frontFramework: FrontFrameworkAnswer.None,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.None,
+          frontFramework: FrontFrameworkInfo.None,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
@@ -48,11 +48,11 @@ describe("generateEslintConfig", () => {
 
       it("should return a TS configuration with prettier formatter", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.WithTypeChecking,
+          typescript: TypescriptInfo.WithTypeChecking,
           env: [],
-          formatter: FormatterAnswer.Prettier,
-          frontFramework: FrontFrameworkAnswer.None,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.Prettier,
+          frontFramework: FrontFrameworkInfo.None,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
@@ -63,11 +63,11 @@ describe("generateEslintConfig", () => {
     describe("React", () => {
       it("should return a react configuration", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.None,
+          typescript: TypescriptInfo.None,
           env: [],
-          formatter: FormatterAnswer.None,
-          frontFramework: FrontFrameworkAnswer.React,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.None,
+          frontFramework: FrontFrameworkInfo.React,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
@@ -76,11 +76,11 @@ describe("generateEslintConfig", () => {
 
       it("should return a react configuration with prettier formatter", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.None,
+          typescript: TypescriptInfo.None,
           env: [],
-          formatter: FormatterAnswer.Prettier,
-          frontFramework: FrontFrameworkAnswer.React,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.Prettier,
+          frontFramework: FrontFrameworkInfo.React,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
@@ -91,11 +91,11 @@ describe("generateEslintConfig", () => {
     describe("React", () => {
       it("should return a Vue configuration", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.None,
+          typescript: TypescriptInfo.None,
           env: [],
-          formatter: FormatterAnswer.None,
-          frontFramework: FrontFrameworkAnswer.Vue,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.None,
+          frontFramework: FrontFrameworkInfo.Vue,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
@@ -104,11 +104,11 @@ describe("generateEslintConfig", () => {
 
       it("should return a Vue configuration with prettier formatter", () => {
         const config = generateEslintConfig({
-          typescript: TypescriptAnswer.None,
+          typescript: TypescriptInfo.None,
           env: [],
-          formatter: FormatterAnswer.Prettier,
-          frontFramework: FrontFrameworkAnswer.Vue,
-          test: TestFrameworkAnswer.None,
+          formatter: FormatterInfo.Prettier,
+          frontFramework: FrontFrameworkInfo.Vue,
+          test: TestFrameworkInfo.None,
         });
 
         expect(config).toMatchSnapshot();
