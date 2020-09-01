@@ -2,7 +2,7 @@ import { getPackageTool, PackageTool } from "parser/packageTool";
 import { exec } from "child-process-promise";
 
 function formatDependencies(dependencies: string[]): string {
-  return dependencies.reduce((dependencyString, dependency) => `${dependencyString} ${dependency}`, "");
+  return dependencies.reduce((dependencyString, dependency) => `${dependencyString} ${dependency}@latest`, "");
 }
 
 function installDependenciesYarn(dependencies: string[], dirpath: string): Promise<void> {
