@@ -59,3 +59,8 @@ export enum ClinterModeInfo {
 export interface ClinterModeInfoObject {
   mode: ClinterModeInfo;
 }
+
+export interface ClinterSettings {
+  generatorConfig: ProjectInfoObject;
+  modeConfig: ClinterModeInfoObject;
+}

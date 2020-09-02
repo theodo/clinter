@@ -3,12 +3,18 @@ import path from "path";
 import fs from "fs";
 import { exec } from "child-process-promise";
 
-import { InputConfig } from "parser/clinter-settings-input/types";
 import { LinterConfigs } from "parser/linter-config-parser/types";
-import { ClinterModeInfo, FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo } from "types";
+import {
+  ClinterModeInfo,
+  ClinterSettings,
+  FormatterInfo,
+  FrontFrameworkInfo,
+  TestFrameworkInfo,
+  TypescriptInfo,
+} from "types";
 
 export interface TestService {
-  loadInputConfig: (config: InputConfig) => void;
+  loadInputConfig: (config: ClinterSettings) => void;
   loadInitialLinterConfig: (config: string) => void;
   loadInitialParsedLinterConfig: (config: LinterConfigs) => void;
   installPackages: (packages: string[]) => Promise<void>;
@@ -27,7 +33,7 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
 
   fs.mkdirSync(dirPath);
 
-  const loadInputConfig = (config: InputConfig) => {
+  const loadInputConfig = (config: ClinterSettings) => {
     fs.writeFileSync(inputConfigPath, JSON.stringify(config, null, 2));
   };
 
@@ -75,7 +81,7 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
   };
 }
 
-export const defaultInputConfig: InputConfig = {
+export const defaultInputConfig: ClinterSettings = {
   modeConfig: {
     mode: ClinterModeInfo.Generator,
   },

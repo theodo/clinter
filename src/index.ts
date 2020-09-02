@@ -10,7 +10,7 @@ import { createDefaultConfigContainer, findESLintConfigurationFiles } from "pars
 import { ClinterModeInfo, ProjectInfoObject } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
-import { parseInputConfigFile, parseInputConfigQuestions } from "parser/clinter-settings";
+import { getClinterSettings } from "parser/clinter-settings";
 
 async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Generating ESLint configuration ...");
@@ -51,8 +51,7 @@ async function main() {
     })
   );
 
-  const { generatorConfig, modeConfig } =
-    inputFile !== undefined ? parseInputConfigFile(inputFile) : await parseInputConfigQuestions();
+  const { generatorConfig, modeConfig } = await getClinterSettings(inputFile, dirPath);
 
   /**
    * Generate new ESLint configuration or adapt from existing one

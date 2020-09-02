@@ -1,12 +1,11 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
-import { InputConfig } from "parser/clinter-settings-input/types";
-import { TypescriptInfo } from "types";
+import { ClinterSettings, TypescriptInfo } from "types";
 
 describe("TypeScript configuration Generator Mode", () => {
   const testService = makeTestService();
 
   it("should return a typescript eslint configuration with no type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
@@ -22,7 +21,7 @@ describe("TypeScript configuration Generator Mode", () => {
   });
 
   it("should return a typescript eslint configuration with type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,

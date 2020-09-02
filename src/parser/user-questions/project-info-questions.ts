@@ -2,7 +2,7 @@ import inquirer from "inquirer";
 import { ProjectInfoRetrievalMode, ProjectInfoRetrievalModeObject } from "parser/project-info-inferer/types";
 
 const ModeQuestion: inquirer.ListQuestion<ProjectInfoRetrievalModeObject> = {
-  name: "Project Settings Retrieval Mode",
+  name: "mode",
   default: ProjectInfoRetrievalMode.Automatic,
   message: "Choose how clinter should retrieve project settings",
   type: "list",

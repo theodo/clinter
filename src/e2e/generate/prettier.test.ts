@@ -1,12 +1,11 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
-import { InputConfig } from "parser/clinter-settings-input/types";
-import { FormatterInfo, FrontFrameworkInfo, TypescriptInfo } from "types";
+import { ClinterSettings, FormatterInfo, FrontFrameworkInfo, TypescriptInfo } from "types";
 
 describe("Prettier eslint configuration Generator Mode", () => {
   const testService = makeTestService();
 
   it("should return a prettier eslint configuration", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
@@ -22,7 +21,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
   });
 
   it("should return a prettier typescript eslint configuration with type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
@@ -39,7 +38,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
   });
 
   it("should return a prettier react eslint configuration with type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
@@ -56,7 +55,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
   });
 
   it("should return a prettier react typescript eslint configuration with type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
@@ -74,7 +73,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
   });
 
   it("should return a prettier vue eslint configuration with type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
@@ -91,7 +90,7 @@ describe("Prettier eslint configuration Generator Mode", () => {
   });
 
   it("should return a prettier vue typescript eslint configuration with type checking", async () => {
-    const inputConfig: InputConfig = {
+    const inputConfig: ClinterSettings = {
       ...defaultInputConfig,
       generatorConfig: {
         ...defaultInputConfig.generatorConfig,
