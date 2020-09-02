@@ -36,9 +36,10 @@ async function runUpgradeMode(userAnswers: ProjectInfoObject, dirPath: string) {
 }
 
 async function main() {
-  const { dirPath, inputFile } = yargs.options({
+  const { dirPath, inputFile, auto } = yargs.options({
     dirPath: { type: "string", default: process.cwd(), alias: "path" },
     inputFile: { type: "string" },
+    auto: { type: "boolean" },
   }).argv;
 
   signale.log(
@@ -51,7 +52,7 @@ async function main() {
     })
   );
 
-  const { generatorConfig, modeConfig } = await getClinterSettings(inputFile, dirPath);
+  const { generatorConfig, modeConfig } = await getClinterSettings(inputFile, auto, dirPath);
 
   /**
    * Generate new ESLint configuration or adapt from existing one

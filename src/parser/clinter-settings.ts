@@ -11,7 +11,11 @@ import {
 import { ClinterSettings } from "types";
 import { assertUnreachable } from "utils/utility";
 
-export const getClinterSettings = async (inputFile: string | undefined, dirPath: string): Promise<ClinterSettings> => {
+export const getClinterSettings = async (
+  inputFile: string | undefined,
+  auto: boolean | undefined,
+  dirPath: string
+): Promise<ClinterSettings> => {
   if (inputFile !== undefined) {
     return parseInputConfigFile(inputFile);
   }
