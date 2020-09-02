@@ -1,5 +1,5 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
-import { ModeInfo } from "types";
+import { ClinterModeInfo } from "types";
 
 describe("ESLint Base Configuration Upgrade Mode", () => {
   it.each`
@@ -12,7 +12,7 @@ describe("ESLint Base Configuration Upgrade Mode", () => {
     async ({ filename, initialConfig }: { filename: string; initialConfig: string }) => {
       const testService = makeTestService(filename);
 
-      testService.loadInputConfig({ ...defaultInputConfig, modeConfig: { mode: ModeInfo.Upgrade } });
+      testService.loadInputConfig({ ...defaultInputConfig, modeConfig: { mode: ClinterModeInfo.Upgrade } });
       testService.loadInitialLinterConfig(initialConfig);
       testService.loadInitialLinterConfig;
       await testService.runClinter();

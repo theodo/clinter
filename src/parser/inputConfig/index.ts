@@ -1,2 +1,2 @@
 export { parseInputConfigFile } from "./parseInputConfigFile";
-export { parseInputConfigQuestions } from "./parseInputConfigQuestions";
+export { parseInputConfig as parseInputConfigQuestions } from "./parseInputConfig";

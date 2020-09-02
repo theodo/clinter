@@ -5,7 +5,7 @@ import { exec } from "child-process-promise";
 
 import { InputConfig } from "parser/inputConfig/types";
 import { LinterConfigs } from "parser/linterConfig/types";
-import { FormatterInfo, FrontFrameworkInfo, ModeInfo, TestFrameworkInfo, TypescriptInfo } from "types";
+import { ClinterModeInfo, FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo } from "types";
 
 export interface TestService {
   loadInputConfig: (config: InputConfig) => void;
@@ -77,7 +77,7 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
 
 export const defaultInputConfig: InputConfig = {
   modeConfig: {
-    mode: ModeInfo.Generator,
+    mode: ClinterModeInfo.Generator,
   },
   generatorConfig: {
     typescript: TypescriptInfo.None,

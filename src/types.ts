@@ -51,11 +51,11 @@ export type ProjectInfoObject = FormatterInfoObject &
   EnvInfoObject &
   TestFrameworkInfoObject;
 
-export enum ModeInfo {
+export enum ClinterModeInfo {
   Generator = "Generator Mode",
   Upgrade = "Upgrade Mode",
 }
 
-export interface ModeInfoObject {
-  mode: ModeInfo;
+export interface ClinterModeInfoObject {
+  mode: ClinterModeInfo;
 }

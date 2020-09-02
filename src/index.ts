@@ -7,7 +7,7 @@ import yargs from "yargs";
 import { generateEslintConfig, getConfigDependencies } from "generator";
 import { writeEslintConfig } from "writer/linterConfig/fileWriter";
 import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linterConfig";
-import { ModeInfo, ProjectInfoObject } from "types";
+import { ClinterModeInfo, ProjectInfoObject } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
 import { parseInputConfigFile, parseInputConfigQuestions } from "parser/inputConfig";
@@ -59,10 +59,10 @@ async function main() {
    */
 
   switch (modeConfig.mode) {
-    case ModeInfo.Generator:
+    case ClinterModeInfo.Generator:
       return runGeneratorMode(generatorConfig, dirPath);
 
-    case ModeInfo.Upgrade:
+    case ClinterModeInfo.Upgrade:
       return runUpgradeMode(generatorConfig, dirPath);
 
     default:

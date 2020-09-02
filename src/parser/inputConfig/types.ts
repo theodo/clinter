@@ -1,6 +1,6 @@
-import { ModeInfoObject, ProjectInfoObject } from "types";
+import { ClinterModeInfoObject, ProjectInfoObject } from "types";
 
 export interface InputConfig {
   generatorConfig: ProjectInfoObject;
-  modeConfig: ModeInfoObject;
+  modeConfig: ClinterModeInfoObject;
 }

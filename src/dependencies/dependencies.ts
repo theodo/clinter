@@ -1,4 +1,4 @@
-import { getPackageTool, PackageTool } from "parser/packageTool";
+import { getPackageTool, PackageTool } from "parser/package-tool";
 import { exec } from "child-process-promise";
 
 function formatDependencies(dependencies: string[]): string {

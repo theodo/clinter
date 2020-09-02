@@ -1,1 +1,1 @@
-export { promptProjectInfoRetrievalModeQuestions } from "./promptProjectInfoModeQuestions";
+export { parseProjectInfo } from "./parseProjectInfo";

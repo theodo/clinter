@@ -1,3 +1,5 @@
+import { ProjectInfoObject } from "types";
+
 export enum ProjectInfoRetrievalMode {
   Automatic = "automatic",
   Manual = "manual",
@@ -6,3 +8,5 @@ export enum ProjectInfoRetrievalMode {
 export interface ProjectInfoRetrievalModeObject {
   mode: ProjectInfoRetrievalMode;
 }
+
+export type ProjectInfoParser = (projectInfo: ProjectInfoObject) => ProjectInfoObject;
