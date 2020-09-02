@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/theodo/clinter/compare/v1.5.1...v1.6.0) (2020-09-02)
+
+
+### Features
+
+* add auto option ([cd53a2a](https://github.com/theodo/clinter/commit/cd53a2a45be06a86ef45a238e6315af103ea31a7))
+* add project config inference ([f784039](https://github.com/theodo/clinter/commit/f7840392cfbc74078e9fbccf09c5450c2f62a82b))
+
 ## [1.5.1](https://github.com/theodo/clinter/compare/v1.5.0...v1.5.1) (2020-09-01)
 
 
