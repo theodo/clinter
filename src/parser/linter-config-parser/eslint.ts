@@ -1,6 +1,6 @@
 import { Linter } from "eslint";
-import { ConfigContainer, ConfigFileObject, FileExtension } from "parser/linterConfig/types";
-import { parseLinterConfigFiles } from "parser/linterConfig/parseLinterConfigFiles";
+import { ConfigContainer, ConfigFileObject, FileExtension } from "parser/linter-config-parser/types";
+import { parseLinterConfigFiles } from "parser/linter-config-parser/linter-config-parser";
 
 const possibleESLintFiles: ConfigFileObject[] = [
   { name: ".eslintrc", extension: FileExtension.NONE },

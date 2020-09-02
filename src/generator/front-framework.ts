@@ -8,7 +8,7 @@ import {
   reactTypescriptESLintConfig,
   vueESLintConfig,
   vueESLintDependencies,
-} from "generator/baseConfigs";
+} from "generator/base-configs";
 
 export const generateFrontFrameworkESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.frontFramework) {

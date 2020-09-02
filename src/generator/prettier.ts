@@ -8,7 +8,7 @@ import {
   prettierReactESLintConfig,
   prettierTypescriptESLintConfig,
   prettierVueESLintConfig,
-} from "generator/baseConfigs";
+} from "generator/base-configs";
 
 const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {

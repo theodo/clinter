@@ -1,4 +1,4 @@
-import { ProjectInfoParser } from "parser/projectInfo/types";
+import { ProjectInfoInferer } from "parser/project-info-inferer/types";
 import path from "path";
 import { existsSync } from "fs";
 import {
@@ -24,7 +24,7 @@ const makeDefaultProjectInfo = (): ProjectInfoObject => ({
   typescript: TypescriptInfo.None,
 });
 
-const parseTypescriptInfo = (dirPath: string): ProjectInfoParser => (projectInfo) => {
+const inferTypescriptInfo = (dirPath: string): ProjectInfoInferer => (projectInfo) => {
   const isProjectUsingTypescript = existsSync(path.join(dirPath, TYPESCRIPT_CONFIG_FILE));
   return {
     ...projectInfo,
@@ -32,7 +32,7 @@ const parseTypescriptInfo = (dirPath: string): ProjectInfoParser => (projectInfo
   };
 };
 
-const parseTestEnvInfo = (projectDependencies: string[]): ProjectInfoParser => (projectInfo) => {
+const inferTestEnvInfo = (projectDependencies: string[]): ProjectInfoInferer => (projectInfo) => {
   const isProjectUsingJest = projectDependencies.includes(JEST_DEPENDENCY);
   return {
     ...projectInfo,
@@ -40,7 +40,7 @@ const parseTestEnvInfo = (projectDependencies: string[]): ProjectInfoParser => (
   };
 };
 
-const parseFrontFrameworkInfo = (projectDependencies: string[]): ProjectInfoParser => (projectInfo) => {
+const inferFrontFrameworkInfo = (projectDependencies: string[]): ProjectInfoInferer => (projectInfo) => {
   const isProjectUsingVue = projectDependencies.includes(VUE_DEPENDENCY);
   const isProjectUsingReact = projectDependencies.includes(REACT_DEPENDENCY);
 
@@ -54,30 +54,30 @@ const parseFrontFrameworkInfo = (projectDependencies: string[]): ProjectInfoPars
   };
 };
 
-const parseFormatterInfo = (projectDependencies: string[]): ProjectInfoParser => (projectInfo) => {
+const inferFormatterInfo = (projectDependencies: string[]): ProjectInfoInferer => (projectInfo) => {
   return {
     ...projectInfo,
     formatter: FormatterInfo.Prettier,
   };
 };
 
-const parseEnvInfo = (): ProjectInfoParser => (projectInfo) => {
+const inferEnvInfo = (): ProjectInfoInferer => (projectInfo) => {
   return {
     ...projectInfo,
     env: [EnvInfo.Browser, EnvInfo.Node],
   };
 };
 
-export interface ParseProjectInfoParams {
+export interface InferProjectInfoParams {
   dirPath: string;
   projectDependencies: string[];
 }
 
-export const parseProjectInfo = ({ dirPath, projectDependencies }: ParseProjectInfoParams): ProjectInfoObject =>
+export const inferProjectInfo = ({ dirPath, projectDependencies }: InferProjectInfoParams): ProjectInfoObject =>
   pipe(
-    parseTypescriptInfo(dirPath),
-    parseTestEnvInfo(projectDependencies),
-    parseFrontFrameworkInfo(projectDependencies),
-    parseFormatterInfo(projectDependencies),
-    parseEnvInfo()
+    inferTypescriptInfo(dirPath),
+    inferTestEnvInfo(projectDependencies),
+    inferFrontFrameworkInfo(projectDependencies),
+    inferFormatterInfo(projectDependencies),
+    inferEnvInfo()
   )(makeDefaultProjectInfo());

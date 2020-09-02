@@ -1,5 +1,5 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
-import { InputConfig } from "parser/inputConfig/types";
+import { InputConfig } from "parser/clinter-settings-input/types";
 import { TypescriptInfo } from "types";
 
 describe("TypeScript configuration Generator Mode", () => {

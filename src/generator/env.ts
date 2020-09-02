@@ -1,6 +1,6 @@
 import { ESLintGenerator } from "generator/types";
 import { identity, pipe } from "utils/utility";
-import { browserESLintEnvConfig, nodeESLintEnvConfig } from "generator/baseConfigs";
+import { browserESLintEnvConfig, nodeESLintEnvConfig } from "generator/base-configs";
 import { concatConfig } from "generator/generate";
 import { EnvInfo } from "types";
 

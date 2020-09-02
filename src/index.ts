@@ -5,12 +5,12 @@ import boxen from "boxen";
 import yargs from "yargs";
 
 import { generateEslintConfig, getConfigDependencies } from "generator";
-import { writeEslintConfig } from "writer/linterConfig/fileWriter";
-import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linterConfig";
+import { writeEslintConfig } from "writer/linter-config/fileWriter";
+import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linter-config-parser";
 import { ClinterModeInfo, ProjectInfoObject } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
-import { parseInputConfigFile, parseInputConfigQuestions } from "parser/inputConfig";
+import { parseInputConfigFile, parseInputConfigQuestions } from "parser/clinter-settings";
 
 async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Generating ESLint configuration ...");

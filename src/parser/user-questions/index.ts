@@ -1,3 +1,3 @@
-export { promptGeneratorUserQuestions } from "./promptGeneratorUserQuestions";
-export { promptModeUserQuestions } from "./promptModeUserQuestions";
-export { promptProjectInfoRetrievalModeQuestions } from "./promptProjectInfoModeQuestions";
+export { promptGeneratorUserQuestions } from "./generator-questions";
+export { promptModeUserQuestions } from "./clinter-mode-questions";
+export { promptProjectInfoRetrievalModeQuestions } from "./project-info-questions";

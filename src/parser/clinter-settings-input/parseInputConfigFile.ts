@@ -1,7 +1,7 @@
 import signale from "signale";
 import { existsSync, readFileSync } from "fs";
 
-import { InputConfig } from "parser/inputConfig/types";
+import { InputConfig } from "parser/clinter-settings-input/types";
 
 export function parseInputConfigFile(inputFileName: string): InputConfig {
   if (!existsSync(inputFileName)) {

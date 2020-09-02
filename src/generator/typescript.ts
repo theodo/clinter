@@ -6,7 +6,7 @@ import {
   typescriptBaseEslintConfig,
   typescriptESLintDependencies,
   typescriptTypeEslintConfig,
-} from "generator/baseConfigs/typescriptEslintConfig";
+} from "generator/base-configs/typescriptEslintConfig";
 
 export const generateTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {

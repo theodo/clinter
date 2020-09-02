@@ -1,1 +1,0 @@
-export { parseProjectInfo } from "./parseProjectInfo";

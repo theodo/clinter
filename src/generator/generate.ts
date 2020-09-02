@@ -1,10 +1,10 @@
 import { Linter } from "eslint";
-import { generateTestESLintConfig, getTestESLintDependencies } from "generator/testFramework";
+import { generateTestESLintConfig, getTestESLintDependencies } from "generator/test-framework";
 import { generateTypescriptESLintConfig, getTypescriptESLintDependencies } from "generator/typescript";
 import { generateEnvESLintConfig } from "generator/env";
-import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies } from "generator/frontFramework";
+import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies } from "generator/front-framework";
 import { generatePrettierESlintConfig, getPrettierESLintDependencies } from "generator/prettier";
-import { eslintBaseConfig, eslintBaseDependencies } from "generator/baseConfigs/eslintBaseConfig";
+import { eslintBaseConfig, eslintBaseDependencies } from "generator/base-configs/eslintBaseConfig";
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { mergeArrays, pipe } from "utils/utility";
 import { ProjectInfoObject } from "types";

@@ -3,8 +3,8 @@ import path from "path";
 import fs from "fs";
 import { exec } from "child-process-promise";
 
-import { InputConfig } from "parser/inputConfig/types";
-import { LinterConfigs } from "parser/linterConfig/types";
+import { InputConfig } from "parser/clinter-settings-input/types";
+import { LinterConfigs } from "parser/linter-config-parser/types";
 import { ClinterModeInfo, FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo } from "types";
 
 export interface TestService {

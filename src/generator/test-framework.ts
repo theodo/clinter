@@ -2,7 +2,7 @@ import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { identity } from "utils/utility";
 import { concatConfig, concatDependencies } from "generator/generate";
 import { TestFrameworkInfo } from "types";
-import { jestESLintDependencies, jestESLintEnvConfig } from "generator/baseConfigs";
+import { jestESLintDependencies, jestESLintEnvConfig } from "generator/base-configs";
 
 export const generateTestESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.test) {

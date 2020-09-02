@@ -1,5 +1,5 @@
 import { defaultInputConfig, makeTestService } from "e2e/helpers";
-import { InputConfig } from "parser/inputConfig/types";
+import { InputConfig } from "parser/clinter-settings-input/types";
 import { FrontFrameworkInfo, TypescriptInfo } from "types";
 
 describe("Vue configuration Generator Mode", () => {

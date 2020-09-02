@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { ProjectInfoRetrievalMode, ProjectInfoRetrievalModeObject } from "parser/projectInfo/types";
+import { ProjectInfoRetrievalMode, ProjectInfoRetrievalModeObject } from "parser/project-info-inferer/types";
 
 const ModeQuestion: inquirer.ListQuestion<ProjectInfoRetrievalModeObject> = {
   name: "Project Settings Retrieval Mode",

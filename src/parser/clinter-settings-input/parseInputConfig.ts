@@ -5,8 +5,8 @@ import {
   promptModeUserQuestions,
   promptProjectInfoRetrievalModeQuestions,
 } from "parser/user-questions";
-import { InputConfig } from "parser/inputConfig/types";
-import { ProjectInfoRetrievalMode } from "parser/projectInfo/types";
+import { InputConfig } from "parser/clinter-settings-input/types";
+import { ProjectInfoRetrievalMode } from "parser/project-info-inferer/types";
 
 export async function parseInputConfig(): Promise<InputConfig> {
   const projectInfoRetrievalMode = await promptProjectInfoRetrievalModeQuestions();

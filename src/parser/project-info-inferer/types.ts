@@ -9,4 +9,4 @@ export interface ProjectInfoRetrievalModeObject {
   mode: ProjectInfoRetrievalMode;
 }
 
-export type ProjectInfoParser = (projectInfo: ProjectInfoObject) => ProjectInfoObject;
+export type ProjectInfoInferer = (projectInfo: ProjectInfoObject) => ProjectInfoObject;
