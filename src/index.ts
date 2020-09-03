@@ -11,6 +11,7 @@ import { ClinterModeInfo, ProjectInfoObject } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
 import { getClinterSettings } from "parser/clinter-settings";
+import { logClinterSettings } from "logger/clinter-settings";
 
 async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Generating ESLint configuration ...");
@@ -43,7 +44,7 @@ async function main() {
   }).argv;
 
   signale.log(
-    boxen("Welcome to the ESLint Config Generator", {
+    boxen("Welcome to the Clinter ! \n A simple linter config generator and upgrader", {
       padding: 1,
       borderColor: "green",
       align: "center",
@@ -52,7 +53,10 @@ async function main() {
     })
   );
 
+  signale.info("Retrieveing project info and settings ...");
   const { generatorConfig, modeConfig } = await getClinterSettings(inputFile, auto, dirPath);
+  signale.success("Project settings successfully retrieved !");
+  logClinterSettings({ generatorConfig, modeConfig });
 
   /**
    * Generate new ESLint configuration or adapt from existing one

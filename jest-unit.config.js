@@ -11,6 +11,7 @@ module.exports = {
     "^dependencies/(.*)$": "<rootDir>/src/dependencies/$1",
     "^fileWriter/(.*)$": "<rootDir>/src/fileWriter/$1",
     "^parser/(.*)$": "<rootDir>/src/parser/$1",
+    "^logger/(.*)$": "<rootDir>/src/logger/$1",
     "^utils/(.*)$": "<rootDir>/src/utils/$1",
     "^types": "<rootDir>/src/types.ts",
   },
