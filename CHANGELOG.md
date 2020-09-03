@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/theodo/clinter/compare/v1.6.0...v1.7.0) (2020-09-03)
+
+
+### Features
+
+* **log:** improve logger ([2586d5d](https://github.com/theodo/clinter/commit/2586d5d447006a890db5d362d1af2fd138bb69ac))
+
 # [1.6.0](https://github.com/theodo/clinter/compare/v1.5.1...v1.6.0) (2020-09-02)
 
 
