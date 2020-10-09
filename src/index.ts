@@ -37,6 +37,15 @@ async function runUpgradeMode(userAnswers: ProjectInfoObject, dirPath: string) {
 }
 
 async function main() {
+  // Check node version
+  const nodeVersion = parseFloat(process.versions.node);
+  if (nodeVersion < 12) {
+    signale.error(
+      `Node version is not compatible with clinter. Required version: > 12. Installed version: ${nodeVersion}`
+    );
+    process.exit(0);
+  }
+
   const { dirPath, inputFile, auto } = yargs.options({
     dirPath: { type: "string", default: process.cwd(), alias: "path" },
     inputFile: { type: "string" },
