@@ -166,10 +166,12 @@ Object {
   "extends": Array [
     "eslint:recommended",
     "react-app",
+    "plugin:jsx-a11y/recommended",
   ],
   "parserOptions": Object {},
   "plugins": Array [
     "import",
+    "jsx-a11y",
   ],
   "root": true,
   "rules": Object {
@@ -249,12 +251,14 @@ Object {
   "extends": Array [
     "eslint:recommended",
     "react-app",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "prettier/react",
   ],
   "parserOptions": Object {},
   "plugins": Array [
     "import",
+    "jsx-a11y",
   ],
   "root": true,
   "rules": Object {

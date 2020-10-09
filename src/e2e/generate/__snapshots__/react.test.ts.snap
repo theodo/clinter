@@ -6,10 +6,12 @@ Object {
   "extends": Array [
     "eslint:recommended",
     "react-app",
+    "plugin:jsx-a11y/recommended",
   ],
   "parserOptions": Object {},
   "plugins": Array [
     "import",
+    "jsx-a11y",
   ],
   "root": true,
   "rules": Object {
@@ -91,6 +93,7 @@ Object {
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "react-app",
+    "plugin:jsx-a11y/recommended",
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": Object {
@@ -98,6 +101,7 @@ Object {
   },
   "plugins": Array [
     "import",
+    "jsx-a11y",
   ],
   "root": true,
   "rules": Object {
