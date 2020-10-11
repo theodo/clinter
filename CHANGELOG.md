@@ -1,3 +1,13 @@
+# [1.8.0](https://github.com/theodo/clinter/compare/v1.7.0...v1.8.0) (2020-10-11)
+
+
+### Features
+
+* **migration:** add migration results ([a16afa9](https://github.com/theodo/clinter/commit/a16afa9401c1179284194a8cfdefd85a0e05a412))
+* **migration:** add option to insert disable comments ([716b106](https://github.com/theodo/clinter/commit/716b10604e8f1c8d374a7cc96bbdef3914741fd9))
+* add error hen using wrong node version ([5b93da2](https://github.com/theodo/clinter/commit/5b93da2910628076120447ae9a327e5cfdec87c2))
+* **react:** add accessibility rules ([807592e](https://github.com/theodo/clinter/commit/807592e480d7a6d19cfad5c4a2c9e23bfb192a8e))
+
 # [1.7.0](https://github.com/theodo/clinter/compare/v1.6.0...v1.7.0) (2020-09-03)
 
 
