@@ -60,7 +60,12 @@ export interface ClinterModeInfoObject {
   mode: ClinterModeInfo;
 }
 
+export interface MigrationModeInfoObject {
+  migration: boolean;
+}
+
 export interface ClinterSettings {
   generatorConfig: ProjectInfoObject;
   modeConfig: ClinterModeInfoObject;
+  migrationModeConfig: MigrationModeInfoObject;
 }
