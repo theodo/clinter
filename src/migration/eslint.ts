@@ -26,7 +26,9 @@ const insertErrorIgnoreLines = (sourceLines: string[], errorsByLine: Record<numb
   ((Object.entries(errorsByLine) as unknown) as [number, Linter.LintMessage[]][])
     .sort(([lineA], [lineB]) => lineB - lineA)
     .reduce((source, [lineNumber, errors]) => {
-      const mappedErrors = errors.filter((error) => error.severity === 2).map((error) => error.ruleId);
+      const mappedErrors = errors
+        .filter((error) => error.severity === 2 && error.fix === undefined)
+        .map((error) => error.ruleId);
 
       if (mappedErrors.length === 0) {
         return source;
