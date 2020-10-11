@@ -5,6 +5,7 @@ import { inferProjectInfo } from "parser/project-info-inferer";
 import { ProjectInfoRetrievalMode } from "parser/project-info-inferer/types";
 import {
   promptGeneratorUserQuestions,
+  promptMigrationModeQuestions,
   promptModeUserQuestions,
   promptProjectInfoRetrievalModeQuestions,
 } from "parser/user-questions";
@@ -29,6 +30,7 @@ export const getClinterSettings = async (
       return {
         modeConfig: inferClinterMode(dirPath),
         generatorConfig: inferProjectInfo({ dirPath, projectDependencies }),
+        migrationModeConfig: await promptMigrationModeQuestions(),
       };
 
     case ProjectInfoRetrievalMode.Manual: {
@@ -37,6 +39,7 @@ export const getClinterSettings = async (
       return {
         generatorConfig,
         modeConfig,
+        migrationModeConfig: await promptMigrationModeQuestions(),
       };
     }
 

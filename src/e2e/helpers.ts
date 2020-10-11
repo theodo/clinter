@@ -92,4 +92,7 @@ export const defaultInputConfig: ClinterSettings = {
     frontFramework: FrontFrameworkInfo.None,
     test: TestFrameworkInfo.None,
   },
+  migrationModeConfig: {
+    migration: false,
+  },
 };

@@ -12,6 +12,7 @@ import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
 import { getClinterSettings } from "parser/clinter-settings";
 import { logClinterSettings } from "logger/clinter-settings";
+import { migrateProjectESLint } from "migration";
 
 async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Generating ESLint configuration ...");
@@ -63,9 +64,9 @@ async function main() {
   );
 
   signale.info("Retrieveing project info and settings ...");
-  const { generatorConfig, modeConfig } = await getClinterSettings(inputFile, auto, dirPath);
+  const { generatorConfig, modeConfig, migrationModeConfig } = await getClinterSettings(inputFile, auto, dirPath);
   signale.success("Project settings successfully retrieved !");
-  logClinterSettings({ generatorConfig, modeConfig });
+  logClinterSettings({ generatorConfig, modeConfig, migrationModeConfig });
 
   /**
    * Generate new ESLint configuration or adapt from existing one
@@ -73,13 +74,24 @@ async function main() {
 
   switch (modeConfig.mode) {
     case ClinterModeInfo.Generator:
-      return runGeneratorMode(generatorConfig, dirPath);
+      await runGeneratorMode(generatorConfig, dirPath);
+      break;
 
     case ClinterModeInfo.Upgrade:
-      return runUpgradeMode(generatorConfig, dirPath);
+      await runUpgradeMode(generatorConfig, dirPath);
+      break;
 
     default:
       assertUnreachable(modeConfig.mode);
+  }
+
+  /**
+   * Migrate the project by ignoring all errors
+   */
+  if (migrationModeConfig.migration) {
+    signale.info("Inserting ignore comments to ease project migration ...");
+    await migrateProjectESLint(dirPath);
+    signale.success("Ignore comments sucessfully inserted !");
   }
 }
 
