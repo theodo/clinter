@@ -1,5 +1,6 @@
 import { ESLint, Linter } from "eslint";
 import fs from "fs";
+import { MigrationResults } from "migration/types";
 
 const getErrors = async (dirPath: string): Promise<ESLint.LintResult[]> => {
   const eslint = new ESLint({
@@ -55,10 +56,21 @@ const insertIgnoreLinesInFile = (filePath: string, fileErrors: Linter.LintMessag
   fs.writeFileSync(filePath, newSource);
 };
 
-export const migrateProject = async (dirPath: string): Promise<void> => {
+export const migrateProject = async (dirPath: string): Promise<MigrationResults> => {
   const errors = await getErrors(dirPath);
 
-  errors.forEach((error) => {
-    insertIgnoreLinesInFile(error.filePath, error.messages);
-  });
+  return errors.reduce(
+    (results: MigrationResults, error) => {
+      insertIgnoreLinesInFile(error.filePath, error.messages);
+
+      return {
+        errorCount: results.errorCount + error.errorCount,
+        fixableErrorCount: results.fixableErrorCount + error.fixableErrorCount,
+      };
+    },
+    {
+      errorCount: 0,
+      fixableErrorCount: 0,
+    }
+  );
 };

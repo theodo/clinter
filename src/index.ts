@@ -90,8 +90,9 @@ async function main() {
    */
   if (migrationModeConfig.migration) {
     signale.info("Inserting ignore comments to ease project migration ...");
-    await migrateProjectESLint(dirPath);
-    signale.success("Ignore comments sucessfully inserted !");
+    const { errorCount, fixableErrorCount } = await migrateProjectESLint(dirPath);
+    signale.success(`Ignore comments sucessfully inserted for ${errorCount - fixableErrorCount} eslint errors !`);
+    signale.info(`${fixableErrorCount} fixable errors detected. Run eslint with the --fix option to fix them`);
   }
 }
 
