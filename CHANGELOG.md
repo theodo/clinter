@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/theodo/clinter/compare/v1.8.0...v1.8.1) (2020-10-11)
+
+
+### Bug Fixes
+
+* **deps:** add eslint dep ([2351f8c](https://github.com/theodo/clinter/commit/2351f8cb436f40433eb313e68b27bae30558f135))
+
 # [1.8.0](https://github.com/theodo/clinter/compare/v1.7.0...v1.8.0) (2020-10-11)
 
 
