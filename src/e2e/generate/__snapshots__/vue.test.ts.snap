@@ -7,6 +7,7 @@ Object {
     "eslint:recommended",
     "plugin:vue/essential",
   ],
+  "overrides": Array [],
   "parserOptions": Object {
     "parser": "babel-eslint",
   },
@@ -84,23 +85,39 @@ Object {
   "env": Object {},
   "extends": Array [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:vue/essential",
   ],
-  "parser": "@typescript-eslint/parser",
+  "overrides": Array [
+    Object {
+      "env": Object {},
+      "extends": Array [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      "files": Array [
+        "**/*.ts?(x)",
+      ],
+      "overrides": Array [],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": Object {
+        "project": "tsconfig.json",
+      },
+      "plugins": Array [],
+      "rules": Object {
+        "@typescript-eslint/prefer-nullish-coalescing": "error",
+        "@typescript-eslint/prefer-optional-chain": "error",
+        "@typescript-eslint/strict-boolean-expressions": "error",
+      },
+    },
+  ],
   "parserOptions": Object {
     "parser": "babel-eslint",
-    "project": "tsconfig.json",
   },
   "plugins": Array [
     "import",
   ],
   "root": true,
   "rules": Object {
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/strict-boolean-expressions": "error",
     "complexity": Array [
       "error",
       8,
