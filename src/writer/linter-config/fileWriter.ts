@@ -15,8 +15,15 @@ function writeJSONConfig(path: string, config: unknown) {
   fs.writeFileSync(path, JSON.stringify(config, null, 2));
 }
 
-function writePackageJSONConfig(path: string, config: unknown) {
-  return;
+function writePackageJSONConfig(path: string, attribute: string, config: unknown) {
+  const fileContent = JSON.parse(fs.readFileSync(path, "utf-8")) as Record<string, any>;
+
+  const newFileContent = {
+    ...fileContent,
+    [attribute]: config,
+  };
+
+  fs.writeFileSync(path, JSON.stringify(newFileContent, null, 2));
 }
 
 export function writeEslintConfig(configContainer: ConfigContainer<Linter.Config>): void {
@@ -27,7 +34,11 @@ export function writeEslintConfig(configContainer: ConfigContainer<Linter.Config
     case FileExtension.NONE:
     case FileExtension.JSON:
       if (configContainer.file.attribute !== undefined) {
-        return writePackageJSONConfig(configContainer.file.name, configContainer.config);
+        return writePackageJSONConfig(
+          configContainer.file.name,
+          configContainer.file.attribute,
+          configContainer.config
+        );
       }
       return writeJSONConfig(configContainer.file.name, configContainer.config);
 
