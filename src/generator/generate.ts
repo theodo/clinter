@@ -9,6 +9,30 @@ import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { mergeArrays, pipe } from "utils/utility";
 import { ProjectInfoObject } from "types";
 
+function addEslintOverride(
+  overrides: Linter.ConfigOverride[],
+  newOverride: Linter.ConfigOverride
+): Linter.ConfigOverride[] {
+  if (overrides.length === 0) {
+    return [newOverride];
+  }
+
+  const [currentOverride, ...rest] = overrides;
+
+  if (currentOverride.parser === newOverride.parser) {
+    return [concatConfig(newOverride)(currentOverride), ...rest];
+  }
+
+  return [currentOverride, ...addEslintOverride(rest, newOverride)];
+}
+
+function concatEslintOverrides(
+  prevOverrides: Linter.ConfigOverride[],
+  nextOverrides: Linter.ConfigOverride[]
+): Linter.ConfigOverride[] {
+  return nextOverrides.reduce(addEslintOverride, prevOverrides);
+}
+
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
   return { ...prevObject, ...nextObject };
 }
@@ -20,7 +44,7 @@ function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T):
   return mergeArrays(prevArray, nextArray);
 }
 
-export function concatConfig(config: Linter.Config): (prevConfig: Linter.Config) => Linter.Config {
+export function concatConfig<T extends Linter.Config | Linter.ConfigOverride>(config: T): (prevConfig: T) => T {
   return (prevConfig) => ({
     ...prevConfig,
     ...config,
@@ -29,6 +53,7 @@ export function concatConfig(config: Linter.Config): (prevConfig: Linter.Config)
     plugins: concatESlintArrays(prevConfig.plugins ?? [], config.plugins ?? []),
     parserOptions: concatESlintObjects(prevConfig.parserOptions ?? {}, config.parserOptions ?? {}),
     env: concatESlintObjects(prevConfig.env ?? {}, config.env ?? {}),
+    overrides: concatEslintOverrides(prevConfig.overrides ?? [], config.overrides ?? []),
   });
 }
 

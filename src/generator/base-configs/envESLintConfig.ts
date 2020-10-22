@@ -20,4 +20,4 @@ export const jestESLintEnvConfig: Linter.Config = {
   },
 };
 
-export const jestESLintDependencies = ["eslint-plugin-jest"]
+export const jestESLintDependencies = ["eslint-plugin-jest"];

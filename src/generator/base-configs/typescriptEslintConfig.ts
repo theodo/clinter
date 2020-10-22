@@ -1,4 +1,5 @@
 import { Linter } from "eslint";
+import { ESLintOverrider } from "generator/types";
 
 export const typescriptBaseEslintConfig: Linter.Config = {
   extends: ["plugin:@typescript-eslint/recommended"],
@@ -17,6 +18,10 @@ export const typescriptTypeEslintConfig: Linter.Config = {
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     "@typescript-eslint/strict-boolean-expressions": "error",
   },
+};
+
+export const tsOverrider: ESLintOverrider = {
+  files: ["**/*.ts?(x)"],
 };
 
 export const typescriptESLintDependencies = ["@typescript-eslint/parser", "@typescript-eslint/eslint-plugin"];
