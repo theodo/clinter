@@ -29,8 +29,10 @@ describe("generateEslintConfig", () => {
         });
 
         expect(config).toMatchSnapshot();
-        expect(config.extends).toContain("plugin:@typescript-eslint/recommended");
-        expect(config.extends).toContain("plugin:@typescript-eslint/recommended-requiring-type-checking");
+        expect(config.overrides?.[0].extends).toContain("plugin:@typescript-eslint/recommended");
+        expect(config.overrides?.[0].extends).toContain(
+          "plugin:@typescript-eslint/recommended-requiring-type-checking"
+        );
       });
 
       it("should return a TS configuration without type checking", () => {
@@ -43,7 +45,7 @@ describe("generateEslintConfig", () => {
         });
 
         expect(config).toMatchSnapshot();
-        expect(config.extends).toContain("plugin:@typescript-eslint/recommended");
+        expect(config.overrides?.[0].extends).toContain("plugin:@typescript-eslint/recommended");
       });
 
       it("should return a TS configuration with prettier formatter", () => {

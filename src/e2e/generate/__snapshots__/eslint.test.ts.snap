@@ -6,6 +6,7 @@ Object {
   "extends": Array [
     "eslint:recommended",
   ],
+  "overrides": Array [],
   "parserOptions": Object {},
   "plugins": Array [
     "import",

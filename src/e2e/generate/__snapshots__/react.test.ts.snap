@@ -8,6 +8,7 @@ Object {
     "react-app",
     "plugin:jsx-a11y/recommended",
   ],
+  "overrides": Array [],
   "parserOptions": Object {},
   "plugins": Array [
     "import",
@@ -90,15 +91,33 @@ Object {
   "env": Object {},
   "extends": Array [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "react-app",
     "plugin:jsx-a11y/recommended",
   ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": Object {
-    "project": "tsconfig.json",
-  },
+  "overrides": Array [
+    Object {
+      "env": Object {},
+      "extends": Array [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      "files": Array [
+        "**/*.ts?(x)",
+      ],
+      "overrides": Array [],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": Object {
+        "project": "tsconfig.json",
+      },
+      "plugins": Array [],
+      "rules": Object {
+        "@typescript-eslint/prefer-nullish-coalescing": "error",
+        "@typescript-eslint/prefer-optional-chain": "error",
+        "@typescript-eslint/strict-boolean-expressions": "error",
+      },
+    },
+  ],
+  "parserOptions": Object {},
   "plugins": Array [
     "import",
     "jsx-a11y",
@@ -106,9 +125,6 @@ Object {
   "root": true,
   "rules": Object {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/prefer-nullish-coalescing": "error",
-    "@typescript-eslint/prefer-optional-chain": "error",
-    "@typescript-eslint/strict-boolean-expressions": "error",
     "complexity": Array [
       "error",
       8,

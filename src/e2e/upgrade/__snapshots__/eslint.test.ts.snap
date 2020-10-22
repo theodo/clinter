@@ -8,6 +8,7 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
   \\"extends\\": [
     \\"eslint:recommended\\"
   ],
+  \\"overrides\\": [],
   \\"plugins\\": [
     \\"import\\"
   ],
@@ -82,6 +83,7 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
   \\"extends\\": [
     \\"eslint:recommended\\"
   ],
+  \\"overrides\\": [],
   \\"plugins\\": [
     \\"import\\"
   ],
@@ -156,6 +158,7 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
   \\"extends\\": [
     \\"eslint:recommended\\"
   ],
+  \\"overrides\\": [],
   \\"plugins\\": [
     \\"import\\"
   ],

@@ -5,6 +5,7 @@ export const eslintBaseConfig: Linter.Config = {
   env: {},
   parserOptions: {},
   extends: ["eslint:recommended"],
+  overrides: [],
   plugins: ["import"],
   rules: {
     curly: ["error", "all"],
