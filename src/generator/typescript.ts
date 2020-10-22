@@ -1,23 +1,30 @@
 import { TypescriptInfo } from "types";
-import { identity, pipe } from "utils/utility";
+import { identity } from "utils/utility";
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { concatConfig, concatDependencies } from "generator/generate";
 import {
+  tsOverrider,
   typescriptBaseEslintConfig,
   typescriptESLintDependencies,
   typescriptTypeEslintConfig,
 } from "generator/base-configs/typescriptEslintConfig";
+import { wrapConfigInOverride } from "generator/override";
 
 export const generateTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
+  const baseConfig = wrapConfigInOverride(tsOverrider)(typescriptBaseEslintConfig);
+  const typeConfig = wrapConfigInOverride(tsOverrider)(
+    concatConfig(typescriptTypeEslintConfig)(typescriptBaseEslintConfig)
+  );
+
   switch (userAnswers.typescript) {
     case TypescriptInfo.None:
       return identity;
 
     case TypescriptInfo.WithTypeChecking:
-      return pipe(concatConfig(typescriptBaseEslintConfig), concatConfig(typescriptTypeEslintConfig));
+      return concatConfig(typeConfig);
 
     case TypescriptInfo.NoTypeChecking:
-      return concatConfig(typescriptBaseEslintConfig);
+      return concatConfig(baseConfig);
   }
 };
 
