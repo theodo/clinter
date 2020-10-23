@@ -2,12 +2,10 @@
 
 exports[`generateEslintConfig Generator Mode React should return a Vue configuration 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "plugin:vue/essential",
   ],
-  "overrides": Array [],
   "parserOptions": Object {
     "parser": "babel-eslint",
   },
@@ -82,14 +80,12 @@ Object {
 
 exports[`generateEslintConfig Generator Mode React should return a Vue configuration with prettier formatter 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "plugin:vue/essential",
     "plugin:prettier/recommended",
     "prettier/vue",
   ],
-  "overrides": Array [],
   "parserOptions": Object {
     "parser": "babel-eslint",
   },
@@ -164,14 +160,11 @@ Object {
 
 exports[`generateEslintConfig Generator Mode React should return a react configuration 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "react-app",
     "plugin:jsx-a11y/recommended",
   ],
-  "overrides": Array [],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
     "jsx-a11y",
@@ -250,7 +243,6 @@ Object {
 
 exports[`generateEslintConfig Generator Mode React should return a react configuration with prettier formatter 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "react-app",
@@ -258,8 +250,6 @@ Object {
     "plugin:prettier/recommended",
     "prettier/react",
   ],
-  "overrides": Array [],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
     "jsx-a11y",
@@ -338,7 +328,6 @@ Object {
 
 exports[`generateEslintConfig Generator Mode TypeScript should return a TS configuration with prettier formatter 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "plugin:prettier/recommended",
@@ -346,7 +335,6 @@ Object {
   ],
   "overrides": Array [
     Object {
-      "env": Object {},
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -354,12 +342,10 @@ Object {
       "files": Array [
         "**/*.ts?(x)",
       ],
-      "overrides": Array [],
       "parser": "@typescript-eslint/parser",
       "parserOptions": Object {
         "project": "tsconfig.json",
       },
-      "plugins": Array [],
       "rules": Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
@@ -367,7 +353,6 @@ Object {
       },
     },
   ],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
   ],
@@ -437,13 +422,11 @@ Object {
 
 exports[`generateEslintConfig Generator Mode TypeScript should return a TS configuration with type checking 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
   ],
   "overrides": Array [
     Object {
-      "env": Object {},
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -451,12 +434,10 @@ Object {
       "files": Array [
         "**/*.ts?(x)",
       ],
-      "overrides": Array [],
       "parser": "@typescript-eslint/parser",
       "parserOptions": Object {
         "project": "tsconfig.json",
       },
-      "plugins": Array [],
       "rules": Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
@@ -464,7 +445,6 @@ Object {
       },
     },
   ],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
   ],
@@ -534,7 +514,6 @@ Object {
 
 exports[`generateEslintConfig Generator Mode TypeScript should return a TS configuration without type checking 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
   ],
@@ -555,7 +534,6 @@ Object {
       },
     },
   ],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
   ],
