@@ -37,6 +37,36 @@ function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, n
   return { ...prevObject, ...nextObject };
 }
 
+function shouldKeepConfigEntry(configEntry: [string, unknown]): boolean {
+  const [_, value] = configEntry;
+
+  if (typeof value === "object" && value !== null && Object.keys(value).length === 0) {
+    return false;
+  }
+
+  return true;
+}
+
+function cleanObjectConfig<T>(config: T): T {
+  const entries = Object.entries(config);
+
+  const cleanEntries = entries.filter(shouldKeepConfigEntry);
+
+  return Object.fromEntries(cleanEntries) as T;
+}
+
+function cleanESLintConfig(config: Linter.Config): Linter.Config {
+  const { overrides, ...rest } = cleanObjectConfig(config);
+
+  const cleanOverrides = overrides?.map(cleanObjectConfig);
+
+  if (overrides) {
+    return { ...rest, overrides: cleanOverrides };
+  }
+
+  return { ...rest };
+}
+
 function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T): Array<string> {
   const prevArray = (typeof prev === "string" ? [prev] : prev) as string[];
   const nextArray = (typeof next === "string" ? [next] : next) as string[];
@@ -57,7 +87,7 @@ export function concatConfig<T extends Linter.Config | Linter.ConfigOverride>(co
   });
 }
 
-export function concatDependencies(deps2: string[]): (deps2: string[]) => string[] {
+export function concatDependencies(deps2: string[]): (deps: string[]) => string[] {
   return (deps1) => mergeArrays(deps1, deps2);
 }
 
@@ -76,7 +106,8 @@ export function generateEslintConfig(userAnswers: ProjectInfoObject, startConfig
     generateTestESLintConfig(userAnswers),
     generateFrontFrameworkESLintConfig(userAnswers),
     // Prettier must be at the end of the list to avoid potential conflicts
-    generatePrettierESlintConfig(userAnswers)
+    generatePrettierESlintConfig(userAnswers),
+    cleanESLintConfig
   )(startConfig);
 }
 
