@@ -67,7 +67,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
   },
   \\"root\\": true,
   \\"env\\": {},
-  \\"parserOptions\\": {},
   \\"overrides\\": [
     {
       \\"files\\": [
@@ -93,7 +92,8 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
   ],
   \\"plugins\\": [
     \\"import\\"
-  ]
+  ],
+  \\"parserOptions\\": {}
 }"
 `;
 
@@ -164,7 +164,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
   },
   \\"root\\": true,
   \\"env\\": {},
-  \\"parserOptions\\": {},
   \\"overrides\\": [
     {
       \\"files\\": [
@@ -184,6 +183,7 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
   ],
   \\"plugins\\": [
     \\"import\\"
-  ]
+  ],
+  \\"parserOptions\\": {}
 }"
 `;
