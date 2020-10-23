@@ -3,12 +3,9 @@
 exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc.js: eslint-simple-config-.eslintrc.js 1`] = `
 "module.exports = {
   \\"root\\": true,
-  \\"env\\": {},
-  \\"parserOptions\\": {},
   \\"extends\\": [
     \\"eslint:recommended\\"
   ],
-  \\"overrides\\": [],
   \\"plugins\\": [
     \\"import\\"
   ],
@@ -78,12 +75,9 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
 exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc.json: eslint-simple-config-.eslintrc.json 1`] = `
 "{
   \\"root\\": true,
-  \\"env\\": {},
-  \\"parserOptions\\": {},
   \\"extends\\": [
     \\"eslint:recommended\\"
   ],
-  \\"overrides\\": [],
   \\"plugins\\": [
     \\"import\\"
   ],
@@ -153,12 +147,9 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
 exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc: eslint-simple-config-.eslintrc 1`] = `
 "{
   \\"root\\": true,
-  \\"env\\": {},
-  \\"parserOptions\\": {},
   \\"extends\\": [
     \\"eslint:recommended\\"
   ],
-  \\"overrides\\": [],
   \\"plugins\\": [
     \\"import\\"
   ],

@@ -2,12 +2,10 @@
 
 exports[`Vue configuration Generator Mode should return a vue eslint configuration: eslint-vue-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "plugin:vue/essential",
   ],
-  "overrides": Array [],
   "parserOptions": Object {
     "parser": "babel-eslint",
   },
@@ -82,14 +80,12 @@ Object {
 
 exports[`Vue configuration Generator Mode should return a vue typescript eslint configuration with type checking: eslint-vue-ts-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "plugin:vue/essential",
   ],
   "overrides": Array [
     Object {
-      "env": Object {},
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -97,12 +93,10 @@ Object {
       "files": Array [
         "**/*.ts?(x)",
       ],
-      "overrides": Array [],
       "parser": "@typescript-eslint/parser",
       "parserOptions": Object {
         "project": "tsconfig.json",
       },
-      "plugins": Array [],
       "rules": Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",

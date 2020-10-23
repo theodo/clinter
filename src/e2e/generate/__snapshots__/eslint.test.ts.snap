@@ -2,12 +2,9 @@
 
 exports[`ESLint Base Configuration Generator Mode should return a standard eslint configuration with no extensions: eslint-simple-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
   ],
-  "overrides": Array [],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
   ],

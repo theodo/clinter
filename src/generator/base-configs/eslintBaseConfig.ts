@@ -2,10 +2,7 @@ import { Linter } from "eslint";
 
 export const eslintBaseConfig: Linter.Config = {
   root: true,
-  env: {},
-  parserOptions: {},
   extends: ["eslint:recommended"],
-  overrides: [],
   plugins: ["import"],
   rules: {
     curly: ["error", "all"],

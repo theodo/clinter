@@ -2,14 +2,11 @@
 
 exports[`React configuration Generator Mode should return a react eslint configuration: eslint-react-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "react-app",
     "plugin:jsx-a11y/recommended",
   ],
-  "overrides": Array [],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
     "jsx-a11y",
@@ -88,7 +85,6 @@ Object {
 
 exports[`React configuration Generator Mode should return a react typescript eslint configuration with type checking: eslint-react-ts-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
     "react-app",
@@ -96,7 +92,6 @@ Object {
   ],
   "overrides": Array [
     Object {
-      "env": Object {},
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -104,12 +99,10 @@ Object {
       "files": Array [
         "**/*.ts?(x)",
       ],
-      "overrides": Array [],
       "parser": "@typescript-eslint/parser",
       "parserOptions": Object {
         "project": "tsconfig.json",
       },
-      "plugins": Array [],
       "rules": Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
@@ -117,7 +110,6 @@ Object {
       },
     },
   ],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
     "jsx-a11y",

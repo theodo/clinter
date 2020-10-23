@@ -2,7 +2,6 @@
 
 exports[`TypeScript configuration Generator Mode should return a typescript eslint configuration with no type checking: eslint-ts-no-type-checking-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
   ],
@@ -23,7 +22,6 @@ Object {
       },
     },
   ],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
   ],
@@ -93,13 +91,11 @@ Object {
 
 exports[`TypeScript configuration Generator Mode should return a typescript eslint configuration with type checking: eslint-ts-type-checking-config 1`] = `
 Object {
-  "env": Object {},
   "extends": Array [
     "eslint:recommended",
   ],
   "overrides": Array [
     Object {
-      "env": Object {},
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -107,12 +103,10 @@ Object {
       "files": Array [
         "**/*.ts?(x)",
       ],
-      "overrides": Array [],
       "parser": "@typescript-eslint/parser",
       "parserOptions": Object {
         "project": "tsconfig.json",
       },
-      "plugins": Array [],
       "rules": Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
@@ -120,7 +114,6 @@ Object {
       },
     },
   ],
-  "parserOptions": Object {},
   "plugins": Array [
     "import",
   ],
