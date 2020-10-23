@@ -40,7 +40,33 @@ const cleanConfigExtendsArray = (config: Linter.Config): Linter.Config => {
   return { extends: newExtendsArray, ...rest };
 };
 
-const cleanConfigWithTSSetup = pipe(cleanConfigRules, cleanConfigExtendsArray);
+const cleanConfigParser = (config: Linter.Config): Linter.Config => {
+  const { parser, ...rest } = config;
+
+  if (parser === "@typescript-eslint/parser") {
+    return { ...rest };
+  }
+
+  return { ...config };
+};
+
+const cleanConfigParserOptions = (config: Linter.Config): Linter.Config => {
+  const { parserOptions, ...rest } = config;
+
+  if (parserOptions !== undefined) {
+    const { project, ...restParserOptions } = parserOptions;
+    return { ...rest, parserOptions: { ...restParserOptions } };
+  }
+
+  return { ...config };
+};
+
+const cleanConfigWithTSSetup = pipe(
+  cleanConfigRules,
+  cleanConfigExtendsArray,
+  cleanConfigParser,
+  cleanConfigParserOptions
+);
 
 export const generateTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   const baseConfig = wrapConfigInOverride(tsOverrider)(typescriptBaseEslintConfig);
