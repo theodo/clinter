@@ -1,3 +1,14 @@
+# [1.9.0](https://github.com/theodo/clinter/compare/v1.8.1...v1.9.0) (2020-10-26)
+
+
+### Features
+
+* clean generated eslint config ([8d1dff1](https://github.com/theodo/clinter/commit/8d1dff1144736195fbc672565883542fc162bd65))
+* **eslint:** add package json config support ([bb38337](https://github.com/theodo/clinter/commit/bb38337b93a3a3a036ce3ce301acc5620ab00805))
+* **ts:** add ts clean config ([c4c20b2](https://github.com/theodo/clinter/commit/c4c20b232b21f619530d66d754e32e44f451c267))
+* **ts:** clean typescript config ([f0de9d8](https://github.com/theodo/clinter/commit/f0de9d8dc8c54e2517c8a4ec2934a1e33bfd82fe))
+* **ts:** move ts specific rules to overrides category ([304deae](https://github.com/theodo/clinter/commit/304deae4498ccb4f2bfb5aa6d3667529db93472e))
+
 ## [1.8.1](https://github.com/theodo/clinter/compare/v1.8.0...v1.8.1) (2020-10-11)
 
 
