@@ -67,6 +67,14 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
           \\"single\\"
         ]
       }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"return\\"
+      }
     ]
   }
 }"
@@ -139,6 +147,14 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
           \\"single\\"
         ]
       }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"return\\"
+      }
     ]
   }
 }"
@@ -210,6 +226,14 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
           \\"multiple\\",
           \\"single\\"
         ]
+      }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"return\\"
       }
     ]
   }
