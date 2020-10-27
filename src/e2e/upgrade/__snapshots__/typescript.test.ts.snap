@@ -63,6 +63,14 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
           \\"single\\"
         ]
       }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"return\\"
+      }
     ]
   },
   \\"root\\": true,
@@ -154,6 +162,14 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
           \\"multiple\\",
           \\"single\\"
         ]
+      }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"return\\"
       }
     ]
   },

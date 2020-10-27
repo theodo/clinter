@@ -70,6 +70,14 @@ Object {
         "hoist": "all",
       },
     ],
+    "padding-line-between-statements": Array [
+      "error",
+      Object {
+        "blankLine": "always",
+        "next": "return",
+        "prev": "*",
+      },
+    ],
     "prefer-const": "error",
     "sort-imports": Array [
       "error",
@@ -160,6 +168,14 @@ Object {
       "error",
       Object {
         "hoist": "all",
+      },
+    ],
+    "padding-line-between-statements": Array [
+      "error",
+      Object {
+        "blankLine": "always",
+        "next": "return",
+        "prev": "*",
       },
     ],
     "prefer-const": "error",
