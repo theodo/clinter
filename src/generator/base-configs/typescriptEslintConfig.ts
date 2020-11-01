@@ -9,6 +9,8 @@ export const typescriptBaseEslintConfig: Linter.Config = {
   },
   rules: {
     "@typescript-eslint/prefer-optional-chain": "error",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
   },
 };
 

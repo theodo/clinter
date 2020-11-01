@@ -18,7 +18,9 @@ Object {
         "project": "tsconfig.json",
       },
       "rules": Object {
+        "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
+        "no-shadow": "off",
       },
     },
   ],
@@ -116,9 +118,11 @@ Object {
         "project": "tsconfig.json",
       },
       "rules": Object {
+        "@typescript-eslint/no-shadow": "error",
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/strict-boolean-expressions": "error",
+        "no-shadow": "off",
       },
     },
   ],

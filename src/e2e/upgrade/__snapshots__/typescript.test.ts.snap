@@ -92,6 +92,8 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
       },
       \\"rules\\": {
         \\"@typescript-eslint/prefer-optional-chain\\": \\"error\\",
+        \\"no-shadow\\": \\"off\\",
+        \\"@typescript-eslint/no-shadow\\": \\"error\\",
         \\"@typescript-eslint/prefer-nullish-coalescing\\": \\"error\\",
         \\"@typescript-eslint/strict-boolean-expressions\\": \\"error\\"
       }
@@ -190,7 +192,9 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
         \\"project\\": \\"tsconfig.json\\"
       },
       \\"rules\\": {
-        \\"@typescript-eslint/prefer-optional-chain\\": \\"error\\"
+        \\"@typescript-eslint/prefer-optional-chain\\": \\"error\\",
+        \\"no-shadow\\": \\"off\\",
+        \\"@typescript-eslint/no-shadow\\": \\"error\\"
       }
     }
   ]
