@@ -47,10 +47,20 @@ async function main() {
     process.exit(0);
   }
 
-  const { dirPath, inputFile, auto } = yargs.options({
-    dirPath: { type: "string", default: process.cwd(), alias: "path" },
-    inputFile: { type: "string" },
-    auto: { type: "boolean" },
+  const { dirPath, inputFile, auto, disableErrors } = yargs.options({
+    dirPath: {
+      type: "string",
+      default: process.cwd(),
+      alias: "path",
+      help: "The path of the directory where a configuration should be generated or upgraded",
+    },
+    inputFile: { type: "string", help: "Path to a file that contains the clinter input settings" },
+    auto: { type: "boolean", help: "Tell clinter to run in automatic or manual mode" },
+    disableErrors: {
+      type: "boolean",
+      argv: "disable-errors",
+      help: "Run clinter's automatic fix of all eslint issues by disabling them in the code",
+    },
   }).argv;
 
   signale.log(
@@ -62,6 +72,13 @@ async function main() {
       margin: 3,
     })
   );
+
+  if (disableErrors === true) {
+    signale.info("Inserting ignore comments to ease project migration ...");
+    const { errorCount, fixableErrorCount } = await migrateProjectESLint(dirPath);
+    signale.success(`Ignore comments sucessfully inserted for ${errorCount - fixableErrorCount} eslint errors !`);
+    signale.info(`${fixableErrorCount} fixable errors detected. Run eslint with the --fix option to fix them`);
+  }
 
   signale.info("Retrieveing project info and settings ...");
   const { generatorConfig, modeConfig, migrationModeConfig } = await getClinterSettings(inputFile, auto, dirPath);
@@ -84,7 +101,6 @@ async function main() {
     default:
       assertUnreachable(modeConfig.mode);
   }
-
   /**
    * Migrate the project by ignoring all errors
    */
