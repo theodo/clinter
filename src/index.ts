@@ -78,6 +78,7 @@ async function main() {
     const { errorCount, fixableErrorCount } = await migrateProjectESLint(dirPath);
     signale.success(`Ignore comments sucessfully inserted for ${errorCount - fixableErrorCount} eslint errors !`);
     signale.info(`${fixableErrorCount} fixable errors detected. Run eslint with the --fix option to fix them`);
+    return;
   }
 
   signale.info("Retrieveing project info and settings ...");
