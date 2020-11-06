@@ -1,3 +1,19 @@
+# [1.10.0](https://github.com/theodo/clinter/compare/v1.9.1...v1.10.0) (2020-11-06)
+
+
+### Bug Fixes
+
+* add early return in disable only mode ([0a19e5c](https://github.com/theodo/clinter/commit/0a19e5c159ee3066338d827f64c5998a285d960c))
+* replace help by description ([0e946a3](https://github.com/theodo/clinter/commit/0e946a382152844abac7b2e68f6404af243a31b6))
+* **ts:** fix no-shadow error for enums with TS4 ([f4440e7](https://github.com/theodo/clinter/commit/f4440e79d213b440ad85189a5f1900ced0fbbbfd))
+
+
+### Features
+
+* add disableError arg input ([0ad5efb](https://github.com/theodo/clinter/commit/0ad5efb32ab8ca8844dfe2a9facb9929e4552228))
+* upgrade performance migration ([a8d8171](https://github.com/theodo/clinter/commit/a8d8171442810540f72995932340a39da10feaef))
+* **eslint:** force linebreak before return ([#26](https://github.com/theodo/clinter/issues/26)) ([b1539d9](https://github.com/theodo/clinter/commit/b1539d9957b07fb41d181fe805ffef9b2d2f74ea))
+
 ## [1.9.1](https://github.com/theodo/clinter/compare/v1.9.0...v1.9.1) (2020-10-26)
 
 
