@@ -52,14 +52,14 @@ async function main() {
       type: "string",
       default: process.cwd(),
       alias: "path",
-      help: "The path of the directory where a configuration should be generated or upgraded",
+      description: "The path of the directory where a configuration should be generated or upgraded",
     },
-    inputFile: { type: "string", help: "Path to a file that contains the clinter input settings" },
-    auto: { type: "boolean", help: "Tell clinter to run in automatic or manual mode" },
+    inputFile: { type: "string", description: "Path to a file that contains the clinter input settings" },
+    auto: { type: "boolean", description: "Tell clinter to run in automatic or manual mode" },
     disableErrors: {
       type: "boolean",
       argv: "disable-errors",
-      help: "Run clinter's automatic fix of all eslint issues by disabling them in the code",
+      description: "Run clinter's automatic fix of all eslint issues by disabling them in the code",
     },
   }).argv;
 
