@@ -1,3 +1,11 @@
+# [1.11.0](https://github.com/theodo/clinter/compare/v1.10.0...v1.11.0) (2020-11-11)
+
+
+### Features
+
+* add auto mode for cli ([1c9289d](https://github.com/theodo/clinter/commit/1c9289dc8e0405dc2bd3d21c76501606c158fd20))
+* add TS rules ([16538e7](https://github.com/theodo/clinter/commit/16538e7e7ae5b6b13a0e171e44ee2e2d245e56c5))
+
 # [1.10.0](https://github.com/theodo/clinter/compare/v1.9.1...v1.10.0) (2020-11-06)
 
 
