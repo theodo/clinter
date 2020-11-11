@@ -8,8 +8,11 @@ export const typescriptBaseEslintConfig: Linter.Config = {
     project: "tsconfig.json",
   },
   rules: {
+    // Prefer using concise optional chain expressions instead of chained logical ands
     "@typescript-eslint/prefer-optional-chain": "error",
+    // Disable JS no-shadow rule
     "no-shadow": "off",
+    // Disallow variable declarations from shadowing variables declared in the outer scope
     "@typescript-eslint/no-shadow": "error",
   },
 };
@@ -17,8 +20,20 @@ export const typescriptBaseEslintConfig: Linter.Config = {
 export const typescriptTypeEslintConfig: Linter.Config = {
   extends: ["plugin:@typescript-eslint/recommended-requiring-type-checking"],
   rules: {
+    // Enforce the usage of the nullish coalescing operator instead of logical chaining
     "@typescript-eslint/prefer-nullish-coalescing": "error",
+    // Restricts the types allowed in boolean expressions
     "@typescript-eslint/strict-boolean-expressions": "error",
+    // Flags unnecessary equality comparisons against boolean literals
+    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
+    // Prevents conditionals where the type is always truthy or always falsy
+    "@typescript-eslint/no-unnecessary-condition": "error",
+    // Enforces that type arguments will not be used if not required
+    "@typescript-eslint/no-unnecessary-type-arguments": "error",
+    // Enforce the use of String#startsWith and String#endsWith instead of other equivalent methods of checking substrings
+    "@typescript-eslint/prefer-string-starts-ends-with": "error",
+    // Exhaustiveness checking in switch with union type
+    "@typescript-eslint/switch-exhaustiveness-check": "error",
   },
 };
 

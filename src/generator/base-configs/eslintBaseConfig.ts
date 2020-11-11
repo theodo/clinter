@@ -34,10 +34,7 @@ export const eslintBaseConfig: Linter.Config = {
         memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
       },
     ],
-    "padding-line-between-statements": [
-      "error",
-      { "blankLine": "always", "prev": "*", "next": "return" }
-    ],
+    "padding-line-between-statements": ["error", { blankLine: "always", prev: "*", next: "return" }],
   },
 };
 
