@@ -1,0 +1,18 @@
+name: Run clinter every 5 minutes
+
+on: [push]
+  # schedule:
+  # - cron: "*/1 * * * *"
+
+jobs:
+  clinter:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Install latest version of clinter
+        run: npm install clinter@latest --no-save
+      
+      - name: Run clinter
+        run: npx clinter --auto
