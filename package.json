@@ -1,5 +1,5 @@
 {
-  "name": "clinter",
+  "name": "clinter-test",
   "version": "1.11.0",
   "description": "A cli tool to quickly generate eslint configurations",
   "main": "build/index.js",
