@@ -21,9 +21,19 @@ export const getClinterSettings = async (
     return parseInputConfigFile(inputFile);
   }
 
-  const configRetrievalModeInfo = await promptProjectInfoRetrievalModeQuestions();
-
   const projectDependencies = parseProjectDependencies(dirPath);
+
+  if (auto === true) {
+    return {
+      modeConfig: inferClinterMode(dirPath),
+      generatorConfig: inferProjectInfo({ dirPath, projectDependencies }),
+      migrationModeConfig: {
+        migration: false,
+      },
+    };
+  }
+
+  const configRetrievalModeInfo = await promptProjectInfoRetrievalModeQuestions();
 
   switch (configRetrievalModeInfo.mode) {
     case ProjectInfoRetrievalMode.Automatic:
@@ -36,6 +46,7 @@ export const getClinterSettings = async (
     case ProjectInfoRetrievalMode.Manual: {
       const modeConfig = await promptModeUserQuestions();
       const generatorConfig = await promptGeneratorUserQuestions();
+
       return {
         generatorConfig,
         modeConfig,
