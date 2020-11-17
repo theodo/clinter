@@ -1,3 +1,15 @@
+# [1.12.0](https://github.com/theodo/clinter/compare/v1.11.0...v1.12.0) (2020-11-17)
+
+
+### Bug Fixes
+
+* remove clinter from CI ([2ade34f](https://github.com/theodo/clinter/commit/2ade34f02a2efccff4134850990219b9ccc19c17))
+
+
+### Features
+
+* improve readme to account for migration ([f0e134a](https://github.com/theodo/clinter/commit/f0e134a362eb6e62e654e61ef599eaf95d31773d))
+
 # [1.11.0](https://github.com/theodo/clinter/compare/v1.10.0...v1.11.0) (2020-11-11)
 
 
