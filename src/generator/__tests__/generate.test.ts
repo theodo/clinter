@@ -1,6 +1,6 @@
-import { generateEslintConfig } from "generator/generate";
-import { FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo } from "types";
-import { eslintBaseConfig } from "generator/base-configs";
+import {generateEslintConfig} from "generator/generate";
+import {FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo} from "types";
+import {eslintBaseConfig} from "generator/base-configs";
 
 describe("generateEslintConfig", () => {
   describe("Generator Mode", () => {
@@ -46,19 +46,6 @@ describe("generateEslintConfig", () => {
 
         expect(config).toMatchSnapshot();
         expect(config.overrides?.[0].extends).toContain("plugin:@typescript-eslint/recommended");
-      });
-
-      it("should return a TS configuration with prettier formatter", () => {
-        const config = generateEslintConfig({
-          typescript: TypescriptInfo.WithTypeChecking,
-          env: [],
-          formatter: FormatterInfo.Prettier,
-          frontFramework: FrontFrameworkInfo.None,
-          test: TestFrameworkInfo.None,
-        });
-
-        expect(config).toMatchSnapshot();
-        expect(config.extends?.[config.extends?.length - 1]).toBe("prettier/@typescript-eslint");
       });
     });
 

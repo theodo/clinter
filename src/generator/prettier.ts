@@ -8,7 +8,9 @@ import {
   prettierReactESLintConfig,
   prettierTypescriptESLintConfig,
   prettierVueESLintConfig,
+  tsOverrider,
 } from "generator/base-configs";
+import {wrapConfigInOverride} from "generator/override";
 
 const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {
@@ -17,7 +19,7 @@ const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) =>
 
     case TypescriptInfo.NoTypeChecking:
     case TypescriptInfo.WithTypeChecking:
-      return concatConfig(prettierTypescriptESLintConfig);
+      return concatConfig(wrapConfigInOverride(tsOverrider)(prettierTypescriptESLintConfig));
   }
 };
 

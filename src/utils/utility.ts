@@ -13,3 +13,18 @@ export const mergeArrays = <T, U>(array1: Array<T>, array2: Array<U>): Array<T |
 export const assertUnreachable = (reason: string): never => {
   throw new Error(`Unreachable code path: ${reason}`);
 };
+
+export const areArraysEqual = <T>(array1: T[], array2: T[]): boolean => {
+  if (array1.length !== array2.length) {
+    return false;
+  }
+
+  const length = array1.length;
+
+  for (let index = 0; index < length; index++) {
+    if (array1[index] !== array2[index]) {
+      return false;
+    }
+  }
+  return true
+}
