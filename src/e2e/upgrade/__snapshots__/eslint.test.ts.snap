@@ -18,10 +18,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
       \\"error\\",
       \\"smart\\"
     ],
-    \\"complexity\\": [
-      \\"error\\",
-      8
-    ],
     \\"import/no-extraneous-dependencies\\": [
       \\"error\\",
       {
@@ -98,10 +94,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
       \\"error\\",
       \\"smart\\"
     ],
-    \\"complexity\\": [
-      \\"error\\",
-      8
-    ],
     \\"import/no-extraneous-dependencies\\": [
       \\"error\\",
       {
@@ -177,10 +169,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
     \\"eqeqeq\\": [
       \\"error\\",
       \\"smart\\"
-    ],
-    \\"complexity\\": [
-      \\"error\\",
-      8
     ],
     \\"import/no-extraneous-dependencies\\": [
       \\"error\\",

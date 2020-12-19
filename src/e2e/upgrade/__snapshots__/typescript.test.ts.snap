@@ -14,10 +14,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
       \\"error\\",
       \\"smart\\"
     ],
-    \\"complexity\\": [
-      \\"error\\",
-      8
-    ],
     \\"import/no-extraneous-dependencies\\": [
       \\"error\\",
       {
@@ -120,10 +116,6 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
     \\"eqeqeq\\": [
       \\"error\\",
       \\"smart\\"
-    ],
-    \\"complexity\\": [
-      \\"error\\",
-      8
     ],
     \\"import/no-extraneous-dependencies\\": [
       \\"error\\",

@@ -7,7 +7,6 @@ export const eslintBaseConfig: Linter.Config = {
   rules: {
     curly: ["error", "all"],
     eqeqeq: ["error", "smart"],
-    complexity: ["error", 8],
     "import/no-extraneous-dependencies": [
       "error",
       { devDependencies: true, optionalDependencies: false, peerDependencies: false },

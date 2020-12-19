@@ -14,10 +14,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -127,10 +123,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
