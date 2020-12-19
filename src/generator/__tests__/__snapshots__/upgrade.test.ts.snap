@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateEslintConfig Upgrade Mode Simple eslint config should return a ESLint config without changing the order of the original config fields 1`] = `
+Object {
+  "env": Object {
+    "browser": true,
+    "node": true,
+  },
+  "extends": Array [
+    "CUSTOM-ESLINT-CONFIG",
+    "eslint:recommended",
+  ],
+  "plugins": Array [
+    "import",
+  ],
+  "root": true,
+  "rules": Object {
+    "curly": Array [
+      "error",
+      "all",
+    ],
+    "custom-rule-name": "error",
+    "eqeqeq": Array [
+      "error",
+      "smart",
+    ],
+    "import/no-extraneous-dependencies": Array [
+      "error",
+      Object {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false,
+      },
+    ],
+    "import/order": Array [
+      "error",
+      Object {
+        "groups": Array [
+          Array [
+            "external",
+            "builtin",
+          ],
+          "internal",
+          Array [
+            "parent",
+            "sibling",
+            "index",
+          ],
+        ],
+      },
+    ],
+    "no-shadow": Array [
+      "error",
+      Object {
+        "hoist": "all",
+      },
+    ],
+    "padding-line-between-statements": Array [
+      "error",
+      Object {
+        "blankLine": "always",
+        "next": "return",
+        "prev": "*",
+      },
+    ],
+    "prefer-const": "error",
+    "sort-imports": Array [
+      "error",
+      Object {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false,
+        "memberSyntaxSortOrder": Array [
+          "none",
+          "all",
+          "multiple",
+          "single",
+        ],
+      },
+    ],
+  },
+}
+`;

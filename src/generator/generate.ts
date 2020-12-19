@@ -1,13 +1,13 @@
-import {Linter} from "eslint";
-import {generateTestESLintConfig, getTestESLintDependencies} from "generator/test-framework";
-import {generateTypescriptESLintConfig, getTypescriptESLintDependencies} from "generator/typescript";
-import {generateEnvESLintConfig} from "generator/env";
-import {generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies} from "generator/front-framework";
-import {generatePrettierESlintConfig, getPrettierESLintDependencies} from "generator/prettier";
-import {eslintBaseConfig, eslintBaseDependencies} from "generator/base-configs/eslintBaseConfig";
-import {ESLintDependencyGenerator, ESLintGenerator} from "generator/types";
-import {mergeArrays, pipe, areArraysEqual} from "utils/utility";
-import {ProjectInfoObject} from "types";
+import { Linter } from "eslint";
+import { generateTestESLintConfig, getTestESLintDependencies } from "generator/test-framework";
+import { generateTypescriptESLintConfig, getTypescriptESLintDependencies } from "generator/typescript";
+import { generateEnvESLintConfig } from "generator/env";
+import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies } from "generator/front-framework";
+import { generatePrettierESlintConfig, getPrettierESLintDependencies } from "generator/prettier";
+import { eslintBaseConfig, eslintBaseDependencies } from "generator/base-configs/eslintBaseConfig";
+import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
+import { areArraysEqual, mergeArrays, pipe } from "utils/utility";
+import { ProjectInfoObject } from "types";
 
 function addEslintOverride(
   overrides: Linter.ConfigOverride[],
@@ -21,9 +21,9 @@ function addEslintOverride(
 
   // Configuration overrides are entirely defined by their files property
   const areOverrideFilesEqual = areArraysEqual(
-    typeof currentOverride.files === 'string' ? [currentOverride.files] : currentOverride.files,
-    typeof newOverride.files === 'string' ? [newOverride.files] : newOverride.files,
-  )
+    typeof currentOverride.files === "string" ? [currentOverride.files] : currentOverride.files,
+    typeof newOverride.files === "string" ? [newOverride.files] : newOverride.files
+  );
 
   if (currentOverride.parser === newOverride.parser || areOverrideFilesEqual) {
     return [concatConfig(newOverride)(currentOverride), ...rest];
@@ -40,7 +40,7 @@ function concatEslintOverrides(
 }
 
 function concatESlintObjects<T extends Record<string, unknown>>(prevObject: T, nextObject: T): T {
-  return {...prevObject, ...nextObject};
+  return { ...prevObject, ...nextObject };
 }
 
 function shouldKeepConfigEntry(configEntry: [string, unknown]): boolean {
@@ -62,15 +62,15 @@ function cleanObjectConfig<T>(config: T): T {
 }
 
 function cleanESLintConfig(config: Linter.Config): Linter.Config {
-  const {overrides, ...rest} = cleanObjectConfig(config);
+  const { overrides, ...rest } = cleanObjectConfig(config);
 
   const cleanOverrides = overrides?.map(cleanObjectConfig);
 
   if (overrides) {
-    return {...rest, overrides: cleanOverrides};
+    return { ...rest, overrides: cleanOverrides };
   }
 
-  return {...rest};
+  return { ...rest };
 }
 
 function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T): Array<string> {

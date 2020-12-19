@@ -1,6 +1,6 @@
-import {generateEslintConfig} from "generator/generate";
-import {FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo} from "types";
-import {eslintBaseConfig} from "generator/base-configs";
+import { generateEslintConfig } from "generator/generate";
+import { FormatterInfo, FrontFrameworkInfo, TestFrameworkInfo, TypescriptInfo } from "types";
+import { eslintBaseConfig } from "generator/base-configs";
 
 describe("generateEslintConfig", () => {
   describe("Generator Mode", () => {
