@@ -1,3 +1,11 @@
+# [1.13.0](https://github.com/theodo/clinter/compare/v1.12.0...v1.13.0) (2020-12-19)
+
+
+### Features
+
+* move TS prettier to override ([8738837](https://github.com/theodo/clinter/commit/8738837223b1895251f641054ae6dd155fb85c39))
+* remove complexity rule ([57f3aa1](https://github.com/theodo/clinter/commit/57f3aa15c86d691f49fbc2c5be16a0ba9a21d7c8))
+
 # [1.12.0](https://github.com/theodo/clinter/compare/v1.11.0...v1.12.0) (2020-11-17)
 
 
