@@ -6,7 +6,7 @@ function formatDependencies(dependencies: string[]): string {
 }
 
 function installDependenciesYarn(dependencies: string[], dirpath: string): Promise<void> {
-  return exec(`yarn add --cwd ${dirpath} ${formatDependencies(dependencies)} -D`).then(() => Promise.resolve());
+  return exec(`yarn add --cwd ${dirpath} ${formatDependencies(dependencies)} -D -W`).then(() => Promise.resolve());
 }
 
 function installDependenciesNpm(dependencies: string[], dirpath: string): Promise<void> {
