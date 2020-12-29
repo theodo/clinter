@@ -1,3 +1,10 @@
+## [1.13.1](https://github.com/theodo/clinter/compare/v1.13.0...v1.13.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* ignore workspaces warning with yarn ([85f6394](https://github.com/theodo/clinter/commit/85f6394015f8530147afa98c4c7787f9abcbbdbe))
+
 # [1.13.0](https://github.com/theodo/clinter/compare/v1.12.0...v1.13.0) (2020-12-19)
 
 
