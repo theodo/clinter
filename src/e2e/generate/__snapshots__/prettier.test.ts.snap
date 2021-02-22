@@ -84,7 +84,6 @@ Object {
     "react-app",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "prettier/react",
   ],
   "plugins": Array [
     "import",
@@ -173,14 +172,13 @@ Object {
     "react-app",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "prettier/react",
   ],
   "overrides": Array [
     Object {
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
       ],
       "files": Array [
         "**/*.ts?(x)",
@@ -295,7 +293,7 @@ Object {
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
       ],
       "files": Array [
         "**/*.ts?(x)",
@@ -395,7 +393,6 @@ Object {
     "eslint:recommended",
     "plugin:vue/essential",
     "plugin:prettier/recommended",
-    "prettier/vue",
   ],
   "parserOptions": Object {
     "parser": "babel-eslint",
@@ -479,14 +476,13 @@ Object {
     "eslint:recommended",
     "plugin:vue/essential",
     "plugin:prettier/recommended",
-    "prettier/vue",
   ],
   "overrides": Array [
     Object {
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
-        "prettier/@typescript-eslint",
+        "plugin:prettier/recommended",
       ],
       "files": Array [
         "**/*.ts?(x)",
