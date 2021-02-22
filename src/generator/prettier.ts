@@ -1,16 +1,9 @@
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { identity, pipe } from "utils/utility";
 import { concatConfig, concatDependencies } from "generator/generate";
-import { FormatterInfo, FrontFrameworkInfo, TypescriptInfo } from "types";
-import {
-  prettierESLintConfig,
-  prettierESLintDependencies,
-  prettierReactESLintConfig,
-  prettierTypescriptESLintConfig,
-  prettierVueESLintConfig,
-  tsOverrider,
-} from "generator/base-configs";
-import {wrapConfigInOverride} from "generator/override";
+import { FormatterInfo, TypescriptInfo } from "types";
+import { prettierESLintConfig, prettierESLintDependencies, tsOverrider } from "generator/base-configs";
+import { wrapConfigInOverride } from "generator/override";
 
 const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) => {
   switch (userAnswers.typescript) {
@@ -19,20 +12,7 @@ const generatePrettierTypescriptESLintConfig: ESLintGenerator = (userAnswers) =>
 
     case TypescriptInfo.NoTypeChecking:
     case TypescriptInfo.WithTypeChecking:
-      return concatConfig(wrapConfigInOverride(tsOverrider)(prettierTypescriptESLintConfig));
-  }
-};
-
-const generatePrettierReactESLintConfig: ESLintGenerator = (userAnswers) => {
-  switch (userAnswers.frontFramework) {
-    case FrontFrameworkInfo.React:
-      return concatConfig(prettierReactESLintConfig);
-
-    case FrontFrameworkInfo.Vue:
-      return concatConfig(prettierVueESLintConfig);
-
-    default:
-      return identity;
+      return concatConfig(wrapConfigInOverride(tsOverrider)(prettierESLintConfig));
   }
 };
 
@@ -42,11 +22,7 @@ export const generatePrettierESlintConfig: ESLintGenerator = (userAnswers) => {
       return identity;
 
     case FormatterInfo.Prettier:
-      return pipe(
-        concatConfig(prettierESLintConfig),
-        generatePrettierTypescriptESLintConfig(userAnswers),
-        generatePrettierReactESLintConfig(userAnswers)
-      );
+      return pipe(concatConfig(prettierESLintConfig), generatePrettierTypescriptESLintConfig(userAnswers));
   }
 };
 
