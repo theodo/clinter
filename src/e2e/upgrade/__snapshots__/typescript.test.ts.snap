@@ -103,6 +103,101 @@ exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslin
 }"
 `;
 
+exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslint configuration with no type checking with a TSConfig without strict null checks: eslint-typescript-upgrade-no-type-checking 1`] = `
+"{
+  \\"extends\\": [
+    \\"eslint:recommended\\"
+  ],
+  \\"rules\\": {
+    \\"curly\\": [
+      \\"error\\",
+      \\"all\\"
+    ],
+    \\"eqeqeq\\": [
+      \\"error\\",
+      \\"smart\\"
+    ],
+    \\"import/no-extraneous-dependencies\\": [
+      \\"error\\",
+      {
+        \\"devDependencies\\": true,
+        \\"optionalDependencies\\": false,
+        \\"peerDependencies\\": false
+      }
+    ],
+    \\"no-shadow\\": [
+      \\"error\\",
+      {
+        \\"hoist\\": \\"all\\"
+      }
+    ],
+    \\"prefer-const\\": \\"error\\",
+    \\"import/order\\": [
+      \\"error\\",
+      {
+        \\"groups\\": [
+          [
+            \\"external\\",
+            \\"builtin\\"
+          ],
+          \\"internal\\",
+          [
+            \\"parent\\",
+            \\"sibling\\",
+            \\"index\\"
+          ]
+        ]
+      }
+    ],
+    \\"sort-imports\\": [
+      \\"error\\",
+      {
+        \\"ignoreCase\\": true,
+        \\"ignoreDeclarationSort\\": true,
+        \\"ignoreMemberSort\\": false,
+        \\"memberSyntaxSortOrder\\": [
+          \\"none\\",
+          \\"all\\",
+          \\"multiple\\",
+          \\"single\\"
+        ]
+      }
+    ],
+    \\"padding-line-between-statements\\": [
+      \\"error\\",
+      {
+        \\"blankLine\\": \\"always\\",
+        \\"prev\\": \\"*\\",
+        \\"next\\": \\"return\\"
+      }
+    ]
+  },
+  \\"root\\": true,
+  \\"plugins\\": [
+    \\"import\\"
+  ],
+  \\"overrides\\": [
+    {
+      \\"files\\": [
+        \\"**/*.ts?(x)\\"
+      ],
+      \\"extends\\": [
+        \\"plugin:@typescript-eslint/recommended\\"
+      ],
+      \\"parser\\": \\"@typescript-eslint/parser\\",
+      \\"parserOptions\\": {
+        \\"project\\": \\"tsconfig.json\\"
+      },
+      \\"rules\\": {
+        \\"@typescript-eslint/prefer-optional-chain\\": \\"error\\",
+        \\"no-shadow\\": \\"off\\",
+        \\"@typescript-eslint/no-shadow\\": \\"error\\"
+      }
+    }
+  ]
+}"
+`;
+
 exports[`ESLint Base Configuration Upgrade Mode should return a typescript eslint configuration with no type checking with an override and no typescript-eslint in base rules: eslint-typescript-upgrade-no-type-checking 1`] = `
 "{
   \\"extends\\": [

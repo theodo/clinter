@@ -19,13 +19,21 @@ describe("ESLint Base Configuration Upgrade Mode", () => {
       },
     };
 
+    const tsConfig = {
+      compilerOptions: {
+        strict: true,
+      },
+    };
+
     testService.loadInputConfig({
       ...defaultInputConfig,
       modeConfig: { mode: ClinterModeInfo.Upgrade },
       generatorConfig: { ...defaultInputConfig.generatorConfig, typescript: TypescriptInfo.WithTypeChecking },
     });
     testService.loadInitialLinterConfig(JSON.stringify(initialConfig));
-    testService.loadInitialLinterConfig;
+
+    testService.loadInitialTSConfig(tsConfig);
+
     await testService.runClinter();
     const outputConfig = testService.getOutputConfig();
 
@@ -45,13 +53,51 @@ describe("ESLint Base Configuration Upgrade Mode", () => {
       },
     };
 
+    const tsConfig = {
+      compilerOptions: {
+        strict: true,
+      },
+    };
+
     testService.loadInputConfig({
       ...defaultInputConfig,
       modeConfig: { mode: ClinterModeInfo.Upgrade },
       generatorConfig: { ...defaultInputConfig.generatorConfig, typescript: TypescriptInfo.NoTypeChecking },
     });
     testService.loadInitialLinterConfig(JSON.stringify(initialConfig));
-    testService.loadInitialLinterConfig;
+    testService.loadInitialTSConfig(tsConfig);
+    await testService.runClinter();
+    const outputConfig = testService.getOutputConfig();
+
+    expect(outputConfig).toMatchSnapshot(`eslint-typescript-upgrade-no-type-checking`);
+  });
+
+  it("should return a typescript eslint configuration with no type checking with a TSConfig without strict null checks", async () => {
+    const testService = makeTestService();
+
+    const initialConfig: Linter.Config = {
+      extends: [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      ],
+      rules: {
+        "@typescript-eslint/prefer-optional-chain": "error",
+      },
+    };
+
+    const tsConfig = {
+      compilerOptions: {
+        strict: true,
+      },
+    };
+
+    testService.loadInputConfig({
+      ...defaultInputConfig,
+      modeConfig: { mode: ClinterModeInfo.Upgrade },
+      generatorConfig: { ...defaultInputConfig.generatorConfig, typescript: TypescriptInfo.NoTypeChecking },
+    });
+    testService.loadInitialLinterConfig(JSON.stringify(initialConfig));
+    testService.loadInitialTSConfig(tsConfig);
     await testService.runClinter();
     const outputConfig = testService.getOutputConfig();
 

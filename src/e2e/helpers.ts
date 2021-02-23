@@ -22,12 +22,14 @@ export interface TestService {
   getParsedOutputConfig: () => LinterConfigs;
   getOutputConfig: () => string;
   getInstalledPackages: () => string[];
+  loadInitialTSConfig: (config: Record<string, any>) => void;
 }
 
 export function makeTestService(outputFileName = ".eslintrc.json"): TestService {
   const id = uuidv4();
   const dirPath = `/tmp/${id}/`;
   const inputConfigPath = path.join(dirPath, "inputConfig.json");
+  const tsconfigPath = path.join(dirPath, "tsconfig.json");
   const packagePath = path.join(dirPath, "package.json");
   const outputConfigPath = path.join(dirPath, outputFileName);
 
@@ -43,6 +45,10 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
 
   const loadInitialParsedLinterConfig = (config: LinterConfigs) => {
     fs.writeFileSync(outputConfigPath, JSON.stringify(config, null, 2));
+  };
+
+  const loadInitialTSConfig = (config: Record<string, any>) => {
+    fs.writeFileSync(tsconfigPath, JSON.stringify(config, null, 2));
   };
 
   const installPackages = (packages: string[]) => {
@@ -78,6 +84,7 @@ export function makeTestService(outputFileName = ".eslintrc.json"): TestService 
     loadInitialParsedLinterConfig,
     loadInputConfig,
     runClinter,
+    loadInitialTSConfig,
   };
 }
 
