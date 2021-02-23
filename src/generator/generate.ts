@@ -3,7 +3,7 @@ import { generateTestESLintConfig, getTestESLintDependencies } from "generator/t
 import { generateTypescriptESLintConfig, getTypescriptESLintDependencies } from "generator/typescript";
 import { generateEnvESLintConfig } from "generator/env";
 import { generateFrontFrameworkESLintConfig, getFrontFrameworkESLintDependencies } from "generator/front-framework";
-import { generatePrettierESlintConfig, getPrettierESLintDependencies } from "generator/prettier";
+import { cleanPrettierConfig, generatePrettierESlintConfig, getPrettierESLintDependencies } from "generator/prettier";
 import { eslintBaseConfig, eslintBaseDependencies } from "generator/base-configs/eslintBaseConfig";
 import { ESLintDependencyGenerator, ESLintGenerator } from "generator/types";
 import { areArraysEqual, mergeArrays, pipe } from "utils/utility";
@@ -61,7 +61,44 @@ function cleanObjectConfig<T>(config: T): T {
   return Object.fromEntries(cleanEntries) as T;
 }
 
-function cleanESLintConfig(config: Linter.Config): Linter.Config {
+function cleanExtendsValue(
+  extendsValue: string | string[],
+  filterPredicate: (item: string) => boolean
+): string | string[] {
+  if (typeof extendsValue === "string") {
+    return filterPredicate(extendsValue) ? extendsValue : [];
+  } else {
+    return extendsValue.filter(filterPredicate);
+  }
+}
+
+function cleanExtendsField<T extends Linter.Config>(config: T, filterPredicate: (item: string) => boolean): T {
+  const { extends: extendsValue } = config;
+  if (extendsValue === undefined) {
+    return config;
+  }
+  return {
+    ...config,
+    extends: cleanExtendsValue(extendsValue, filterPredicate),
+  };
+}
+
+export function cleanESLintExtendsField(
+  config: Linter.Config,
+  filterPredicate: (item: string) => boolean
+): Linter.Config {
+  const { overrides, ...rest } = cleanExtendsField(config, filterPredicate);
+
+  const cleanOverrides = overrides?.map((overrideConfig) => cleanExtendsField(overrideConfig, filterPredicate));
+
+  if (overrides) {
+    return { ...rest, overrides: cleanOverrides };
+  }
+
+  return { ...rest };
+}
+
+function clearEmptyFields(config: Linter.Config) {
   const { overrides, ...rest } = cleanObjectConfig(config);
 
   const cleanOverrides = overrides?.map(cleanObjectConfig);
@@ -71,6 +108,10 @@ function cleanESLintConfig(config: Linter.Config): Linter.Config {
   }
 
   return { ...rest };
+}
+
+function cleanESLintConfig(config: Linter.Config): Linter.Config {
+  return pipe(cleanPrettierConfig, clearEmptyFields)(config);
 }
 
 function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T): Array<string> {
