@@ -7,20 +7,50 @@ import yargs from "yargs";
 import { generateEslintConfig, getConfigDependencies } from "generator";
 import { writeEslintConfig } from "writer/linter-config/fileWriter";
 import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linter-config-parser";
-import { ClinterModeInfo, ProjectInfoObject } from "types";
+import { ClinterModeInfo, ProjectInfoObject, TypescriptInfo } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
 import { getClinterSettings } from "parser/clinter-settings";
 import { logClinterSettings } from "logger/clinter-settings";
 import { migrateProjectESLint } from "migration";
+import { hasTSStrictNullChecks } from "parser/typescript-config";
+
+async function adaptUserAnswersTSConfig(userAnswers: ProjectInfoObject, dirPath: string): Promise<ProjectInfoObject> {
+  if (userAnswers.typescript === TypescriptInfo.None || userAnswers.typescript === TypescriptInfo.NoTypeChecking) {
+    return userAnswers;
+  }
+
+  signale.info("Checking TS configuration pour strict null checks");
+
+  try {
+    const hasStrictNullChecks = await hasTSStrictNullChecks(dirPath);
+    if (!hasStrictNullChecks) {
+      signale.warn(
+        "Clinter detected you are not using the strictNullChecks rule in your TS configuration ! The linter configuration quality will be impacted as a result. It is recommended to migrate your project to include strict null checks before running Clinter."
+      );
+
+      return { ...userAnswers, typescript: TypescriptInfo.NoTypeChecking };
+    }
+  } catch (error) {
+    signale.error(
+      "Failed to parse your project's TS configuration file. Defaulting to a strict TS configuration by default with strict null checks"
+    );
+  }
+
+  signale.info("TS configuration successfully checked");
+
+  return userAnswers;
+}
 
 async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
   signale.info("Generating ESLint configuration ...");
   const eslintConfig = generateEslintConfig(userAnswers);
   signale.success("ESLint config generated");
+
   signale.info("Installing required dependencies ...");
   await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
   signale.success("All dependencies successfully Installed");
+
   writeEslintConfig(createDefaultConfigContainer(dirPath, eslintConfig));
   signale.success("ESLint config written to eslintrc.json file");
 }
@@ -30,9 +60,11 @@ async function runUpgradeMode(userAnswers: ProjectInfoObject, dirPath: string) {
   const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
   const eslintConfig = generateEslintConfig(userAnswers, existingConfigContainer.config);
   signale.success("ESLint config generated from previous configuration");
+
   signale.info("Installing required dependencies ...");
   await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
   signale.success("All dependencies successfully Installed");
+
   writeEslintConfig({ ...existingConfigContainer, config: eslintConfig });
   signale.success(`ESLint config written to ${existingConfigContainer.file.name}`);
 }
@@ -82,9 +114,19 @@ async function main() {
   }
 
   signale.info("Retrieveing project info and settings ...");
-  const { generatorConfig, modeConfig, migrationModeConfig } = await getClinterSettings(inputFile, auto, dirPath);
+  const { generatorConfig: clinterSettings, modeConfig, migrationModeConfig } = await getClinterSettings(
+    inputFile,
+    auto,
+    dirPath
+  );
   signale.success("Project settings successfully retrieved !");
-  logClinterSettings({ generatorConfig, modeConfig, migrationModeConfig });
+  logClinterSettings({ generatorConfig: clinterSettings, modeConfig, migrationModeConfig });
+
+  /**
+   * Check and adapt user answers based on user TS configuration
+   */
+
+  const generatorConfig = await adaptUserAnswersTSConfig(clinterSettings, dirPath);
 
   /**
    * Generate new ESLint configuration or adapt from existing one
