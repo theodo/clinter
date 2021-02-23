@@ -7,5 +7,5 @@ export enum PackageTool {
 }
 
 export function getPackageTool(currentDirPath: string = process.cwd()): PackageTool {
-  return fs.existsSync(path.resolve(currentDirPath, "yarn.lock")) ? PackageTool.YARN : PackageTool.NPM;
+  return fs.existsSync(path.resolve(currentDirPath, "package-lock.json")) ? PackageTool.NPM : PackageTool.YARN;
 }
