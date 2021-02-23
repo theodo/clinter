@@ -1,3 +1,13 @@
+# [1.14.0](https://github.com/theodo/clinter/compare/v1.13.1...v1.14.0) (2021-02-23)
+
+
+### Features
+
+* add tsconfig checker ([487974d](https://github.com/theodo/clinter/commit/487974dc2cb570a484d2d50d3a7cbbe7f000e432))
+* check strict null checks ([5e58812](https://github.com/theodo/clinter/commit/5e5881263a3255a50b42a6b237dc366fc00988bc))
+* clean prettier configs ([3c249ac](https://github.com/theodo/clinter/commit/3c249ac4ebb322f8834758c8581c27b42426570b))
+* **prettier:** adapt prettier conf for eslint-plugin-prettier ([e263c6d](https://github.com/theodo/clinter/commit/e263c6dac0725bcaf38839d93ea8f1c78d2ea8c3))
+
 ## [1.13.1](https://github.com/theodo/clinter/compare/v1.13.0...v1.13.1) (2020-12-29)
 
 
