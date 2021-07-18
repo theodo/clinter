@@ -3,10 +3,8 @@ import { getStrictNullChecksOption } from "../typescript-config";
 describe("TSConfig parser", () => {
   it("should return true if strict is true and no strictNullChecks present", () => {
     const tsconfig = {
-      config: {
-        compilerOptions: {
-          strict: true,
-        },
+      compilerOptions: {
+        strict: true,
       },
     };
 
@@ -15,11 +13,9 @@ describe("TSConfig parser", () => {
 
   it("should return true if strict is false and strictNullChecks is true", () => {
     const tsconfig = {
-      config: {
-        compilerOptions: {
-          strict: false,
-          strictNullChecks: true,
-        },
+      compilerOptions: {
+        strict: false,
+        strictNullChecks: true,
       },
     };
 
@@ -28,11 +24,9 @@ describe("TSConfig parser", () => {
 
   it("should return true if strict is true and strictNullChecks is true", () => {
     const tsconfig = {
-      config: {
-        compilerOptions: {
-          strict: true,
-          strictNullChecks: true,
-        },
+      compilerOptions: {
+        strict: true,
+        strictNullChecks: true,
       },
     };
 
@@ -41,7 +35,7 @@ describe("TSConfig parser", () => {
 
   it("should return false by default", () => {
     const tsconfig = {
-      config: { compilerOptions: {} },
+      compilerOptions: {},
     };
 
     expect(getStrictNullChecksOption(tsconfig)).toBe(false);
@@ -49,10 +43,8 @@ describe("TSConfig parser", () => {
 
   it("should return false if strict is false", () => {
     const tsconfig = {
-      config: {
-        compilerOptions: {
-          strict: false,
-        },
+      compilerOptions: {
+        strict: false,
       },
     };
 

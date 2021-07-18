@@ -28,7 +28,7 @@ const loadTSConfig = async (dirPath: string): Promise<Record<string, any>> => {
 
 export const getStrictNullChecksOption = (tsconfig: Record<string, any>): boolean => {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
-  return tsconfig.config?.compilerOptions?.strictNullChecks ?? tsconfig.config?.compilerOptions?.strict ?? false;
+  return tsconfig.compilerOptions?.strictNullChecks ?? tsconfig.compilerOptions?.strict ?? false;
 };
 
 export const hasTSStrictNullChecks = async (dirPath: string): Promise<boolean> => {

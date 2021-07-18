@@ -14,7 +14,6 @@ describe("ESLint Base Configuration Upgrade Mode", () => {
 
       testService.loadInputConfig({ ...defaultInputConfig, modeConfig: { mode: ClinterModeInfo.Upgrade } });
       testService.loadInitialLinterConfig(initialConfig);
-      testService.loadInitialLinterConfig;
       await testService.runClinter();
       const outputConfig = testService.getOutputConfig();
 
