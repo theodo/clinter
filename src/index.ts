@@ -2,7 +2,7 @@
 
 import signale from "signale";
 import boxen from "boxen";
-import yargs from "yargs";
+import yargs from "yargs/yargs";
 
 import { generateEslintConfig, getConfigDependencies } from "generator";
 import { writeEslintConfig } from "writer/linter-config/fileWriter";
@@ -79,21 +79,23 @@ async function main() {
     process.exit(0);
   }
 
-  const { dirPath, inputFile, auto, disableErrors } = yargs.options({
-    dirPath: {
-      type: "string",
-      default: process.cwd(),
-      alias: "path",
-      description: "The path of the directory where a configuration should be generated or upgraded",
-    },
-    inputFile: { type: "string", description: "Path to a file that contains the clinter input settings" },
-    auto: { type: "boolean", description: "Tell clinter to run in automatic or manual mode" },
-    disableErrors: {
-      type: "boolean",
-      argv: "disable-errors",
-      description: "Run clinter's automatic fix of all eslint issues by disabling them in the code",
-    },
-  }).argv;
+  const { dirPath, inputFile, auto, disableErrors } = yargs(process.argv.slice(2))
+    .options({
+      dirPath: {
+        type: "string",
+        default: process.cwd(),
+        alias: "path",
+        description: "The path of the directory where a configuration should be generated or upgraded",
+      },
+      inputFile: { type: "string", description: "Path to a file that contains the clinter input settings" },
+      auto: { type: "boolean", description: "Tell clinter to run in automatic or manual mode" },
+      disableErrors: {
+        type: "boolean",
+        argv: "disable-errors",
+        description: "Run clinter's automatic fix of all eslint issues by disabling them in the code",
+      },
+    })
+    .parseSync();
 
   signale.log(
     boxen("Welcome to the Clinter ! \n A simple linter config generator and upgrader", {

@@ -114,7 +114,7 @@ function cleanESLintConfig(config: Linter.Config): Linter.Config {
   return pipe(cleanPrettierConfig, clearEmptyFields)(config);
 }
 
-function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T): Array<string> {
+function concatESlintArrays(prev: Array<string> | string, next: Array<string> | string): Array<string> {
   const prevArray = typeof prev === "string" ? [prev] : prev;
   const nextArray = typeof next === "string" ? [next] : next;
 
