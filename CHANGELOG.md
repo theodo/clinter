@@ -1,3 +1,12 @@
+## [1.14.1](https://github.com/theodo/clinter/compare/v1.14.0...v1.14.1) (2021-07-18)
+
+
+### Bug Fixes
+
+* **deps:** fix audit deps ([caf7c59](https://github.com/theodo/clinter/commit/caf7c5912e2ee0b0bb150ec4b5869fa3bb675f60))
+* **ts:** fix ts strict checks ([57be5df](https://github.com/theodo/clinter/commit/57be5dfce4af03cf480951aa69b90c33b786ee76))
+* **types:** fix ts types ([cd37d37](https://github.com/theodo/clinter/commit/cd37d3790328956b321da02f8a85a48b51b3c32c))
+
 # [1.14.0](https://github.com/theodo/clinter/compare/v1.13.1...v1.14.0) (2021-02-23)
 
 
