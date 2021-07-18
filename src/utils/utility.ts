@@ -26,5 +26,5 @@ export const areArraysEqual = <T>(array1: T[], array2: T[]): boolean => {
       return false;
     }
   }
-  return true
-}
+  return true;
+};

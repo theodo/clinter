@@ -114,11 +114,11 @@ async function main() {
   }
 
   signale.info("Retrieveing project info and settings ...");
-  const { generatorConfig: clinterSettings, modeConfig, migrationModeConfig } = await getClinterSettings(
-    inputFile,
-    auto,
-    dirPath
-  );
+  const {
+    generatorConfig: clinterSettings,
+    modeConfig,
+    migrationModeConfig,
+  } = await getClinterSettings(inputFile, auto, dirPath);
   signale.success("Project settings successfully retrieved !");
   logClinterSettings({ generatorConfig: clinterSettings, modeConfig, migrationModeConfig });
 

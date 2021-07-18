@@ -115,8 +115,8 @@ function cleanESLintConfig(config: Linter.Config): Linter.Config {
 }
 
 function concatESlintArrays<T extends Array<string> | string>(prev: T, next: T): Array<string> {
-  const prevArray = (typeof prev === "string" ? [prev] : prev) as string[];
-  const nextArray = (typeof next === "string" ? [next] : next) as string[];
+  const prevArray = typeof prev === "string" ? [prev] : prev;
+  const nextArray = typeof next === "string" ? [next] : next;
 
   return mergeArrays(prevArray, nextArray);
 }
