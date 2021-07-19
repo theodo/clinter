@@ -1,3 +1,15 @@
+# [1.15.0](https://github.com/theodo/clinter/compare/v1.14.1...v1.15.0) (2021-07-19)
+
+
+### Bug Fixes
+
+* **paths:** fix ts path mapping ([e5597e5](https://github.com/theodo/clinter/commit/e5597e5f8037855c1078f4270ca3f59b467daadd))
+
+
+### Features
+
+* **deps:** allow skip deps upgrade ([161bc89](https://github.com/theodo/clinter/commit/161bc8940808d5f0972941361fb270e5257a9a8f))
+
 ## [1.14.1](https://github.com/theodo/clinter/compare/v1.14.0...v1.14.1) (2021-07-18)
 
 
