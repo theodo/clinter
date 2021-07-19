@@ -30,6 +30,9 @@ export const getClinterSettings = async (
       migrationModeConfig: {
         migration: false,
       },
+      dependenciesConfig: {
+        upgradeDependencies: true,
+      },
     };
   }
 
@@ -41,6 +44,9 @@ export const getClinterSettings = async (
         modeConfig: inferClinterMode(dirPath),
         generatorConfig: inferProjectInfo({ dirPath, projectDependencies }),
         migrationModeConfig: await promptMigrationModeQuestions(),
+        dependenciesConfig: {
+          upgradeDependencies: true,
+        },
       };
 
     case ProjectInfoRetrievalMode.Manual: {
@@ -51,6 +57,9 @@ export const getClinterSettings = async (
         generatorConfig,
         modeConfig,
         migrationModeConfig: await promptMigrationModeQuestions(),
+        dependenciesConfig: {
+          upgradeDependencies: true,
+        },
       };
     }
 

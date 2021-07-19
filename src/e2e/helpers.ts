@@ -102,4 +102,7 @@ export const defaultInputConfig: ClinterSettings = {
   migrationModeConfig: {
     migration: false,
   },
+  dependenciesConfig: {
+    upgradeDependencies: false,
+  },
 };

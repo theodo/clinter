@@ -7,7 +7,7 @@ import yargs from "yargs/yargs";
 import { generateEslintConfig, getConfigDependencies } from "generator";
 import { writeEslintConfig } from "writer/linter-config/fileWriter";
 import { createDefaultConfigContainer, findESLintConfigurationFiles } from "parser/linter-config-parser";
-import { ClinterModeInfo, ProjectInfoObject, TypescriptInfo } from "types";
+import { ClinterModeInfo, DependenciesConfigObject, ProjectInfoObject, TypescriptInfo } from "types";
 import { installDevDependencies } from "dependencies/dependencies";
 import { assertUnreachable } from "utils/utility";
 import { getClinterSettings } from "parser/clinter-settings";
@@ -42,28 +42,44 @@ async function adaptUserAnswersTSConfig(userAnswers: ProjectInfoObject, dirPath:
   return userAnswers;
 }
 
-async function runGeneratorMode(userAnswers: ProjectInfoObject, dirPath: string) {
+async function runGeneratorMode(
+  userAnswers: ProjectInfoObject,
+  dirPath: string,
+  dependenciesConfig: DependenciesConfigObject
+) {
   signale.info("Generating ESLint configuration ...");
   const eslintConfig = generateEslintConfig(userAnswers);
   signale.success("ESLint config generated");
 
-  signale.info("Installing required dependencies ...");
-  await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
-  signale.success("All dependencies successfully Installed");
+  if (dependenciesConfig.upgradeDependencies) {
+    signale.info("Installing required dependencies ...");
+    await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
+    signale.success("All dependencies successfully Installed");
+  } else {
+    signale.info("Skipping dependencies upgrade");
+  }
 
   writeEslintConfig(createDefaultConfigContainer(dirPath, eslintConfig));
   signale.success("ESLint config written to eslintrc.json file");
 }
 
-async function runUpgradeMode(userAnswers: ProjectInfoObject, dirPath: string) {
+async function runUpgradeMode(
+  userAnswers: ProjectInfoObject,
+  dirPath: string,
+  dependenciesConfig: DependenciesConfigObject
+) {
   signale.info("Adapting exisiting ESLint configuration ...");
   const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
   const eslintConfig = generateEslintConfig(userAnswers, existingConfigContainer.config);
   signale.success("ESLint config generated from previous configuration");
 
-  signale.info("Installing required dependencies ...");
-  await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
-  signale.success("All dependencies successfully Installed");
+  if (dependenciesConfig.upgradeDependencies) {
+    signale.info("Installing required dependencies ...");
+    await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
+    signale.success("All dependencies successfully Installed");
+  } else {
+    signale.info("Skipping dependencies upgrade");
+  }
 
   writeEslintConfig({ ...existingConfigContainer, config: eslintConfig });
   signale.success(`ESLint config written to ${existingConfigContainer.file.name}`);
@@ -120,9 +136,10 @@ async function main() {
     generatorConfig: clinterSettings,
     modeConfig,
     migrationModeConfig,
+    dependenciesConfig,
   } = await getClinterSettings(inputFile, auto, dirPath);
   signale.success("Project settings successfully retrieved !");
-  logClinterSettings({ generatorConfig: clinterSettings, modeConfig, migrationModeConfig });
+  logClinterSettings({ generatorConfig: clinterSettings, modeConfig, migrationModeConfig, dependenciesConfig });
 
   /**
    * Check and adapt user answers based on user TS configuration
@@ -136,11 +153,11 @@ async function main() {
 
   switch (modeConfig.mode) {
     case ClinterModeInfo.Generator:
-      await runGeneratorMode(generatorConfig, dirPath);
+      await runGeneratorMode(generatorConfig, dirPath, dependenciesConfig);
       break;
 
     case ClinterModeInfo.Upgrade:
-      await runUpgradeMode(generatorConfig, dirPath);
+      await runUpgradeMode(generatorConfig, dirPath, dependenciesConfig);
       break;
 
     default:
