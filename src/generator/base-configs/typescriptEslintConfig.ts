@@ -23,7 +23,14 @@ export const typescriptTypeEslintConfig: Linter.Config = {
     // Enforce the usage of the nullish coalescing operator instead of logical chaining
     "@typescript-eslint/prefer-nullish-coalescing": "error",
     // Restricts the types allowed in boolean expressions
-    "@typescript-eslint/strict-boolean-expressions": "error",
+    "@typescript-eslint/strict-boolean-expressions": [
+      "error",
+      {
+        allowString: false,
+        allowNumber: false,
+        allowNullableObject: true,
+      },
+    ],
     // Flags unnecessary equality comparisons against boolean literals
     "@typescript-eslint/no-unnecessary-boolean-literal-compare": "error",
     // Prevents conditionals where the type is always truthy or always falsy
