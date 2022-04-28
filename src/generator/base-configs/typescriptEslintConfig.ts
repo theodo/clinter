@@ -41,6 +41,14 @@ export const typescriptTypeEslintConfig: Linter.Config = {
     "@typescript-eslint/prefer-string-starts-ends-with": "error",
     // Exhaustiveness checking in switch with union type
     "@typescript-eslint/switch-exhaustiveness-check": "error",
+    // Prevents the text 'undefined' to appear in a template string
+    "@typescript-eslint/restrict-template-expressions": [
+      "error",
+      {
+        allowNumber: true,
+        allowBoolean: true,
+      },
+    ],
   },
 };
 
