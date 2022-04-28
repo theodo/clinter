@@ -115,6 +115,13 @@ Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
+        "@typescript-eslint/restrict-template-expressions": Array [
+          "error",
+          Object {
+            "allowBoolean": true,
+            "allowNumber": true,
+          },
+        ],
         "@typescript-eslint/strict-boolean-expressions": Array [
           "error",
           Object {
