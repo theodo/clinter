@@ -68,7 +68,7 @@ async function runUpgradeMode(
   dirPath: string,
   dependenciesConfig: DependenciesConfigObject
 ) {
-  signale.info("Adapting exisiting ESLint configuration ...");
+  signale.info("Adapting existing ESLint configuration ...");
   const existingConfigContainer = findESLintConfigurationFiles(dirPath)[0];
   const eslintConfig = generateEslintConfig(userAnswers, existingConfigContainer.config);
   signale.success("ESLint config generated from previous configuration");
@@ -76,7 +76,7 @@ async function runUpgradeMode(
   if (dependenciesConfig.upgradeDependencies) {
     signale.info("Installing required dependencies ...");
     await installDevDependencies(getConfigDependencies(userAnswers), dirPath);
-    signale.success("All dependencies successfully Installed");
+    signale.success("All dependencies successfully installed");
   } else {
     signale.info("Skipping dependencies upgrade");
   }

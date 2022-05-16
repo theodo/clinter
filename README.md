@@ -1,11 +1,10 @@
-Clinter
-===
+# Clinter
 
-CLI tool to generate or upgrade linter configurations. 
+CLI tool to generate or upgrade linter configurations.
 
 # Motivation
 
-Every time we start a new projet or join an existing one, it is always struggling to create the perfect linter configuration for the project or upgrade the exisitng one to suit our needs. Another major problem we encounter is how to share configurations between different projects while still acknowledging the differences in tools and frameworks used. This tool attempts to solve these issues by providing an easily extendible and shareable source of truth for all projects.
+Every time we start a new project or join an existing one, it is always struggling to create the perfect linter configuration for the project or upgrade the existing one to suit our needs. Another major problem we encounter is how to share configurations between different projects while still acknowledging the differences in tools and frameworks used. This tool attempts to solve these issues by providing an easily extendible and shareable source of truth for all projects.
 
 # Install
 
@@ -49,7 +48,7 @@ Some use cases require to have the user to manually select which type of project
 
 - Navigate inside your project directory where your ESLint configuration should live (if you need multiple ESLint configurations in different subdirectories, clinter will need to be run in each of the directories)
 - Run Clinter by running `clinter` in the terminal
-- Choose the `manual` option and hit `enter`. You will now have a series of questions to answer to inform Clinter of what type of project you are working on. 
+- Choose the `manual` option and hit `enter`. You will now have a series of questions to answer to inform Clinter of what type of project you are working on.
 
 Clinter will then generate a ESLint configuration matching the provided answers. It will also install and update all required dependencies for the newly updated or generated configuration.
 
@@ -63,7 +62,7 @@ Clinter aims to provide a clear strategy on how to easily and progressively migr
 
 - Add the new ESLint rules to your project configuration (using Clinter or manually by selecting the rules and adding them to the project's ESLint configuration)
 - Run a ESLint pass on your project. You should see a number of errors because of the newly added rules or configuration.
-- Run Clinter with the `disable-errors` option in the project: `clinter --disable-errors`. This command will tell Clinter to add `// eslint-disable-next-line <ESLINT-RULE>` lines inside your codebase where errors are detected. 
+- Run Clinter with the `disable-errors` option in the project: `clinter --disable-errors`. This command will tell Clinter to add `// eslint-disable-next-line <ESLINT-RULE>` lines inside your codebase where errors are detected.
 - Run a ESLint pass again to check if all errors are silenced.
 
 It is now up to the project's developers to progressively align the codebase to the new ESLint rules. This can be done by continuously removing the ignore comments and fixing the underlying issues when coming across them.
@@ -84,7 +83,7 @@ Defaults to the path where the Clinter is run
 
 ### --auto
 
-Boolean: Option to let Clinter automatically infer the ESLint's configuration generator settings. If false, Clinter will ask the option from the user. 
+Boolean: Option to let Clinter automatically infer the ESLint's configuration generator settings. If false, Clinter will ask the option from the user.
 
 Defaults to false.
 
