@@ -2,15 +2,19 @@ import { exec } from "child-process-promise";
 import { getPackageTool, PackageTool } from "parser/package-tool";
 
 const getTSConfigShellString = (dirPath: string, packageTool: PackageTool): string => {
-  if (packageTool === PackageTool.NPM) {
-    return `npx tsc --showConfig -p ${dirPath}`;
-  }
+  switch (packageTool) {
+    case PackageTool.NPM:
+      return `npx tsc --showConfig -p ${dirPath}`;
 
-  if (packageTool === PackageTool.YARN) {
-    return `yarn --silent tsc --showConfig -p ${dirPath}`;
-  }
+    case PackageTool.YARN:
+      return `yarn --silent tsc --showConfig -p ${dirPath}`;
 
-  throw new Error("Unsupported package tool !");
+    case PackageTool.YARN_BERRY:
+      return `yarn tsc --showConfig -p ${dirPath}`;
+
+    default:
+      throw new Error(`Unsupported package tool:  !`);
+  }
 };
 
 const loadTSConfig = async (dirPath: string): Promise<Record<string, any>> => {
