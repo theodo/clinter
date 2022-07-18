@@ -1,3 +1,17 @@
+# [1.16.0](https://github.com/theodo/clinter/compare/v1.15.0...v1.16.0) (2022-07-18)
+
+
+### Bug Fixes
+
+* typos ([5035d49](https://github.com/theodo/clinter/commit/5035d497ef5266cd2bc5d7629fc235a0407fc5fe))
+
+
+### Features
+
+* add support for yarn berry ([d9ec37d](https://github.com/theodo/clinter/commit/d9ec37dad89fad757835cace561785474256f60a))
+* **lint:** add restrict-template-expressions ([fd7c9ce](https://github.com/theodo/clinter/commit/fd7c9cebc8155e7fd5f9771e5a783fd2d51d608b))
+* **typescript-config:** add real restriction for boolean expressions ([356872e](https://github.com/theodo/clinter/commit/356872e9494d5bc1c0d92c21907bc93d2fa62924))
+
 # [1.15.0](https://github.com/theodo/clinter/compare/v1.14.1...v1.15.0) (2021-07-19)
 
 
