@@ -19,6 +19,10 @@ function installDependenciesNpm(dependencies: string[], dirpath: string): Promis
   );
 }
 
+function installDependenciesPnpm(dependencies: string[], dirpath: string): Promise<void> {
+  return exec(`pnpm add -Dw --dir ${dirpath} ${formatDependencies(dependencies)}`).then(() => Promise.resolve());
+}
+
 export function installDevDependencies(dependencies: string[], dirPath: string): Promise<void> {
   switch (getPackageTool(dirPath)) {
     case PackageTool.NPM:
@@ -29,5 +33,8 @@ export function installDevDependencies(dependencies: string[], dirPath: string):
 
     case PackageTool.YARN_BERRY:
       return installDependenciesYarnBerry(dependencies, dirPath);
+
+    case PackageTool.PNPM:
+      return installDependenciesPnpm(dependencies, dirPath);
   }
 }

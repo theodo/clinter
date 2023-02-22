@@ -26,6 +26,10 @@ npm i clinter -g
 
 cd my_project/
 clinter
+
+# Using Pnpm
+cd my_project/
+pnpx clinter
 ```
 
 # Upgrade or generate the latest recommended ESLint configuration for your project
