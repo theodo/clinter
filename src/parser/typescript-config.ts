@@ -12,6 +12,9 @@ const getTSConfigShellString = (dirPath: string, packageTool: PackageTool): stri
     case PackageTool.YARN_BERRY:
       return `yarn tsc --showConfig -p ${dirPath}`;
 
+    case PackageTool.PNPM:
+      return `pnpm tsc --showConfig -p ${dirPath}`;
+
     default:
       throw new Error(`Unsupported package tool:  !`);
   }
