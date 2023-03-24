@@ -16,7 +16,7 @@ const groupErrorsByLine = (errors: Linter.LintMessage[]): Record<number, Linter.
 };
 
 const insertErrorIgnoreLines = (sourceLines: string[], errorsByLine: Record<number, Linter.LintMessage[]>): string[] =>
-  ((Object.entries(errorsByLine) as unknown) as [number, Linter.LintMessage[]][])
+  (Object.entries(errorsByLine) as unknown as [number, Linter.LintMessage[]][])
     .sort(([lineA], [lineB]) => lineB - lineA)
     .reduce((source, [lineNumber, errors]) => {
       const mappedErrors = errors

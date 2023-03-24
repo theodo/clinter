@@ -11,10 +11,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -88,7 +84,6 @@ Object {
     "react-app",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "prettier/react",
   ],
   "plugins": Array [
     "import",
@@ -96,10 +91,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -181,14 +172,13 @@ Object {
     "react-app",
     "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/react",
   ],
   "overrides": Array [
     Object {
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended",
       ],
       "files": Array [
         "**/*.ts?(x)",
@@ -205,7 +195,21 @@ Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
-        "@typescript-eslint/strict-boolean-expressions": "error",
+        "@typescript-eslint/restrict-template-expressions": Array [
+          "error",
+          Object {
+            "allowBoolean": true,
+            "allowNumber": true,
+          },
+        ],
+        "@typescript-eslint/strict-boolean-expressions": Array [
+          "error",
+          Object {
+            "allowNullableObject": true,
+            "allowNumber": false,
+            "allowString": false,
+          },
+        ],
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "no-shadow": "off",
       },
@@ -218,10 +222,6 @@ Object {
   "root": true,
   "rules": Object {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -301,13 +301,13 @@ Object {
   "extends": Array [
     "eslint:recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
   ],
   "overrides": Array [
     Object {
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended",
       ],
       "files": Array [
         "**/*.ts?(x)",
@@ -324,7 +324,21 @@ Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
-        "@typescript-eslint/strict-boolean-expressions": "error",
+        "@typescript-eslint/restrict-template-expressions": Array [
+          "error",
+          Object {
+            "allowBoolean": true,
+            "allowNumber": true,
+          },
+        ],
+        "@typescript-eslint/strict-boolean-expressions": Array [
+          "error",
+          Object {
+            "allowNullableObject": true,
+            "allowNumber": false,
+            "allowString": false,
+          },
+        ],
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "no-shadow": "off",
       },
@@ -335,10 +349,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -411,7 +421,6 @@ Object {
     "eslint:recommended",
     "plugin:vue/essential",
     "plugin:prettier/recommended",
-    "prettier/vue",
   ],
   "parserOptions": Object {
     "parser": "babel-eslint",
@@ -421,10 +430,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -499,14 +504,13 @@ Object {
     "eslint:recommended",
     "plugin:vue/essential",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/vue",
   ],
   "overrides": Array [
     Object {
       "extends": Array [
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:prettier/recommended",
       ],
       "files": Array [
         "**/*.ts?(x)",
@@ -523,7 +527,21 @@ Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
-        "@typescript-eslint/strict-boolean-expressions": "error",
+        "@typescript-eslint/restrict-template-expressions": Array [
+          "error",
+          Object {
+            "allowBoolean": true,
+            "allowNumber": true,
+          },
+        ],
+        "@typescript-eslint/strict-boolean-expressions": Array [
+          "error",
+          Object {
+            "allowNullableObject": true,
+            "allowNumber": false,
+            "allowString": false,
+          },
+        ],
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "no-shadow": "off",
       },
@@ -537,10 +555,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",

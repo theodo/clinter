@@ -47,19 +47,6 @@ describe("generateEslintConfig", () => {
         expect(config).toMatchSnapshot();
         expect(config.overrides?.[0].extends).toContain("plugin:@typescript-eslint/recommended");
       });
-
-      it("should return a TS configuration with prettier formatter", () => {
-        const config = generateEslintConfig({
-          typescript: TypescriptInfo.WithTypeChecking,
-          env: [],
-          formatter: FormatterInfo.Prettier,
-          frontFramework: FrontFrameworkInfo.None,
-          test: TestFrameworkInfo.None,
-        });
-
-        expect(config).toMatchSnapshot();
-        expect(config.extends?.[config.extends?.length - 1]).toBe("prettier/@typescript-eslint");
-      });
     });
 
     describe("React", () => {
@@ -75,19 +62,6 @@ describe("generateEslintConfig", () => {
         expect(config).toMatchSnapshot();
         expect(config.extends).toContain("react-app");
       });
-
-      it("should return a react configuration with prettier formatter", () => {
-        const config = generateEslintConfig({
-          typescript: TypescriptInfo.None,
-          env: [],
-          formatter: FormatterInfo.Prettier,
-          frontFramework: FrontFrameworkInfo.React,
-          test: TestFrameworkInfo.None,
-        });
-
-        expect(config).toMatchSnapshot();
-        expect(config.extends?.[config.extends?.length - 1]).toBe("prettier/react");
-      });
     });
 
     describe("React", () => {
@@ -102,19 +76,6 @@ describe("generateEslintConfig", () => {
 
         expect(config).toMatchSnapshot();
         expect(config.extends).toContain("plugin:vue/essential");
-      });
-
-      it("should return a Vue configuration with prettier formatter", () => {
-        const config = generateEslintConfig({
-          typescript: TypescriptInfo.None,
-          env: [],
-          formatter: FormatterInfo.Prettier,
-          frontFramework: FrontFrameworkInfo.Vue,
-          test: TestFrameworkInfo.None,
-        });
-
-        expect(config).toMatchSnapshot();
-        expect(config.extends?.[config.extends?.length - 1]).toBe("prettier/vue");
       });
     });
   });

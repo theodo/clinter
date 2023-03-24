@@ -13,7 +13,15 @@ describe("TypeScript configuration Generator Mode", () => {
       },
     };
 
+    const tsConfig = {
+      compilerOptions: {
+        strict: true,
+      },
+    };
+
     testService.loadInputConfig(inputConfig);
+    testService.loadInitialTSConfig(tsConfig);
+
     await testService.runClinter();
     const outputConfig = testService.getParsedOutputConfig();
 
@@ -29,7 +37,15 @@ describe("TypeScript configuration Generator Mode", () => {
       },
     };
 
+    const tsConfig = {
+      compilerOptions: {
+        strict: true,
+      },
+    };
+
     testService.loadInputConfig(inputConfig);
+    testService.loadInitialTSConfig(tsConfig);
+
     await testService.runClinter();
     const outputConfig = testService.getParsedOutputConfig();
 

@@ -24,42 +24,50 @@ const makeDefaultProjectInfo = (): ProjectInfoObject => ({
   typescript: TypescriptInfo.None,
 });
 
-const inferTypescriptInfo = (dirPath: string): ProjectInfoInferer => (projectInfo) => {
-  const isProjectUsingTypescript = existsSync(path.join(dirPath, TYPESCRIPT_CONFIG_FILE));
-  return {
-    ...projectInfo,
-    typescript: isProjectUsingTypescript ? TypescriptInfo.WithTypeChecking : TypescriptInfo.None,
+const inferTypescriptInfo =
+  (dirPath: string): ProjectInfoInferer =>
+  (projectInfo) => {
+    const isProjectUsingTypescript = existsSync(path.join(dirPath, TYPESCRIPT_CONFIG_FILE));
+    return {
+      ...projectInfo,
+      typescript: isProjectUsingTypescript ? TypescriptInfo.WithTypeChecking : TypescriptInfo.None,
+    };
   };
-};
 
-const inferTestEnvInfo = (projectDependencies: string[]): ProjectInfoInferer => (projectInfo) => {
-  const isProjectUsingJest = projectDependencies.includes(JEST_DEPENDENCY);
-  return {
-    ...projectInfo,
-    test: isProjectUsingJest ? TestFrameworkInfo.Jest : TestFrameworkInfo.None,
+const inferTestEnvInfo =
+  (projectDependencies: string[]): ProjectInfoInferer =>
+  (projectInfo) => {
+    const isProjectUsingJest = projectDependencies.includes(JEST_DEPENDENCY);
+    return {
+      ...projectInfo,
+      test: isProjectUsingJest ? TestFrameworkInfo.Jest : TestFrameworkInfo.None,
+    };
   };
-};
 
-const inferFrontFrameworkInfo = (projectDependencies: string[]): ProjectInfoInferer => (projectInfo) => {
-  const isProjectUsingVue = projectDependencies.includes(VUE_DEPENDENCY);
-  const isProjectUsingReact = projectDependencies.includes(REACT_DEPENDENCY);
+const inferFrontFrameworkInfo =
+  (projectDependencies: string[]): ProjectInfoInferer =>
+  (projectInfo) => {
+    const isProjectUsingVue = projectDependencies.includes(VUE_DEPENDENCY);
+    const isProjectUsingReact = projectDependencies.includes(REACT_DEPENDENCY);
 
-  return {
-    ...projectInfo,
-    frontFramework: isProjectUsingVue
-      ? FrontFrameworkInfo.Vue
-      : isProjectUsingReact
-      ? FrontFrameworkInfo.React
-      : FrontFrameworkInfo.None,
+    return {
+      ...projectInfo,
+      frontFramework: isProjectUsingVue
+        ? FrontFrameworkInfo.Vue
+        : isProjectUsingReact
+        ? FrontFrameworkInfo.React
+        : FrontFrameworkInfo.None,
+    };
   };
-};
 
-const inferFormatterInfo = (projectDependencies: string[]): ProjectInfoInferer => (projectInfo) => {
-  return {
-    ...projectInfo,
-    formatter: FormatterInfo.Prettier,
+const inferFormatterInfo =
+  (projectDependencies: string[]): ProjectInfoInferer =>
+  (projectInfo) => {
+    return {
+      ...projectInfo,
+      formatter: FormatterInfo.Prettier,
+    };
   };
-};
 
 const inferEnvInfo = (): ProjectInfoInferer => (projectInfo) => {
   return {

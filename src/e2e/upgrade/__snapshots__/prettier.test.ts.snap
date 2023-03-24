@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc.js: eslint-simple-config-.eslintrc.js 1`] = `
-"module.exports = {
-  \\"root\\": true,
+exports[`ESLint Prettier Base Configuration Upgrade Mode should return a react eslint configuration with no type checking with a TSConfig without strict null checks: eslint-prettier-react-upgrade 1`] = `
+"{
   \\"extends\\": [
-    \\"eslint:recommended\\"
-  ],
-  \\"plugins\\": [
-    \\"import\\"
+    \\"eslint:recommended\\",
+    \\"react-app\\",
+    \\"plugin:jsx-a11y/recommended\\",
+    \\"plugin:prettier/recommended\\"
   ],
   \\"rules\\": {
+    \\"@typescript-eslint/prefer-optional-chain\\": \\"error\\",
     \\"curly\\": [
       \\"error\\",
       \\"all\\"
@@ -71,19 +71,29 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
         \\"prev\\": \\"*\\",
         \\"next\\": \\"return\\"
       }
-    ]
+    ],
+    \\"react/no-string-refs\\": \\"warn\\",
+    \\"react-hooks/rules-of-hooks\\": \\"error\\",
+    \\"react-hooks/exhaustive-deps\\": \\"warn\\"
+  },
+  \\"root\\": true,
+  \\"plugins\\": [
+    \\"import\\",
+    \\"jsx-a11y\\"
+  ],
+  \\"settings\\": {
+    \\"react\\": {
+      \\"version\\": \\"detect\\"
+    }
   }
 }"
 `;
 
-exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc.json: eslint-simple-config-.eslintrc.json 1`] = `
+exports[`ESLint Prettier Base Configuration Upgrade Mode should return a typescript eslint configuration with a cleaned prettier config without prettier/@typescript-eslint: eslint-prettier-typescript-upgrade 1`] = `
 "{
-  \\"root\\": true,
   \\"extends\\": [
-    \\"eslint:recommended\\"
-  ],
-  \\"plugins\\": [
-    \\"import\\"
+    \\"eslint:recommended\\",
+    \\"plugin:prettier/recommended\\"
   ],
   \\"rules\\": {
     \\"curly\\": [
@@ -148,82 +158,52 @@ exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint 
         \\"next\\": \\"return\\"
       }
     ]
-  }
-}"
-`;
-
-exports[`ESLint Base Configuration Upgrade Mode should return a standard eslint configuration with no extensions appended to an empty config in .eslintrc: eslint-simple-config-.eslintrc 1`] = `
-"{
+  },
   \\"root\\": true,
-  \\"extends\\": [
-    \\"eslint:recommended\\"
-  ],
   \\"plugins\\": [
     \\"import\\"
   ],
-  \\"rules\\": {
-    \\"curly\\": [
-      \\"error\\",
-      \\"all\\"
-    ],
-    \\"eqeqeq\\": [
-      \\"error\\",
-      \\"smart\\"
-    ],
-    \\"import/no-extraneous-dependencies\\": [
-      \\"error\\",
-      {
-        \\"devDependencies\\": true,
-        \\"optionalDependencies\\": false,
-        \\"peerDependencies\\": false
-      }
-    ],
-    \\"no-shadow\\": [
-      \\"error\\",
-      {
-        \\"hoist\\": \\"all\\"
-      }
-    ],
-    \\"prefer-const\\": \\"error\\",
-    \\"import/order\\": [
-      \\"error\\",
-      {
-        \\"groups\\": [
-          [
-            \\"external\\",
-            \\"builtin\\"
-          ],
-          \\"internal\\",
-          [
-            \\"parent\\",
-            \\"sibling\\",
-            \\"index\\"
-          ]
+  \\"overrides\\": [
+    {
+      \\"files\\": [
+        \\"**/*.ts?(x)\\"
+      ],
+      \\"extends\\": [
+        \\"plugin:@typescript-eslint/recommended\\",
+        \\"plugin:@typescript-eslint/recommended-requiring-type-checking\\",
+        \\"plugin:prettier/recommended\\"
+      ],
+      \\"parser\\": \\"@typescript-eslint/parser\\",
+      \\"parserOptions\\": {
+        \\"project\\": \\"tsconfig.json\\"
+      },
+      \\"rules\\": {
+        \\"@typescript-eslint/prefer-optional-chain\\": \\"error\\",
+        \\"no-shadow\\": \\"off\\",
+        \\"@typescript-eslint/no-shadow\\": \\"error\\",
+        \\"@typescript-eslint/prefer-nullish-coalescing\\": \\"error\\",
+        \\"@typescript-eslint/strict-boolean-expressions\\": [
+          \\"error\\",
+          {
+            \\"allowString\\": false,
+            \\"allowNumber\\": false,
+            \\"allowNullableObject\\": true
+          }
+        ],
+        \\"@typescript-eslint/no-unnecessary-boolean-literal-compare\\": \\"error\\",
+        \\"@typescript-eslint/no-unnecessary-condition\\": \\"error\\",
+        \\"@typescript-eslint/no-unnecessary-type-arguments\\": \\"error\\",
+        \\"@typescript-eslint/prefer-string-starts-ends-with\\": \\"error\\",
+        \\"@typescript-eslint/switch-exhaustiveness-check\\": \\"error\\",
+        \\"@typescript-eslint/restrict-template-expressions\\": [
+          \\"error\\",
+          {
+            \\"allowNumber\\": true,
+            \\"allowBoolean\\": true
+          }
         ]
       }
-    ],
-    \\"sort-imports\\": [
-      \\"error\\",
-      {
-        \\"ignoreCase\\": true,
-        \\"ignoreDeclarationSort\\": true,
-        \\"ignoreMemberSort\\": false,
-        \\"memberSyntaxSortOrder\\": [
-          \\"none\\",
-          \\"all\\",
-          \\"multiple\\",
-          \\"single\\"
-        ]
-      }
-    ],
-    \\"padding-line-between-statements\\": [
-      \\"error\\",
-      {
-        \\"blankLine\\": \\"always\\",
-        \\"prev\\": \\"*\\",
-        \\"next\\": \\"return\\"
-      }
-    ]
-  }
+    }
+  ]
 }"
 `;

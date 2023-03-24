@@ -64,8 +64,13 @@ export interface MigrationModeInfoObject {
   migration: boolean;
 }
 
+export interface DependenciesConfigObject {
+  upgradeDependencies: boolean;
+}
+
 export interface ClinterSettings {
   generatorConfig: ProjectInfoObject;
   modeConfig: ClinterModeInfoObject;
   migrationModeConfig: MigrationModeInfoObject;
+  dependenciesConfig: DependenciesConfigObject;
 }

@@ -1,3 +1,75 @@
+# [1.16.0](https://github.com/theodo/clinter/compare/v1.15.0...v1.16.0) (2022-07-18)
+
+
+### Bug Fixes
+
+* typos ([5035d49](https://github.com/theodo/clinter/commit/5035d497ef5266cd2bc5d7629fc235a0407fc5fe))
+
+
+### Features
+
+* add support for yarn berry ([d9ec37d](https://github.com/theodo/clinter/commit/d9ec37dad89fad757835cace561785474256f60a))
+* **lint:** add restrict-template-expressions ([fd7c9ce](https://github.com/theodo/clinter/commit/fd7c9cebc8155e7fd5f9771e5a783fd2d51d608b))
+* **typescript-config:** add real restriction for boolean expressions ([356872e](https://github.com/theodo/clinter/commit/356872e9494d5bc1c0d92c21907bc93d2fa62924))
+
+# [1.15.0](https://github.com/theodo/clinter/compare/v1.14.1...v1.15.0) (2021-07-19)
+
+
+### Bug Fixes
+
+* **paths:** fix ts path mapping ([e5597e5](https://github.com/theodo/clinter/commit/e5597e5f8037855c1078f4270ca3f59b467daadd))
+
+
+### Features
+
+* **deps:** allow skip deps upgrade ([161bc89](https://github.com/theodo/clinter/commit/161bc8940808d5f0972941361fb270e5257a9a8f))
+
+## [1.14.1](https://github.com/theodo/clinter/compare/v1.14.0...v1.14.1) (2021-07-18)
+
+
+### Bug Fixes
+
+* **deps:** fix audit deps ([caf7c59](https://github.com/theodo/clinter/commit/caf7c5912e2ee0b0bb150ec4b5869fa3bb675f60))
+* **ts:** fix ts strict checks ([57be5df](https://github.com/theodo/clinter/commit/57be5dfce4af03cf480951aa69b90c33b786ee76))
+* **types:** fix ts types ([cd37d37](https://github.com/theodo/clinter/commit/cd37d3790328956b321da02f8a85a48b51b3c32c))
+
+# [1.14.0](https://github.com/theodo/clinter/compare/v1.13.1...v1.14.0) (2021-02-23)
+
+
+### Features
+
+* add tsconfig checker ([487974d](https://github.com/theodo/clinter/commit/487974dc2cb570a484d2d50d3a7cbbe7f000e432))
+* check strict null checks ([5e58812](https://github.com/theodo/clinter/commit/5e5881263a3255a50b42a6b237dc366fc00988bc))
+* clean prettier configs ([3c249ac](https://github.com/theodo/clinter/commit/3c249ac4ebb322f8834758c8581c27b42426570b))
+* **prettier:** adapt prettier conf for eslint-plugin-prettier ([e263c6d](https://github.com/theodo/clinter/commit/e263c6dac0725bcaf38839d93ea8f1c78d2ea8c3))
+
+## [1.13.1](https://github.com/theodo/clinter/compare/v1.13.0...v1.13.1) (2020-12-29)
+
+
+### Bug Fixes
+
+* ignore workspaces warning with yarn ([85f6394](https://github.com/theodo/clinter/commit/85f6394015f8530147afa98c4c7787f9abcbbdbe))
+
+# [1.13.0](https://github.com/theodo/clinter/compare/v1.12.0...v1.13.0) (2020-12-19)
+
+
+### Features
+
+* move TS prettier to override ([8738837](https://github.com/theodo/clinter/commit/8738837223b1895251f641054ae6dd155fb85c39))
+* remove complexity rule ([57f3aa1](https://github.com/theodo/clinter/commit/57f3aa15c86d691f49fbc2c5be16a0ba9a21d7c8))
+
+# [1.12.0](https://github.com/theodo/clinter/compare/v1.11.0...v1.12.0) (2020-11-17)
+
+
+### Bug Fixes
+
+* remove clinter from CI ([2ade34f](https://github.com/theodo/clinter/commit/2ade34f02a2efccff4134850990219b9ccc19c17))
+
+
+### Features
+
+* improve readme to account for migration ([f0e134a](https://github.com/theodo/clinter/commit/f0e134a362eb6e62e654e61ef599eaf95d31773d))
+
 # [1.11.0](https://github.com/theodo/clinter/compare/v1.10.0...v1.11.0) (2020-11-11)
 
 

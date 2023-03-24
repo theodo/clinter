@@ -6,6 +6,10 @@ function formatDependencies(dependencies: string[]): string {
 }
 
 function installDependenciesYarn(dependencies: string[], dirpath: string): Promise<void> {
+  return exec(`yarn add --cwd ${dirpath} ${formatDependencies(dependencies)} -D -W`).then(() => Promise.resolve());
+}
+
+function installDependenciesYarnBerry(dependencies: string[], dirpath: string): Promise<void> {
   return exec(`yarn add --cwd ${dirpath} ${formatDependencies(dependencies)} -D`).then(() => Promise.resolve());
 }
 
@@ -15,6 +19,10 @@ function installDependenciesNpm(dependencies: string[], dirpath: string): Promis
   );
 }
 
+function installDependenciesPnpm(dependencies: string[], dirpath: string): Promise<void> {
+  return exec(`pnpm add -Dw --dir ${dirpath} ${formatDependencies(dependencies)}`).then(() => Promise.resolve());
+}
+
 export function installDevDependencies(dependencies: string[], dirPath: string): Promise<void> {
   switch (getPackageTool(dirPath)) {
     case PackageTool.NPM:
@@ -22,5 +30,11 @@ export function installDevDependencies(dependencies: string[], dirPath: string):
 
     case PackageTool.YARN:
       return installDependenciesYarn(dependencies, dirPath);
+
+    case PackageTool.YARN_BERRY:
+      return installDependenciesYarnBerry(dependencies, dirPath);
+
+    case PackageTool.PNPM:
+      return installDependenciesPnpm(dependencies, dirPath);
   }
 }

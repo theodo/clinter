@@ -13,10 +13,6 @@ Object {
   ],
   "root": true,
   "rules": Object {
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
@@ -119,7 +115,21 @@ Object {
         "@typescript-eslint/prefer-nullish-coalescing": "error",
         "@typescript-eslint/prefer-optional-chain": "error",
         "@typescript-eslint/prefer-string-starts-ends-with": "error",
-        "@typescript-eslint/strict-boolean-expressions": "error",
+        "@typescript-eslint/restrict-template-expressions": Array [
+          "error",
+          Object {
+            "allowBoolean": true,
+            "allowNumber": true,
+          },
+        ],
+        "@typescript-eslint/strict-boolean-expressions": Array [
+          "error",
+          Object {
+            "allowNullableObject": true,
+            "allowNumber": false,
+            "allowString": false,
+          },
+        ],
         "@typescript-eslint/switch-exhaustiveness-check": "error",
         "no-shadow": "off",
       },
@@ -132,10 +142,6 @@ Object {
   "root": true,
   "rules": Object {
     "@typescript-eslint/explicit-function-return-type": "off",
-    "complexity": Array [
-      "error",
-      8,
-    ],
     "curly": Array [
       "error",
       "all",
