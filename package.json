@@ -1,4 +1,5 @@
 {
+
   "name": "clinter",
   "version": "1.16.0",
   "description": "A cli tool to quickly generate eslint configurations",
