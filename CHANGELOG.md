@@ -1,3 +1,15 @@
+# [1.17.0](https://github.com/theodo/clinter/compare/v1.16.0...v1.17.0) (2023-04-03)
+
+
+### Bug Fixes
+
+* bump ttypescript for a successful build ([c6e1b4e](https://github.com/theodo/clinter/commit/c6e1b4e496c268202f7e64c5532e855a2131e294))
+
+
+### Features
+
+* add support for pnpm ([fe4c19c](https://github.com/theodo/clinter/commit/fe4c19c821fe101be5551caf4e048e2202618f56))
+
 # [1.16.0](https://github.com/theodo/clinter/compare/v1.15.0...v1.16.0) (2022-07-18)
 
 
